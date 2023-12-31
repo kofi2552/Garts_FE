@@ -1,0 +1,87 @@
+.about-section {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    /* background-color: #edf4f7; */
+    background-color: #f7f5f5;
+    padding: 60px;
+  }
+  
+  .about-section .page-small-text {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: "Inter";
+    color: #066374;
+  }
+  
+  .about-section .first-container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 32px;
+    font-family: "Inter";
+    color: #066374;
+  }
+  
+  .about-section .tabs-container {
+    display: flex;
+    width: 1300px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 40px 0;
+  }
+  
+  .about-section .tabs-container .t-button {
+    width: 300px;
+    height: 300px;
+    background-color: #ddf1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  
+  .about-section .tabs-container .t-button a {
+    width: 300px;
+    max-width: 300px;
+    height: 150px;
+    text-align: center;
+    /* line-height: 150px; */
+    color: #202223;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  
+  .about-section .tabs-container .t-button .active {
+    color: #066374;
+    background: white;
+  }
+  
+  .about-section .tabs-container .t-button .active:hover {
+    color: #066374;
+  }
+  
+  .about-section .tabs-container .t-button a:hover {
+    color: #066374;
+    background: white;
+  }
+  
+  .about-section .tabs-container .tabs-content-box {
+    width: 1000px;
+    max-width: 1000px;
+    min-height: 300px;
+    background-color: #fff;
+    margin: 0 auto;
+    /* border-radius: 7px; */
+  }
+  
+  .about-section .tabs-container .tabs-content-box p {
+    color: #202223 !important;
+  }
+  
+  .about-section .tabs-container .tabs-content-box h3 {
+    color: #202223 !important;
+  }
+  

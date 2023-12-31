@@ -1,0 +1,505 @@
+.Project-Card {
+  position: relative;
+}
+
+.Project-Card .Custom-Card {
+  position: relative;
+  max-width: 345px;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  width: 100%;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.Project-Card .Custom-Card .imgCover {
+  max-width: 345px;
+  height: 250px;
+  background: #eff3f6;
+  }
+
+.Project-Card .Custom-Card img {
+    width: 100%;
+    max-height: 280px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.Project-Card .Custom-Card:hover img{
+  transform: scale(1.05);
+}
+
+.Project-Card .imgCover {
+  max-height: 280px;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+}
+
+.Project-Card .imgCover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.08); 
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.Custom-Card:hover .imgCover::after {
+  opacity: 1 !important;
+}
+
+.free {
+  color: #2f2f2f !important;
+  background: #fff !important;
+}
+
+.project-price {
+  position: absolute;
+  top: 10px; 
+  left: 10px; 
+  color: #fff;
+  transition: opacity 0.3s ease-in-out;
+  background: #44b678;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.on-hov-tf{
+  position: absolute;
+  top: 0; 
+  right: 10px; 
+  z-index: 88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-type-indicator-tile {
+  position: relative;
+  color: #ffa200 !important;
+  rotate: 90deg;
+  margin-top: -16px;
+}
+
+.on-hov-tf{
+margin-top: -40px;
+transition: margin 0.1s ease-in-out;
+}
+
+.Custom-Card:hover .on-hov-tf{
+  margin-top: 0px !important;
+}
+
+.ft-indicator svg {
+  position: absolute;
+  top: 25px; 
+  right: 22px; 
+  color: #fffbf3 !important;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 88;
+  margin-top: -15px;
+  font-weight: 800;
+}
+
+.project-price sup {
+  font-size: 10px;
+  font-weight: 100;
+}
+
+.project-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.project-details .proj-dt-1 {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.project-details a {
+  min-height: 20px;
+  display: inline-block;
+  font-size: 15px;
+  /* max-width: 80%; */
+  overflow: hidden;
+  pointer-events: all;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2f2f2f;
+  font-weight: 700;
+  /* background-color: blueviolet; */
+}
+
+.project-details a:hover {
+  text-decoration: underline;
+}
+
+.project-details p {
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #2f2f2f;
+}
+
+.project-details .proj-dt-2 {
+  display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex-direction: row;
+ padding-top: 3px;
+}
+
+.project-details .proj-dt-2 .lkz-vw{
+  margin-right: 10px;
+}
+
+.project-details .proj-dt-2 p{
+ display: flex;
+ align-items: center;
+ text-overflow: ellipsis;
+  white-space: nowrap;
+  /* background-color: aqua; */
+}
+
+.project-details .proj-dt-2 p span{
+  font-weight: 500;
+  font-size: 11px;
+}
+
+.project-details .proj-dt-2 p svg{
+  margin-right: 3px;
+  margin-top: 0px !important;
+}
+
+.Project-Card .Card-Content {
+  padding: 8px 1px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .product-card {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* .product-details {
+    padding: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    text-align: start;
+    z-index: 20;
+    background-color: #1c1c1b15;
+    opacity: 0;
+  } */
+  
+  /* .product-details .animate {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    margin-left: -2px !important;
+    opacity: 0;
+    margin: 0 auto;
+  }
+  
+  .product-details .description {
+    font-size: 16px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    text-align: start;
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    color: #fff;
+    line-height: 1rem;
+  }
+  
+  .product-details .top-details {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+  }
+  
+  .product-details .top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100% !important;
+    max-width: 240px;
+  }
+  
+  .product-details p {
+    font-size: 16px;
+    line-height: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 0 !important;
+  }
+  
+  .product-details .discountrate {
+    padding: 5px;
+  }
+  
+  .product-details .salesprice {
+    text-align: start;
+    border-radius: 5px;
+    padding: 8px;
+    color: #ffffff !important;
+    background-color: #00cfeb;
+  }
+  
+  .product-details .price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -3px !important;
+  }
+  
+  .product-details .download {
+    width: 35px;
+    height: 32px;
+    border-radius: 3px;
+    text-align: center;
+  }
+  
+  .product-details .icon {
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 32px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .product-details:hover {
+    opacity: 1;
+    width: 100%;
+    transition: all 0.1s;
+  }
+  
+  .product-details .animate:hover {
+    opacity: 1;
+    transition: all 0.3s;
+    margin-left: 0px !important;
+  }
+
+  @media screen and (max-width: 768px) {
+   .product-card img {
+        width: 300px;
+        height: 100%;
+      }
+    .product-details {
+      width: 300px !important;
+      z-index: 20;
+      background-image: linear-gradient(
+        hsl(0 0% 0% /0),
+        hsl(20 0% 0% /0.1) 50%,
+        hsl(0 0% 0% /0.4)
+      );
+      opacity: 1 !important;
+    }
+  
+    .product-details .animate {
+      position: absolute;
+      opacity: 1 !important;
+    }
+  }
+
+  @media screen and (max-width: 280px) {
+    .product-card img {
+      width: 240px;
+      height: 100%;
+    }
+    .product-details {
+      width: 240px !important;
+      z-index: 20;
+      background-image: linear-gradient(
+        hsl(0 0% 0% /0),
+        hsl(20 0% 0% /0.1) 50%,
+        hsl(0 0% 0% /0.4)
+      );
+      opacity: 1 !important;
+    }
+  
+    .product-details .animate {
+      position: absolute;
+      opacity: 1 !important;
+    }
+  } */
+
+
+
+  /* NEW STYLES FOR PROJECT CARDS */
+
+  /* .Project-Card {
+    max-width: initial;
+    margin-left: auto; 
+    margin-right: auto;
+    max-width: 404px;
+  }
+
+  .Project-Cover {
+    max-width: initial;
+    position: relative;
+  }
+
+  .Cover-Wrapper {
+    border-radius: 4px;
+    padding-top: 78.22%;
+    width: 100%;
+    background-color: #f2f2f2;
+  }
+
+  .Cover-Content {
+    border-radius: 4px;
+    height: 100%; 
+    left: 0; 
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .Cover-Content img {
+    will-change: auto;
+    transition: opacity .15s linear;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    border-radius: 4px;
+    display: block;
+    overflow: hidden;
+  }
+
+  ProjectCover-details {
+    height: 53px;
+    justify-content: space-between;
+    margin: 8px 0 0;
+    max-width: initial;
+}
+
+.ProjectCover-details {
+    display: flex;
+    flex-wrap: nowrap;
+    pointer-events: none;
+    position: relative;
+    width: 100%;}
+     */

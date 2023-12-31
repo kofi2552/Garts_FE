@@ -1,0 +1,262 @@
+/* ---------------NAV GLOBAL STYLES ------------------*/
+
+a {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  li {
+    list-style: none;
+    display: inline-block;
+  }
+  
+  .land_navbar ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .land_navbar li {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .land_navbar a {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .text--small {
+    font-size: 12px !important;
+    line-height: 1 !important;
+    font-weight: 500 !important;
+  }
+  
+  .text--normal {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    font-weight: 500 !important;
+  }
+  
+  .text---heading {
+    font-size: 2.25rem !important;
+    line-height: 2.5rem !important;
+    font-weight: 700 !important;
+  }
+  
+  
+  /* ///-----------------------LANDING PAGE NAVIGATION BAR///------------ */
+
+  .navigation_landing-page {
+    position: relative;
+  }
+  
+  .land_navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100% !important;
+    margin: 0 auto;
+    z-index: 222;
+    padding: 0 6rem; /*SIDE SPACING */
+  }
+
+  .land_navbar .land_nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+  }
+  
+  .land_navbar .land_nav-links {
+    display: flex;
+    align-items: center !important;
+  }
+
+  .land_navbar .land_nav-logo {
+    display: flex;
+    align-items: center !important;
+    height: 50px;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .land_navbar .land_nav-logo img {
+    max-width: 40px;
+    height: auto;
+    margin-top: -4px !important;
+  }
+  
+  .land_navbar  .land_nav-logo a {
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-weight: 700;
+    height: 40px;
+  }
+
+  .land_navbar  .land_nav-logo a p {
+    margin-left: 5px;
+  }
+  
+  .land_navbar .category-links_container {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+  }
+  
+  .land_navbar .category-links_container .nl_link-item {
+    font-size: 18px;
+    color: #ffff;
+    font-weight: 500;
+    margin-right: 8px;
+    margin-top: 0 !important;
+    cursor: pointer;
+  }
+
+  .land_nav-buttons .nl_link-item {
+    font-size: 18px;
+    color: #ffff !important;
+    font-weight: 500;
+    margin-right: 20px;
+    margin-top: 0 !important;
+    cursor: pointer;
+  }
+
+  .land_nav-buttons .btn {
+    padding: 0.4rem 1.5rem;
+    color: #ffff;
+    background: #ffa200;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .land_nav-buttons .nl_link-signup {
+    outline: 1px solid #ffa200;
+  }
+
+  .land_nav-buttons .nl_link-login {
+    color: white;
+    background: transparent;
+    outline: 1px solid #b7e7e7;
+    margin-right: 12px;
+  }
+
+  .land_nav-buttons .btns_desktop {
+    display: flex;
+    align-items: center;
+  }  
+
+/* HIDE MOBILE NAV BTN ICON */
+.land_navbar .btn_mobile {
+    display: none;
+  }
+
+
+  /* MOBILE SIDEBAR SETUP-------------*/
+
+  .blurr-overlay {
+    content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #0a2a2e;
+  opacity: 0.3;
+  z-index: 300;
+  transition: all 0.4s;
+}
+
+    .land_mob-menu-links-container {
+      width: 100%;
+      max-width: 55%;
+      min-height: 100vh;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: -100% !important;
+      background: #fffeff;
+      transition: all 0.3s ease;
+    }
+  
+    .land_mob-menu-links-container.active {
+      position: fixed;
+      left: 0 !important;
+      transition: all 0.1s ease-in;
+      z-index: 733 !important;
+    }
+
+
+    .land_mobile-sidebar  .sidebar-btn .close-menu-icon{
+      color: #0a2a2e !important;
+      margin: 25px;
+    }
+
+    .land_mobile-sidebar .land_mob-menu-links-container  ul {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 25px 20px;
+    }
+  
+    .land_mobile-sidebar .land_mob-menu-links-container  ul a {
+      font-size: 20px;
+      line-height: 32px;
+      color: #0a2a2e !important;
+      font-weight: 500;
+      cursor: pointer;
+      margin: 12px 0;
+    }
+
+
+  /* INTRO MOBILE RESPONSIVENESS */
+  @media screen and (max-width: 1025px) {
+    .land_mobile-sidebar .land_mob-menu-links-container {
+      display: block !important;
+    }
+    /* SHOW MOBILE NAV BTN ICON */
+    .land_navbar  .btn_mobile {
+      display: block;
+    }
+
+    .land_nav-buttons .hide-mob {
+      display: none;
+    }  
+
+    .land_navbar {
+       padding: 0 2rem; /*SIDE SPACING */
+    }
+
+    .land_nav-buttons .btn {
+      padding: 0.4rem 1.3rem;
+      font-size: 0.7rem;
+    }
+
+    .land_nav-logo p {
+      display: none;
+    }
+  }
+
+  /* HIDE CATEGORY LINKS IN SMALLER SCREENS */
+    @media screen and (max-width: 920px) {
+    .land_navbar .category-links_container{
+          display: none;
+        }
+  }
+
+  @media screen and (max-width: 720px) {
+    .land_navbar {
+      padding: 0 1rem; /*SIDE SPACING */
+   }
+  }
+
+
+

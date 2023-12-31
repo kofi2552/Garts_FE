@@ -1,0 +1,58 @@
+.home-wrapper {
+    overflow: initial;
+    display: flex;
+    flex-direction: column;
+    background-color: #d4e1e2 ;
+    box-sizing: border-box;
+    min-height: 600px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+ /* NEW PROJECT CARD STYLES */
+ 
+ .Card-grid-content {
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 2968px;
+  padding: 10px 4rem;
+ }
+
+ .CardGrid-list {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+
+ /* RESPONSIVENESS */
+@media screen and (max-width: 1440px) {
+  .Card-grid-content {
+    padding: 10px 1rem !important;
+   }
+}
+
+@media only screen and (max-width: 820px){
+  .CardGrid-list .eDZvHp{
+    margin-left: unset !important;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .CardGrid-list .eDZvHp{
+    margin-left: -24px !important;
+  }
+}
+
+@media only screen and (min-width: 360px) and (max-width: 540px){
+  .CardGrid-list .eDZvHp{
+    margin-right: 24px !important;
+    margin-left: unset !important;
+  }
+  .CardGrid-list .cImwzi {
+    max-width: unset !important;
+  }
+}

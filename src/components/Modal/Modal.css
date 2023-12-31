@@ -1,0 +1,169 @@
+/* Modal */
+.cc-modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+  }
+  
+  .cc-modal-overlay {
+    border: none;
+    background: rgba(0,0,0,0.2);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  /* Default Medium Modal */
+  .cc-modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    height: 600px;
+    background: #FFF;
+    color: #000;
+    box-shadow: 0 0 10px -6px #000;
+    z-index: 10;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  /* Dialog Modal */
+  .cc-modal-dialog .cc-modal {
+    width: 320px;
+    height: auto;
+    max-height: 200px;
+  }
+  
+  .cc-modal-dialog .cc-modal-body {
+    padding: 8px 36px 8px 12px;
+  }
+  
+  /* Small Modal */
+  .cc-modal-small .cc-modal {
+    width: 600px;
+    height: 400px;
+  }
+  
+  /* Large Modal */
+  .cc-modal-large .cc-modal {
+    width: 1200px;
+    height: 700px;
+  }
+  
+  /* Fullscreen Modal */
+  .cc-modal-full .cc-modal {
+    width: 100%;
+    height: 95vh;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .cc-modal-full .cc-modal .cc-modal-body::-webkit-scrollbar {
+    height: 0px; 
+  }
+  
+  .cc-modal-full .cc-modal .cc-modal-body::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  .cc-modal-full .cc-modal .cc-modal-body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+  
+  .cc-modal-header {
+    border-bottom: 1px solid #000;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .cc-modal-body {
+    width: 100%;
+    max-width: 2000px;
+    padding: 16px;
+    overflow: auto;
+    height: calc(100% - 16px);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+  }
+  
+  .cc-modal-body *:last-child {
+    margin-bottom: 0;
+  }
+  
+  .cc-modal-title {
+    flex: 1;
+  }
+  
+  .cc-modal-close,
+  .cc-modal-fixed-close {
+    background: url('data:image/svg+xml;utf8,<svg class="header-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.984 6.422l-5.578 5.578 5.578 5.578-1.406 1.406-5.578-5.578-5.578 5.578-1.406-1.406 5.578-5.578-5.578-5.578 1.406-1.406 5.578 5.578 5.578-5.578z"></path></svg>');
+    width: 24px;
+    height: 24px;
+    border: none;
+  }
+  
+  .cc-modal-fixed-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* background: none; */
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 18px;
+  }
+    
+  /* Button to Open Modal */
+.cc-open-modal {
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+  /* MODAL DESIGN */
+
+  .cc-modal-body .cc-content-hd {
+    width: 80%;
+    margin: 0 auto !important;
+  }
+
+  .Modal-content {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .Modal-content .left-cNt{
+    width: 50%;
+    max-width: 2000px;
+  }
+  
+  .Modal-content .left-cNt img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .Modal-content .right-cNt{
+    width: 50%;
+    max-width: 600px;
+    max-height: 500px;
+    background: #ebe6e6;
+  }
