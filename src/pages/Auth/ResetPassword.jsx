@@ -1,4 +1,5 @@
-import CustomInput from "../components/CustomInput";
+import CustomInput from "../../components/CustomInput";
+import "./auth_Styles.css"
 
 const ResetPassword = () => {
   return (

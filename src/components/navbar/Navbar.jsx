@@ -7,11 +7,17 @@ import logo from "../../assets/logo_2_color.png";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 import SimpleSearch from "../SimpleSearch/SimpleSearch";
+import { HiUserCircle } from "react-icons/hi2";
+import { MdOutlineLogout } from "react-icons/md";
+
 
 const NavLand = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  //fetch categoories
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -25,6 +31,34 @@ const NavLand = () => {
 
     fetchCategories();
   }, []);
+
+
+  //logout function
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      // Clear the user data from the state variable
+      setUser(null);
+      sessionStorage.setItem("user", null);
+      navigate("/");
+      window.location.reload(); 
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+//fetch user from session
+  useEffect(() => {
+    // Fetch user data from session storage
+    const storedUser = sessionStorage.getItem("user");
+
+    if (storedUser) {
+      // Parse the stored JSON string to get the user object
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+    }
+  }, []);
+
 
   return (
     <div className="navigation_landing-page">
@@ -50,6 +84,7 @@ const NavLand = () => {
             </div>
           </div>
           <div className="land_nav-buttons">
+          
             <ul className="btns_desktop">
               <div className="hide-mob">
                 <li>
@@ -63,6 +98,18 @@ const NavLand = () => {
                   </Link>
                 </li>
                 </div>
+                {user ? (
+                  <>
+                <li className="user-name">
+                  <Link to={user?.isAdmin ? "/admin": "/profile"}>
+                  <HiUserCircle size={30} /> 
+                  <span>{user?.username}</span>
+                  </Link>
+                </li>
+                <MdOutlineLogout size={24} className="logout-icon" onClick={handleLogout}/>
+                </>
+                ):(
+                  <>
                 <li>
                   <Link to="/login" className="btn nl_link-login">
                     Login
@@ -73,8 +120,10 @@ const NavLand = () => {
                     Sign up
                   </Link>
                 </li>
+                </>
+                )}
             </ul>
-            
+          
           </div>
         </div>
       </div>

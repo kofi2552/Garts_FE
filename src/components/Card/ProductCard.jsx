@@ -16,7 +16,7 @@ const ProductCard = () => {
 
   const handleCardClick = () => {
     window.location.href = `${
-      location.pathname === '/search' ? 'search/product/:id' : '/search/product/:id'
+      location.pathname === '/search' ? '/product/:id' : '/product/:id'
     }`; 
   };
 

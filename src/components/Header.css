@@ -4,6 +4,8 @@
     background-color: #fff !important;
 }
 
+/* HOME NAVBAR STYLES */
+
 #store .land_navbar {
   position: fixed;
   padding: 0 4rem !important; /*SIDE SPACING */
@@ -97,13 +99,25 @@
   display: none;
  }
 
- /* MOBILE RESPONSIVE NAVBAR */
+ /* HOME MOBILE RESPONSIVE NAVBAR */
 
  #store .land_navbar svg {
-  font-size: 20px !important;
-  color: #191919 !important;
-  margin-top: 5px;
-}
+   font-size: 20px !important;
+   color: #191919 !important;
+  }
+
+  #store .land_navbar .user-name a {
+    color: #191919 !important;
+  }
+  
+  #store .land_navbar .navbar-menu svg {
+    margin-top: 5px;
+  }
+
+  #store .land_navbar .logout-icon {
+   margin-left: 10px;
+   cursor: pointer;
+  }
 
 @media screen and (max-width: 1025px) {
   #store .land_navbar {
