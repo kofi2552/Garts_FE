@@ -88,6 +88,13 @@
   margin-top: -16px;
 }
 
+.file-type-indicator-tile2 {
+  position: relative;
+  color: #0080ff !important;
+  rotate: 90deg;
+  margin-top: -16px;
+}
+
 .on-hov-tf{
 margin-top: -40px;
 transition: margin 0.1s ease-in-out;

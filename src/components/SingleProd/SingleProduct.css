@@ -21,8 +21,8 @@
   .p-left-content {
     position: relative;
     width: 1000px;
-    background-color: #fff;
-    max-height: 1auto;
+    background-color: #fafafa;
+    max-height: 500px;
   }
   
   .p-left-content .gallery-photo {
@@ -35,7 +35,7 @@
     display: block;
     width: 100%;
     max-height: 500px;
-    object-fit: cover;
+    object-fit: contain;
   }
   
   .p-left-content .prod-icon {

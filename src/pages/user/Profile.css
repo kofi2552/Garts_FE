@@ -77,8 +77,40 @@ line-height: 1.5;
 padding: 0.25rem 0.5rem;
 border-radius: 0.375rem;
 color: #fff;
-border-color: #5e72e4;
-background-color: #5e72e4;
+border-color: #0e93ae;
+background-color: #0e93ae;
+cursor: pointer;
+}
+
+
+.profile-card-container .admin-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    margin: 20px;
+}
+
+.profile-card-container .admin-btns .ad-bt {
+    display: flex;
+    gap: 20px;
+    margin: 5px;
+}
+
+.profile-card-container .admin-btns a {
+font-size: .875rem;
+position: relative;
+transition: all .15s ease;
+letter-spacing: .025em;
+text-transform: none;
+will-change: transform;
+line-height: 1.5;
+padding: 0.5rem 0.8rem;
+border-radius: 0.375rem;
+color: #fff;
+border-color: #44b678;
+background-color: #44b678;
 cursor: pointer;
 }
 
@@ -190,3 +222,43 @@ cursor: pointer;
     text-decoration: underline;
 }
 
+@media screen and (max-width:768px) {
+    .profile-card-container{
+        padding: 30px 20px;
+    }
+    .profile-card-container .card-project-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .profile-card-container .form-section .form-group {
+        flex-direction: column;
+    }
+    
+    .profile-card-container .form-section .form-group .col-6 {
+        display: flex;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .profile-card-container{
+        padding: 20px 10px;
+    }
+    .profile-card-container .admin-btns {
+        width: 100%;
+        margin: 15px auto;
+        gap: 15px;
+        flex-direction: column !important;
+    }
+
+    .image-cover svg {
+        width: 100px;
+        height: auto;
+        font-size: 100px !important;
+    }
+
+    .profile-card-container .card-profile-content {
+        max-width: 100%;
+    }
+}

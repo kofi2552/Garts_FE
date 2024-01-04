@@ -3,6 +3,7 @@ import "../user/Profile.css"
 import { HiUserCircle } from "react-icons/hi2";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { IoIosHelpCircleOutline } from "react-icons/io";
+import {Link} from "react-router-dom";
 
 const AdminProfile = () => {
 
@@ -33,9 +34,14 @@ const AdminProfile = () => {
           </div>
           <div className="card-body">
             <div className="admin-btns">
-                <button>Add Project</button>
-                <button>Transactions</button>
-                <button>Manage Users</button>
+              <div className="ad-bt">
+              <Link to="/add-project">Project</Link>
+                <Link to="#">Categories</Link>
+              </div>
+                <div className="ad-bt">
+                <Link to="#">Transactions</Link>
+                <Link to="#">Users</Link>
+                </div>
             </div>
           {user && ( 
           <form>
