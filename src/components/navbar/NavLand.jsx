@@ -6,11 +6,16 @@ import { HiMiniBars3 } from "react-icons/hi2";
 import logo from "../../assets/logo_ga.png";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
+import { HiUserCircle } from "react-icons/hi2";
+import { MdOutlineLogout } from "react-icons/md";
 
 const NavLand = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  //fetch categories
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -23,6 +28,33 @@ const NavLand = () => {
     };
 
     fetchCategories();
+  }, []);
+
+
+//logout function
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      // Clear the user data from the state variable
+      setUser(null);
+      sessionStorage.setItem("user", null);
+      navigate("/");
+      window.location.reload(); 
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+//fetch user from session
+  useEffect(() => {
+    // Fetch user data from session storage
+    const storedUser = sessionStorage.getItem("user");
+
+    if (storedUser) {
+      // Parse the stored JSON string to get the user object
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+    }
   }, []);
 
   return (
@@ -81,6 +113,18 @@ const NavLand = () => {
                   </Link>
                 </li>
                 </div>
+                {user ? (
+                  <>
+                <li className="user-name">
+                  <Link to={user?.isAdmin ? "/admin": "/profile"}>
+                  <HiUserCircle size={30} /> 
+                  <span>{user?.username}</span>
+                  </Link>
+                </li>
+                <MdOutlineLogout size={24} className="logout-icon" onClick={handleLogout}/>
+                </>
+                ):(
+                  <>
                 <li>
                   <Link to="/login" className="btn nl_link-login">
                     Login
@@ -91,6 +135,8 @@ const NavLand = () => {
                     Sign up
                   </Link>
                 </li>
+                </>
+                )}
             </ul>
             
           </div>

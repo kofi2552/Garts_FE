@@ -1,14 +1,14 @@
 import "../App.css";
 
 const CustomInput = (props) => {
-  const { type, name, placeholder, classname } = props;
+  const { type, name, placeholder, className } = props;
   return (
     <div>
       <input
         type={type}
         name={name}
         placeholder={placeholder}
-        className={`form-control ${classname}`}
+        className={`form-control ${className}`}
       />
     </div>
   );

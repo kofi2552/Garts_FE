@@ -106,6 +106,14 @@ a {
     align-items: center;
     margin-left: 40px;
   }
+
+  .land_navbar .land_nav-buttons .user-name {
+    font-size: 18px;
+    /* line-height: 32px; */
+    color: #0a2a2e !important;
+    font-weight: 500;
+    cursor: pointer;
+  }
   
   .land_navbar .category-links_container .nl_link-item {
     font-size: 18px;
@@ -124,6 +132,21 @@ a {
     margin-top: 0 !important;
     cursor: pointer;
   }
+
+  .navigation_landing-page .land_navbar .user-name a{
+    display: flex !important;
+    align-items: center !important;
+    color: #FFF !important;
+  }
+
+  .navigation_landing-page .land_navbar .logout-icon {
+    margin-left: 10px;
+    cursor: pointer;
+   }
+
+  /* .navigation_landing-page .land_navbar .user-name  span {
+ margin-bottom: -4px !important;
+  } */
 
   .land_nav-buttons .btn {
     padding: 0.4rem 1.5rem;

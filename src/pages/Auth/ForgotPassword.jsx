@@ -1,4 +1,6 @@
-import CustomInput from "../components/CustomInput";
+import "./auth_Styles.css"
+import CustomInput from "../../components/CustomInput";
+
 const ForgotPassword = () => {
   return (
     <div>
