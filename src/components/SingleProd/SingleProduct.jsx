@@ -162,9 +162,9 @@ const SingleProduct = () => {
 
 
 
-    const handlePay = () => {
-      window.location.href = `/verify_payment/${id}`
-    }
+    // const handlePay = () => {
+    //   window.location.href = `/verify_payment/${id}`
+    // }
 
 
   const handleTogglePhoneNumber = () => {
@@ -294,7 +294,7 @@ const SingleProduct = () => {
                 )}
                 <div className="btm-details">
                   <div className="middle-details">
-                    <Link to="#" className="btn-download" onClick={handlePay} >
+                    <Link to="#" className="btn-download" onClick={handlePayBtn} >
                       <AiOutlineDownload size={20} />
                       &nbsp;Download
                     </Link>
