@@ -1,0 +1,19 @@
+.social-item {
+    display: flex;
+    align-items: center;
+    /* margin-right: 10px; */
+  }
+  
+  .social-item .social-icon {
+    font-size: 16px; /* Adjust the font size of the icons */
+    margin-right: 3px;
+    color: rgb(23, 170, 170);
+    margin-bottom: -2px; /* Add some spacing between the icon and username */
+  }
+  
+  .social-item .social-username {
+    font-size: 14px; /* Adjust the font size of the username */
+    font-weight: 300; /* Optionally make the username bold */
+    margin: 0 !important;
+    padding: 0 !important;
+}

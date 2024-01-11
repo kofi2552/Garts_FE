@@ -18,7 +18,9 @@ import Contact from "./pages/Contact";
 import Profile from "./pages/user/Profile"
 import AdminProfile from "./pages/admin/AdminProfile";
 import AddProject from "./pages/projects/AddProject";
-// import  Modal  from "./components/Modal/Modal";
+import ConfirmProDownload from "./components/SingleProd/ConfirmProDownload";
+import Layout2 from "./components/Layout2";
+
 
 function App() {
 
@@ -31,7 +33,6 @@ function App() {
           </Route>
 
           <Route path="/login" element={<Login />} />
-          <Route path="/add-project" element={<AddProject />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/test-page" element={<Test />} />
@@ -45,7 +46,11 @@ function App() {
             <Route path="trending" element={<Trending />} />
             <Route path="project/:id" element={<SingleProduct />} />
           </Route>
-          <Route path="/checkout" element={<Checkout />} />
+
+          <Route path="/" element={<Layout2 />}>
+          <Route path="/add-project" element={<AddProject />} />
+          <Route path="/verify_payment/:id" element={<ConfirmProDownload />} />
+          </Route>
         
         </Routes>
       </BrowserRouter>

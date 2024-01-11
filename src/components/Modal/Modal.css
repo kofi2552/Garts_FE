@@ -27,8 +27,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 800px;
-    height: 600px;
+    /* width: 800px; */
+    /* height: 600px; */
     background: #FFF;
     color: #000;
     box-shadow: 0 0 10px -6px #000;
@@ -51,19 +51,19 @@
   /* Small Modal */
   .cc-modal-small .cc-modal {
     width: 600px;
-    height: 400px;
+    height: auto;
   }
   
   /* Large Modal */
   .cc-modal-large .cc-modal {
     width: 1200px;
-    height: 700px;
+    height: auto;
   }
   
   /* Fullscreen Modal */
   .cc-modal-full .cc-modal {
-    width: 100%;
-    height: 95vh;
+    /* width: 100%; */
+    height: auto;
     border-radius: 4px;
     overflow: hidden;
   }
@@ -88,11 +88,11 @@
   }
   
   .cc-modal-body {
-    width: 100%;
-    max-width: 2000px;
+    /* width: 100%; */
+    /* max-width: 2000px; */
     padding: 16px;
     overflow: auto;
-    height: calc(100% - 16px);
+    /* height: calc(100% - 16px); */
     display: flex !important;
     justify-content: center !important;
     align-items: center;
@@ -139,7 +139,8 @@
   /* MODAL DESIGN */
 
   .cc-modal-body .cc-content-hd {
-    width: 80%;
+    /* width: 100%; */
+    /* height: 40vh; */
     margin: 0 auto !important;
   }
 

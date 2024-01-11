@@ -79,7 +79,7 @@ const ProductCard = ({gig}) => {
               <p><HiOutlineFolderDownload size={15} color="#959595"/><span>57k</span></p>
               </div>
               </div>{
-                isPaid ? (<p className="project-price free">Free</p>):(<p className="project-price"><sup>$</sup>{gig?.price}</p>)
+                isPaid ? (<p className="project-price"><sup>$</sup>{gig?.price}</p>):(<p className="project-price free">Free</p>)
               }
               
           </div>

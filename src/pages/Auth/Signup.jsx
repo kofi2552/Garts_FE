@@ -272,7 +272,7 @@ const Signup = () => {
                       <option value="Facebook">Facebook</option>
                       <option value="Youtube">Youtube</option>
                       <option value="Instagram">Instagram</option>
-                      <option value="Twitter(Now X)">Twitter(Now X)</option>
+                      <option value="Twitter">Twitter(Now X)</option>
                       <option value="Tiktok">Tiktok</option>
                       <option value="Threads">Threads</option>
                       <option value="Snapchat">Snapchat</option>

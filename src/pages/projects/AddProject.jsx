@@ -5,13 +5,15 @@ import { RiSaveLine } from "react-icons/ri";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
-import upload from "../../utils/upload";
+import { upload, uploadProjectFile } from "../../utils/upload";
+import { useDropzone } from 'react-dropzone';
 
 const AddProject = () => {
 
     const [singleFile, setSingleFile] = useState(undefined);
+    const [projectFile, setProjectFile] = useState(undefined);
     const [uploading, setUploading] = useState(false);
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState([]);
@@ -95,19 +97,23 @@ const AddProject = () => {
         setUploading(true);
 
         try {
-            const image = await upload(singleFile);
-            setUploading(false);
+          const image = await upload(singleFile);
 
-           const userId = user?._id
+          const projectFileUrl = await uploadProjectFile(projectFile);
 
-          //  console.log("userId:", userId)
 
-            dispatch({ type: "ADD_IMAGE", payload: { image, userId  } });
+          setUploading(false);
 
-            // Submit the form after successful upload
-            const payload = { ...state, image, userId  };
-            // console.log("Submit Payload:", payload);
+          const userId = user?._id;
+
+          dispatch({ type: "ADD_IMAGE", payload: { image, userId } });
+          dispatch({ type: "ADD_PROJECT_FILE", payload: { projectFileUrl } });
+      
+          // Submit the form after successful upload
+          const payload = { ...state, image, projectFileUrl, userId };
+
             handleSubmit(payload);
+
         } catch (err) {
             console.log(err,": error in file upload and payload submit!");
             setUploading(false);
@@ -115,7 +121,7 @@ const AddProject = () => {
         }
     };
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const queryClient = useQueryClient();
 
@@ -126,6 +132,8 @@ const AddProject = () => {
         onSuccess: () => {
             queryClient.invalidateQueries(["myGigs"]);
         },
+        onError: (error) => {
+          console.log("Mutation Error:", error);},
     });
 
     const handleSubmit = async (payload) => {
@@ -135,6 +143,7 @@ const AddProject = () => {
             image: image,
         };
         try {
+          console.log("Submitting Gig Data:", gigData);
           // Attempt to mutate and wait for the result
           await mutation.mutateAsync(gigData);
           setSuccessMessage("Project created successfully!");
@@ -158,7 +167,16 @@ const AddProject = () => {
   };
 
 
+    const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+      acceptedFiles: '.zip,.png, .jpg, .jpeg',
+      maxFiles: 1, 
+      onDrop: (files) => setProjectFile(files[0]),
+    });
+  
+
+
     return(
+      <div className="add-project-wrapper">
         <div className="project-card-container">
            <div className="image-section">
               <div className="project-img-cover">
@@ -173,7 +191,7 @@ const AddProject = () => {
                       onChange={(e) => setSingleFile(e.target.files[0])}
                   />
               </div>
-                  <label>Click ☝️ to set Project Image</label>
+                  <h2>Project Image</h2>
           </div>
         <div className="card-project-content">
            
@@ -294,6 +312,24 @@ const AddProject = () => {
                      <div className="form-group">
                        <div className="col-12">
                         <div className="lg-control">
+                       <label>Project file</label>
+                       <div className="un-code-group">
+                       <div className="drop-files" {...getRootProps()}>
+                        <div className="file-container">
+                            <input {...getInputProps()} />
+                            <p>Drag 'n' drop a file here, or click to select one</p>
+                          </div>
+                        <ul>
+                          {acceptedFiles.map((file) => (
+                            <li key={file.path}>
+                              {file.path} - {file.size} bytes
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                       </div>
+                       </div>
+                        <div className="lg-control">
                        <label>Generate Unlock Code</label>
                        <div className="un-code-group">
                           <p  className="form-control" 
@@ -317,9 +353,10 @@ const AddProject = () => {
         </div>
         <div className="card-footer"><IoIosHelpCircleOutline size={20}/>Contact <a>support</a> for help</div>
         </div>
+        </div>
      );
  
  
 }
 
-export default AddProject
+export default AddProject;
