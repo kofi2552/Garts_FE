@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./ConfirmPD.css"
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
+import axios from "axios";
 
 const ConfirmProDownload = () => {
 
@@ -79,23 +80,58 @@ const ConfirmProDownload = () => {
 
 
   let countdown = 10;
+
   useEffect(() => {
     const countdownInterval = setInterval(() => {
       console.log(`Countdown: ${countdown}`);
       countdown--;
-
+  
       if (countdown === 0) {
         clearInterval(countdownInterval);
+  
+        // After the countdown, initiate the download
         if (project && project?.projectFileUrl) {
-          window.location.href = project?.projectFileUrl;
+          initiateDownload(project.projectFileUrl);
         }
-        console.log("File download initiated");
+  
+        console.log("File download initiated", project?.projectFileUrl);
       }
     }, 1000);
-
+  
     // Cleanup the interval when the component unmounts
     return () => clearInterval(countdownInterval);
-  }, []);
+  }, [project]);
+
+
+const initiateDownload = async (fileUrl) => {
+  try {
+    // Make a GET request to your backend endpoint for file download
+    const response = await axios.get(`http://localhost:8800/download/${extractFilenameFromUrl(fileUrl)}`, {
+      responseType: 'blob',  // Set responseType to 'blob' to handle binary data
+    });
+
+    // Create a Blob from the response data
+    const blob = new Blob([response.data], { type: response.headers['content-type'] });
+
+    // Create a link element and trigger a download
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = extractFilenameFromUrl(fileUrl);
+    link.click();
+
+    // Clean up
+    window.URL.revokeObjectURL(link.href);
+  } catch (error) {
+    console.error('Error initiating download:', error);
+  }
+};
+
+// Function to extract filename from the URL
+const extractFilenameFromUrl = (fileUrl) => {
+  const urlParts = fileUrl.split('/');
+  return urlParts[urlParts.length - 1];
+};
+
 
 
   return (
