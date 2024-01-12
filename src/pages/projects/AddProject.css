@@ -1,4 +1,6 @@
-
+.add-project-wrapper {
+    padding-top: 80px;
+}
 
 .project-card-container {
     width: 100%;
@@ -192,6 +194,35 @@ cursor: pointer;
     gap: 30px;
 }
 
+.project-card-container .un-code-group .drop-files {
+    color: #252525;
+    background: #e1f6ffc9;
+    border-radius: 4px;
+    border: 0.5px solid #9fe4ffa9;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.project-card-container .un-code-group .drop-files p {
+    background-color: #f8f9fe;
+    padding: 20px 20px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.project-card-container .un-code-group .drop-files li{
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
 .project-card-container .un-code-group button{
     font-size: .875rem;
     position: relative;
@@ -243,11 +274,12 @@ cursor: pointer;
 /* Image section styles */
 .image-section {
     width: 100%;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     /* margin: 15px auto; */
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: 30px 0;
 }
 
 .project-img-cover {
@@ -285,17 +317,17 @@ cursor: pointer;
     border-radius: 7px;
 }
 
-.image-section label {
+.image-section h2 {
     width: 100%;
     max-width: 66%;
     margin: 10px auto;
     /* background-color: #d6f3ff; */
-    padding: 5px;
+    padding: 10px;
     color: #252525;
     font-weight: 600;
     cursor: pointer;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     line-height: 22px;
     border-radius: 20px;
 }

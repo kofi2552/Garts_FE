@@ -241,6 +241,24 @@ cursor: pointer;
     }
 }
 
+@media screen and (max-width:650px) {
+
+    .profile-card-container .card-profile-content {
+        max-width: 100%;
+    }
+
+    .profile-card-container .profile-image-content .image-cover{
+        margin-top: -150px;
+    }
+
+    .profile-card-container .admin-btns {
+        width: 100%;
+        margin: 15px auto;
+        gap: 15px;
+        flex-direction: column !important;
+    }
+}
+
 @media screen and (max-width:420px) {
     .profile-card-container{
         padding: 20px 10px;

@@ -6,6 +6,7 @@ export const initializeTransaction = async (
   amount,
   phone,
   username,
+  unlockcode,
   token
 ) => {
   try {
@@ -16,6 +17,7 @@ export const initializeTransaction = async (
         amount: amount,
         phone: phone,
         username: username,
+        unlockcode:unlockcode
       },
       {
         // Include the token in the headers for authorization
@@ -24,8 +26,11 @@ export const initializeTransaction = async (
         },
       }
     );
-
-    return response.data.authorizationUrl;
+    console.log(response.data)
+    
+    return {authorization_url: response.data.authorizationUrl, 
+      reference: response.data.reference
+    };
   } catch (error) {
     throw new Error("Error initializing Paystack transaction");
   }

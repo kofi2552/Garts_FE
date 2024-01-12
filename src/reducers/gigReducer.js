@@ -9,6 +9,7 @@ export const INITIAL_STATE = {
     price: "",
     zipcode: "",
     image: "",
+    projectFileUrl: "",
     tags: "",
     unlockcode: "",
     isPaid: false,
@@ -35,6 +36,11 @@ export const gigReducer = (state, action) => {
             return {
                 ...state,
                 image: action.payload.image,
+            };
+            case "ADD_PROJECT_FILE": // New action to handle project file URL
+            return {
+              ...state,
+              projectFileUrl: action.payload.projectFileUrl,
             };
         case "TOGGLE_IS_PAID": 
             return {

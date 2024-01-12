@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import "./auth_Styles.css"
 import newRequest from "../../utils/newRequest";
 import logoclong from "../../assets/logo_2_color.png";
 
 const Login = () => {
-
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -15,20 +15,23 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(email, password)
+      // console.log(email, password)
       const res = await newRequest.post("/auth/login", { email, password });
       const currentUser = res.data;
      
       sessionStorage.setItem("user", JSON.stringify(currentUser));
+      const redirectUrl = new URLSearchParams(location.search).get(
+        "redirect"
+      );
+      // console.log("Redirect URL:", redirectUrl);
 
       if (currentUser.isAdmin) {
         // Redirect to admin profile
         navigate("/admin");
+        // navigate(redirectUrl || "/");
       } else {
         // Redirect to the previous page or default page
-        const redirectUrl = new URLSearchParams(location.search).get(
-          "redirect"
-        );
+        
         navigate(redirectUrl || "/");
       }
 

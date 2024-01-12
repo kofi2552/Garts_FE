@@ -113,6 +113,38 @@ a {
 }
 
 
+/* NAV2 STYLE */
+.nav2-tile {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15); 
+  z-index: 999999;
+  background-color: #fff;
+}
+
+.nav2-tile .land_nav-logo svg{
+  color: #1c1c1b !important;
+}
+
+.nav2-tile .land_nav-buttons {
+  color: #1c1c1b !important;
+}
+
+.nav2-tile .land_navbar  a {
+  color: #1c1c1b !important;
+}
+
+.nav2-tile .land_nav-buttons ul .user-name a {
+  color: #1c1c1b !important;
+}
+
+
+.nav2-tile .btns_desktop svg{
+  color: #1c1c1b !important;
+  margin-left: 10px !important;
+}
+
 
 /* LAYOUT 2 STARTS HERE */
 
