@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./css/land_Nav.css";
+import "./css/Land_Nav.css";
 import { RiCloseLine } from "react-icons/ri";
 import { HiMiniBars3 } from "react-icons/hi2";
 import logo from "../../assets/logo_ga.png";
