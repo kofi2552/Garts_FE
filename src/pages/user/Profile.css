@@ -12,10 +12,11 @@
 
 .profile-card-container .profile-image-content .image-cover{
     position: absolute;
-    top: 0;
-    margin-top: -120px;
+    /* top: 0;
+    margin-top: -120px; */
     background: #fff;
     border-radius: 100%;
+    margin-bottom: 100px;
 }
 
 .profile-card-container .card-profile-content {
@@ -248,7 +249,7 @@ cursor: pointer;
     }
 
     .profile-card-container .profile-image-content .image-cover{
-        margin-top: -150px;
+        margin-bottom: 140px !important;
     }
 
     .profile-card-container .admin-btns {
@@ -271,9 +272,13 @@ cursor: pointer;
     }
 
     .image-cover svg {
-        width: 100px;
+        width: 100%;
+        max-width: 160px;
         height: auto;
         font-size: 100px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .profile-card-container .card-profile-content {
