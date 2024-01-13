@@ -5,7 +5,6 @@ import { RiSaveLine } from "react-icons/ri";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import TextField from '@mui/material/TextField';
 import newRequest from "../../utils/newRequest";
 import { upload, uploadProjectFile } from "../../utils/upload";
 import { useDropzone } from 'react-dropzone';
@@ -26,7 +25,7 @@ const AddProject = () => {
         const fetchCategories = async () => {
           try {
             const response = await newRequest.get(
-              "http://localhost:8800/api/categories/all"
+              "categories/all"
             );
             setCategories(response.data);
           } catch (error) {
