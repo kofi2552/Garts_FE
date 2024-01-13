@@ -83,6 +83,87 @@ cursor: pointer;
 
 /* box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .15) */
 
+.price .price-range {
+    font-size: smaller;
+    font-weight: 400;
+    color: teal;
+}
+
+
+.price .error-message {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.price .error-message p {
+    text-align: center;
+    color:#454545 ;
+    padding: 6px 8px !important;
+    background: #fff7c1;
+    margin: 0 !important;
+    border-radius: 4px;
+    font-size: small;
+}
+
+.price .success-message {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.price .success-message p {
+    text-align: center;
+    color:#383838 ;
+    padding: 6px 8px !important;
+    background: #d6faff;
+    margin: 0 !important;
+    border-radius: 40px;
+    font-size: small;
+}
+
+/* ----------------------------------- */
+
+
+.drop-files .error-message {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.drop-files .error-message p {
+    text-align: center;
+    color:#454545 ;
+    padding: 6px 8px !important;
+    background: #ffed78 !important;
+    margin: 0 !important;
+    border-radius: 4px;
+    font-size: small;
+}
+
+.drop-files .success-message {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.drop-files .success-message p {
+    text-align: center;
+    color:#383838 ;
+    padding: 6px 8px !important;
+    background: #d6faff;
+    margin: 0 !important;
+    border-radius: 40px;
+    font-size: small;
+}
+
+.premium .premium-info {
+    font-size: small;
+    font-weight: 400;
+    color: teal;
+}
 
 .project-card-container .form-section .form-group {
     display: flex;

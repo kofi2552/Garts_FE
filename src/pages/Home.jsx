@@ -15,12 +15,8 @@ const Home = () => {
     queryFn: () => newRequest.get("/lessons").then((res) => res.data),
   });
 
-  // console.log("Rendering Home Component...");
-  // console.log("Data:", data);
-  // console.log("Error:", error);
 
   const renderGigs = () => {
-    // console.log("Rendering gigs....");
 
     if (isLoading) {
       return (
@@ -31,8 +27,8 @@ const Home = () => {
     } else if (error) {
       return <div>Something went wrong!</div>;
     } else {
-      const filteredGigs = data.filter((gig) => !gig.disabled);
-      return filteredGigs.map((gig) => (
+      const filteredGigs = data?.filter((gig) => !gig.disabled);
+      return filteredGigs?.map((gig) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={gig._id}>
           <ProductCard gig={gig} />
         </Grid>

@@ -113,51 +113,51 @@ const SingleProduct = () => {
       
 
   
-    const handlePayBtn = async () => {
+    // const handlePayBtn = async () => {
 
-      const currentUser = getUserData();
+    //   const currentUser = getUserData();
     
-      if (currentUser) {
-        const { username, phone, email } = currentUser;
-        const amount = project?.price;
-        const unlockcode = project?.unlockcode
-        const isPaid = project?.isPaid;
+    //   if (currentUser) {
+    //     const { username, phone, email } = currentUser;
+    //     const amount = project?.price;
+    //     const unlockcode = project?.unlockcode
+    //     const isPaid = project?.isPaid;
        
-        // Check if user data is complete
-        if (username && phone && email && amount && unlockcode && isPaid) {
-          try {
+    //     // Check if user data is complete
+    //     if (username && phone && email && amount && unlockcode && isPaid) {
+    //       try {
             
-            const  transactionResponse = await initializeTransaction(
-              email,
-              amount,
-              phone,
-              username,
-              unlockcode
-            );
+    //         const  transactionResponse = await initializeTransaction(
+    //           email,
+    //           amount,
+    //           phone,
+    //           username,
+    //           unlockcode
+    //         );
 
-            const { authorization_url, reference } = transactionResponse;
+    //         const { authorization_url, reference } = transactionResponse;
 
-            localStorage.setItem('paymentReference', reference);
+    //         localStorage.setItem('paymentReference', reference);
 
-            window.location.href = authorization_url;
+    //         window.location.href = authorization_url;
 
-          } catch (error) {
+    //       } catch (error) {
 
-            console.error("Error initializing transaction:", error);
-            setErrorMessage("Payment processing unsuccessful!");
-          }
-        } else {
+    //         console.error("Error initializing transaction:", error);
+    //         setErrorMessage("Payment processing unsuccessful!");
+    //       }
+    //     } else {
 
-          console.error("Incomplete user data or project is not paid");
-          setErrorMessage("Incomplete data! Try Again");
-        }
-      } else {
-        console.error("Can not initiate transaction. User data not found!");
-        setErrorMessage("User data not found!");
+    //       console.error("Incomplete user data or project is not paid");
+    //       setErrorMessage("Incomplete data! Try Again");
+    //     }
+    //   } else {
+    //     console.error("Can not initiate transaction. User data not found!");
+    //     setErrorMessage("User data not found!");
 
-        window.location.href = `/login?redirect=${encodeURIComponent(location.pathname)}`;
-      }
-    };
+    //     window.location.href = `/login?redirect=${encodeURIComponent(location.pathname)}`;
+    //   }
+    // };
 
 
 
@@ -167,6 +167,118 @@ const SingleProduct = () => {
     // }
 
 
+    // const handlePayBtn = async () => {
+    //   const currentUser = getUserData();
+    
+    //   if (currentUser) {
+    //     const { username, phone, email } = currentUser;
+    //     let amount = project?.price; // Assume price is initially set based on project details
+    //     const unlockcode = project?.unlockcode;
+    //     const isPaid = project?.isPaid;
+    
+    //     // Check if the project is free, set amount to 0
+    //     if (!isPaid) {
+    //       amount = 0;
+    //     }
+    
+    //     // Check if user data is complete
+    //     if (username && phone && email && unlockcode && isPaid) {
+    //       try {
+    //         if (amount > 0) {
+    //           // Initiate payment transaction only for paid projects
+    //           const transactionResponse = await initializeTransaction(
+    //             email,
+    //             amount,
+    //             phone,
+    //             username,
+    //             unlockcode
+    //           );
+    
+    //           const { authorization_url, reference } = transactionResponse;
+    
+    //           localStorage.setItem('paymentReference', reference);
+    
+    //           window.location.href = authorization_url;
+    //         } else {
+    //           // Redirect to the download page for free projects
+    //           window.location.href = `/verify_payment/${id}`;
+    //         }
+    //       } catch (error) {
+    //         console.error("Error initializing transaction:", error);
+    //         setErrorMessage("Payment processing unsuccessful!");
+    //       }
+    //     } else {
+    //       console.error("Incomplete user data or project is not paid");
+    //       setErrorMessage("Incomplete data! Try Again");
+    //     }
+    //   } else {
+    //     console.error("Can not initiate transaction. User data not found!");
+    //     setErrorMessage("User data not found!");
+    
+    //     window.location.href = `/login?redirect=${encodeURIComponent(location.pathname)}`;
+    //   }
+    // };
+    
+
+    const handlePayBtn = async () => {
+      const currentUser = getUserData();
+    
+      if (currentUser) {
+        const { username, phone, email } = currentUser;
+        let amount = project?.price; // Assume price is initially set based on project details
+        const unlockcode = project?.unlockcode;
+        const isPaid = project?.isPaid;
+    
+        // Check if the project is free, set amount to 0
+        if (!isPaid) {
+          amount = 0;
+        }
+    
+        // Check if user data is complete
+        if (username && phone && email && unlockcode && isPaid) {
+          try {
+            if (amount > 0) {
+              // Initiate payment transaction only for paid projects
+              const transactionResponse = await initializeTransaction(
+                email,
+                amount,
+                phone,
+                username,
+                unlockcode
+              );
+    
+              const { authorization_url, reference } = transactionResponse;
+    
+              localStorage.setItem('paymentReference', reference);
+    
+              window.location.href = authorization_url;
+            } else {
+              // Redirect to the download page for free projects
+              window.location.href = `/verify_payment/${id}`;
+            }
+          } catch (error) {
+            console.error("Error initializing transaction:", error);
+            setErrorMessage("Payment processing unsuccessful!");
+          }
+        } else {
+          console.error("Incomplete user data or project is not paid");
+          setErrorMessage("Incomplete data! Try Again");
+        }
+      } else {
+        console.error("Can not initiate transaction. User data not found!");
+        setErrorMessage("User data not found!");
+    
+        // Handle the redirect to download page for free projects here
+        if (!project?.isPaid) {
+          window.location.href = `/verify_payment/${id}`;
+        } else {
+          window.location.href = `/login?redirect=${encodeURIComponent(location.pathname)}`;
+        }
+      }
+    };
+    
+
+    
   const handleTogglePhoneNumber = () => {
     setShowPhoneNumber((prevValue) => !prevValue);
   };

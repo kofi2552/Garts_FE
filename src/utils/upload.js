@@ -1,4 +1,5 @@
 import axios from "axios";
+import newRequest from "./newRequest.js"
 
 const upload = async (file) => {
   const formData = new FormData();
@@ -26,10 +27,10 @@ const uploadProjectFile = async (file) => {
 
   try {
     // Make a POST request to your backend endpoint for file upload
-    const response = await axios.post('http://localhost:8800/api/upload', formData);
+    const response = await newRequest.post('upload', formData);
 
     // Assuming your backend responds with the file location or URL
-    console.log('backend Response:', response.data);
+    // console.log('backend Response:', response.data);
 
     return response.data.fileUrl;
 

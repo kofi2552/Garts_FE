@@ -5,7 +5,7 @@ import { RiSaveLine } from "react-icons/ri";
 import { IoIosHelpCircleOutline } from "react-icons/io";
 import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-// import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
 import newRequest from "../../utils/newRequest";
 import { upload, uploadProjectFile } from "../../utils/upload";
 import { useDropzone } from 'react-dropzone';
@@ -37,31 +37,107 @@ const AddProject = () => {
     
         fetchCategories();
       }, []);
-    
-      const handleChange = (name, value) => {
-        // If the name is unlockcode, set the value directly
-          if (name === "unlockcode") {
-            dispatch({
-              type: "CHANGE_INPUT",
-              payload: { name, value },
-            });
-          } 
-          else if (name === "filetype") { // Check for the correct name
-            // For the "filetype" field, dispatch the correct action type
-            dispatch({
-              type: "CHANGE_FILETYPE",
-              payload: value,
-            });
-          }
-          else {
-            // For other fields, handle normally
-            dispatch({
-              type: "CHANGE_INPUT",
-              payload: { name, value },
-            });
-          }
-     };
 
+
+      const [price, setPrice] = useState('');
+      const [feedback, setFeedback] = useState('');
+      const [feedback2, setFeedback2] = useState('');
+
+      // const handleNumChange = (e) => {
+      //   const inputValue = parseFloat(e.target.value);
+
+      //   if (!isNaN(inputValue) && inputValue >= 0 && inputValue <= 20) {
+      //     setPrice(inputValue.toString());
+      //     setFeedback(''); // Clear any previous feedback
+      //   } else if (inputValue < 0) {
+      //     setFeedback('Price cannot be a negative value');
+      //   } else if (inputValue > 20) {
+      //     setFeedback('Price is currently limited to 20 dollars per asset');
+      //   } else {
+      //     // Handle any other cases if needed
+      //     setFeedback('Invalid input'); // For non-numeric input
+      //   }
+      // };
+    
+    //   const handleChange = (name, value) => {
+    //     // If the name is unlockcode, set the value directly
+    //       if (name === "unlockcode") {
+    //         dispatch({
+    //           type: "CHANGE_INPUT",
+    //           payload: { name, value },
+    //         });
+    //       } 
+    //       else if (name === "filetype") { // Check for the correct name
+    //         // For the "filetype" field, dispatch the correct action type
+    //         dispatch({
+    //           type: "CHANGE_FILETYPE",
+    //           payload: value,
+    //         });
+    //       }
+    //       else {
+    //         // For other fields, handle normally
+    //         dispatch({
+    //           type: "CHANGE_INPUT",
+    //           payload: { name, value },
+    //         });
+    //       }
+    //  };
+
+
+    const handleChange = (name, value) => {
+      if (name === 'unlockcode') {
+        dispatch({
+          type: 'CHANGE_INPUT',
+          payload: { name, value },
+        });
+      } else if (name === 'filetype') {
+        dispatch({
+          type: 'CHANGE_FILETYPE',
+          payload: value,
+        });
+      } else if (name === 'price') {
+        const inputValue = parseFloat(value);
+    
+        if (!isNaN(inputValue) && inputValue >= 0 && inputValue <= 20) {
+          dispatch({
+            type: 'CHANGE_INPUT',
+            payload: { name, value: inputValue },
+          });
+          // Clear any previous feedback
+          setFeedback('');
+        } else if (inputValue < 0) {
+          setFeedback('warning: Price cannot be a negative value');
+          // Set the value to zero if it's negative
+          dispatch({
+            type: 'CHANGE_INPUT',
+            payload: { name, value: 0 },
+          });
+        } else if (inputValue > 20) {
+          setFeedback('warning: Price is currently limited to 20 dollars per asset');
+          // Set the value to 20 if it's above the limit
+          dispatch({
+            type: 'CHANGE_INPUT',
+            payload: { name, value: 0 },
+          });
+        } else {
+          // Handle any other cases if needed
+          setFeedback('Enter preferred value!');
+          // Set the value to zero for other invalid inputs
+          dispatch({
+            type: 'CHANGE_INPUT',
+            payload: { name, value: 0 },
+          });
+        }
+      } else {
+        dispatch({
+          type: 'CHANGE_INPUT',
+          payload: { name, value },
+        });
+      }
+    };
+    
+    
+    
 
     const handleCategoryChange = (e) => {
       // console.log("Selected Category ID:", e.target.value);
@@ -167,12 +243,29 @@ const AddProject = () => {
   };
 
 
+    // const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
+    //   acceptedFiles: '.zip,.png, .jpg, .jpeg',
+    //   maxFiles: 1, 
+    //   onDrop: (files) => setProjectFile(files[0]),
+    // });
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-      acceptedFiles: '.zip,.png, .jpg, .jpeg',
-      maxFiles: 1, 
-      onDrop: (files) => setProjectFile(files[0]),
+      acceptedFiles: state.filetype === 'image' ? 'image/*' : state.filetype === 'zip' ? '.zip' : '',
+      maxFiles: 1,
+      onDrop: (files) => {
+        const selectedFile = files[0];
+    
+        // Validate file type based on the selected file type
+        if (state.filetype === 'image' && !selectedFile.type.startsWith('image/')) {
+          setFeedback2('warning: File selected should be an image file');
+        } else if (state.filetype === 'zip' && selectedFile.type !== 'application/zip') {
+          setFeedback2('warning: File selected is not a zip file');
+        } else {
+          setFeedback2(''); // Clear any previous feedback
+          setProjectFile(selectedFile);
+        }
+      },
     });
-  
+    
 
 
     return(
@@ -228,15 +321,30 @@ const AddProject = () => {
                <div className="form-body">
                  <h6>USER INFORMATION</h6>
                <div className="form-section">
-                   <div className="form-group">
+                   <div className="form-group price">
                      <div className="col-6">
                      <label>Title</label>
                      <input type="text" required placeholder={"project title"} className="form-control" onChange={(e) => handleChange("title", e.target.value)}/>
                      </div>
                      <div className="col-6">
-                     <label>Price</label>
-                     <input type="text" required placeholder={"price"} className="form-control" onChange={(e) => handleChange("price", e.target.value)}/>
+                     <label>Price <span className="price-range">(Accepted Range $0-$20) Use "0" if asset is free</span></label>
+                     <input 
+                          type="number" 
+                          required 
+                          placeholder={"$0"} 
+                          className="form-control" 
+                          min={0} 
+                          max={20}
+                          onChange={(e) => handleChange("price", e.target.value)}
+                         
+                          />
+                          
                      </div>
+                     {feedback && (
+                      <div className={feedback.includes('warning') ? 'error-message' : 'success-message'}>
+                        <p>{feedback}</p>
+                      </div>
+                    )}
                    </div>
                    <div className="form-group">
                      <div className="col-6">
@@ -283,7 +391,7 @@ const AddProject = () => {
                        <input type="text" placeholder={"N/A"} className="form-control" onChange={(e) => handleChange("zipcode", e.target.value)}/>
                        </div>
                      </div>
-                     <div className="form-group">
+                     <div className="form-group premium">
                       <div className="col-6">
                        <div className="checkbox-container">
                        <input
@@ -295,7 +403,7 @@ const AddProject = () => {
                           checked={state.isPaid}
                           onChange={(e) => handleChange("isPaid", e.target.checked)}
                         />
-                        <label>Premium Project (Tick) </label>
+                        <label>Premium Project? <span className="premium-info">(Free or Paid asset?) Leave empty if Price is "0"</span> </label>
                        </div>
                        </div>
                        <div className="col-6">
@@ -317,7 +425,7 @@ const AddProject = () => {
                        <div className="drop-files" {...getRootProps()}>
                         <div className="file-container">
                             <input {...getInputProps()} />
-                            <p>Drag 'n' drop a file here, or click to select one</p>
+                            {!acceptedFiles.length && <p>Drag 'n' drop a file here, or click to select one</p>}
                           </div>
                         <ul>
                           {acceptedFiles.map((file) => (
@@ -326,6 +434,11 @@ const AddProject = () => {
                             </li>
                           ))}
                         </ul>
+                        {feedback2 && (
+                      <div className={feedback2.includes('warning') ? 'error-message' : 'success-message'}>
+                        <p>{feedback2}</p>
+                      </div>
+                    )}
                       </div>
                        </div>
                        </div>
