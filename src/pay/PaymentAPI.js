@@ -26,6 +26,7 @@ export const initializeTransaction = async (
         },
       }
     );
+    
     console.log(response.data)
     
     return {authorization_url: response.data.authorizationUrl, 
