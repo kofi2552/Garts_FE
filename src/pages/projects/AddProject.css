@@ -221,7 +221,8 @@ cursor: pointer;
   
   .form-control-x {
     appearance: none;
-    width: 25px;
+    width: 100%;
+    max-width: 25px;
     height: 25px;
     border: 2px solid #333;
     border-radius: 50%;
@@ -441,6 +442,19 @@ cursor: pointer;
     .project-card-container {
         padding: 30px 20px;
     }
+    .project-card-container .card-project-content {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .project-card-container .card-project-content .card-body .form-body{
+        padding: 20px 0;
+    }
+
+    .project-card-container .card-project-content .card-body .form-section {
+        padding: 0px;
+    }
+
     .project-card-container .card-project-content {
         width: 100%;
         max-width: 100%;

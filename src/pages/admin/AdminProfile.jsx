@@ -24,7 +24,7 @@ const AdminProfile = () => {
        <div className="profile-card-container">
           <div className="profile-section-cover">
             <div className="profile-image-content">
-              <div className="image-cover"  style={{ backgroundColor: user?.iconColor || "#fff" }}><HiUserCircle size={180} color="#fff"/></div>
+              <div className="image-cover"  style={{ backgroundColor: user?.iconColor || "#fff" }}><HiUserCircle size={200} color="#fff"/></div>
             </div>
           </div>
        <div className="card-profile-content">
