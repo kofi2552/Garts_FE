@@ -323,10 +323,11 @@ const SingleProduct = () => {
                   </div>
                   <div className="creator-info">
                   <p>{creater?.username}</p>
-                  <span>{creater?.role} | {isPaid ? `Asset selling At: ${ gigData?.price}`:"Asset is Free"}</span>
+                  <span className="desk-user-details">{creater?.role} | {isPaid ? `Asset selling At: ${ gigData?.price}`:"Asset is Free"}</span>
+                  <span className="mob-user-details">{isPaid ? `Price: $${gigData?.price}`:"FREE"}</span>
                   </div>
                   </div>
-                <p className="prod-icon2 m-0">
+                <p className="prod-icon2">
                   <AiOutlineHeart size={20} />
                   &nbsp;<span>Like</span>
                 </p>
@@ -440,7 +441,7 @@ const SingleProduct = () => {
             <div className="asset-description">
               <p>{ gigData?.desc || "The Company may, at any moment, and without incurring in"}</p>
             </div>
-            <div className="more-proj-detail">
+            {/* <div className="more-proj-detail">
             <h4>Most curated project areas</h4>
               <ul className="list-ptx">
                 <li className="pntxs">Photoshop</li>
@@ -448,7 +449,7 @@ const SingleProduct = () => {
                 <li className="pntxs">Developer</li>
                 <li className="pntxs">Video Editing</li>
               </ul>
-              </div>
+              </div> */}
             </div>
             <div className="XCreator-box">
               <HiMiniUserCircle size={90} color="#d3dfe9" className="avatar" />

@@ -61,10 +61,10 @@ const NavLand = () => {
   }, []);
 
 
-  const handleLoginWithAuth0 = () => {
-    // Trigger Auth0 login
-    loginWithRedirect();
-  };
+  // const handleLoginWithAuth0 = () => {
+  //   // Trigger Auth0 login
+  //   loginWithRedirect();
+  // };
 
   return (
     <div className="navigation_landing-page">
@@ -135,7 +135,7 @@ const NavLand = () => {
                 ):(
                   <>
                 <li>
-                  <Link className="btn nl_link-login" onClick={handleLoginWithAuth0}>
+                  <Link to={"/login"} className="btn nl_link-login">
                     Login
                   </Link>
                 </li>
