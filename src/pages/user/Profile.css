@@ -1,5 +1,5 @@
 .profile-card-container .profile-section-cover {
-    background-color: #fafafa !important;
+    background-color: #fff !important;
     padding-top: 160px;
 }
 
@@ -10,6 +10,7 @@
     align-items: center;
 }
 
+
 .profile-card-container .profile-image-content .image-cover{
     position: absolute;
     /* top: 0;
@@ -17,6 +18,10 @@
     background: #fff;
     border-radius: 100%;
     margin-bottom: 100px;
+}
+
+.profile-card-container .profile-image-content .image-cover{
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, .35);
 }
 
 .profile-card-container .card-profile-content {

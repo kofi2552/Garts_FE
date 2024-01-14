@@ -3,26 +3,24 @@ import { useNavigate, Link } from "react-router-dom";
 import "./auth_Styles.css"
 import logoclong from "../../assets/logo_2_color.png";
 import newRequest from "../../utils/newRequest";
-import { HiOutlineUserCircle } from "react-icons/hi";
+import { HiUser } from "react-icons/hi2";
 
 
 const Signup = () => {
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
-  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
-  // const [usernameOnPlatform, setUsernameOnPlatform] = useState("");
-  const [usernames, setUsernames] = useState({});
+  const [loading, setLoading] = useState(false)
 
   const BRIGHT_COLORS_KEY = "brightColors";
 
-  const shuffleArray = (array) => {
-    const shuffledArray = array.slice();
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-    }
-    return shuffledArray;
-  };
+  // const shuffleArray = (array) => {
+  //   const shuffledArray = array.slice();
+  //   for (let i = shuffledArray.length - 1; i > 0; i--) {
+  //     const j = Math.floor(Math.random() * (i + 1));
+  //     [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  //   }
+  //   return shuffledArray;
+  // };
 
   const getRandomHue = () => Math.floor(Math.random() * 360);
 
@@ -42,7 +40,7 @@ const Signup = () => {
     ];
   };
 
-  const brightColors = ["#FF5733", "#FFC300", "#36DBCA"];
+  // const brightColors = ["#FF5733", "#FFC300", "#36DBCA"];
 
   const [selectedColor, setSelectedColor] = useState("");
 
@@ -67,7 +65,6 @@ const Signup = () => {
     isSubscribed: false,
   });
 
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setUser((prev) => {
@@ -75,12 +72,12 @@ const Signup = () => {
     });
   };
 
-  const handleColorChange = (color) => {
-    setSelectedColor(color);
-    setUser((prev) => {
-      return { ...prev, iconColor: color };
-    });
-  };
+  // const handleColorChange = (color) => {
+  //   setSelectedColor(color);
+  //   setUser((prev) => {
+  //     return { ...prev, iconColor: color };
+  //   });
+  // };
 
   const handleRefreshColors = () => {
     const newColors = generateColors();
@@ -112,12 +109,12 @@ const Signup = () => {
   }, []);
 
 
-  const unselectedColors = brightColors.filter((color) => color !== selectedColor);
+  // const unselectedColors = brightColors.filter((color) => color !== selectedColor);
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
- 
+    setLoading(true)
     try {
       console.log("frt",user);
       await newRequest.post("/auth/register", {
@@ -128,9 +125,10 @@ const Signup = () => {
       // navigate("/login");
     } catch (err) {
       console.log(err);
+      setLoading(false)
       setIsSuccess(false);
       setMessage(
-        "Your Email is registered with another account. Sign in instead!"
+        "Your Email is registered with another account. Login instead!"
       );
     }
   };
@@ -162,45 +160,33 @@ const Signup = () => {
   return (
     <div>
       <div className="login-wrapper">
-        <div className="art-wrapper">
-          <img src="images/freepik-2-2000.webp" alt="getart" />
-        </div>
         <div className="content-wrapper">
-          <div className="main-content">
+          <div className="login-main-content signup">
             <div className="logo">
-              <img src={logoclong} alt="" width="15%" />
+            <a href="/"><img src={logoclong} alt="" width="15%" /></a>
             </div>
-            <div className="login-card mb-5">
-              <h6 className="title">Create an account</h6>
-              <form onSubmit={handleSubmit} className="form-group">
-              <div className="mb-4">
+            <div className="login-card signup-card">
+              <h6 className="title">Start your creative journey</h6>
+              <div className="user-style">
                 <div className="user-Avatar">
-                <div className="rounded-icon" style={{ backgroundColor: selectedColor }}>
-                <HiOutlineUserCircle size={40} color="#fff"/>
-              </div>
+                  <div className="rounded-icon" style={{ backgroundColor: selectedColor }}>
+                  <HiUser size={100} color="#fff"/>
+                  </div>
+                  <div className="color-control">
+                  <h3>Profile color</h3>
+                  <button onClick={handleRefreshColors} style={{ backgroundColor: selectedColor }}>Change Color</button>
+                  </div>
                 </div>
-              <label>Select Icon Background Color:</label>
-              <div className="color-picker">
-                <div
-                  className={`color-option selected`}
-                  style={{ backgroundColor: selectedColor }}
-                  onClick={() => handleColorChange(selectedColor)}
-                ></div>
-                {unselectedColors.map((color, index) => (
-                  <div
-                    key={index}
-                    className={`color-option`}
-                    style={{ backgroundColor: color }}
-                    onClick={() => handleColorChange(color)}
-                  ></div>
-                ))}
               </div>
-              <button onClick={handleRefreshColors}>Refresh Colors</button>
-              </div>
+              <form onSubmit={handleSubmit} className="form-group">
+              
+              <div className="col-group">
                 <div className="mb-4">
                   <label>Username:</label>
                   <input 
                     type="text" 
+                    className="form-control"
+                    required
                     name="username" 
                     placeholder="username" 
                     onChange={handleChange} />
@@ -209,15 +195,20 @@ const Signup = () => {
                   <label>Fullname:</label>
                   <input
                     type="text" 
+                    className="form-control"
+                    required
                     name="fullname" 
                     placeholder="fullname" 
                     onChange={handleChange} />
                 </div>
-                
+                </div>
+                <div className="col-group">
                 <div className="mb-4">
                   <label>Phone:</label>
                   <input
                     type="tel"
+                    className="form-control"
+                    required
                     name="phone"
                     placeholder="Mobile Number"
                     onChange={handleChange}
@@ -228,14 +219,20 @@ const Signup = () => {
                   <input
                     name="country"
                     type="text"
+                    required
+                    className="form-control"
                     placeholder="e.g Ghana"
                     onChange={handleChange}
                   />
                 </div>
+                </div>
+                <div className="col-group">
                 <div className="mb-4">
                 <label htmlFor="">Address:</label>
                   <input
                     name="address"
+                    className="form-control"
+                    required
                     type="text"
                     placeholder="e.g No.3 Hillview, Accra"
                     onChange={handleChange}
@@ -246,15 +243,21 @@ const Signup = () => {
                   <input
                     name="role"
                     type="text"
+                    required
+                    className="form-control"
                     placeholder="e.g position"
                     onChange={handleChange}
                   />
                 </div>
+                </div>
+                <div className="col-group">
                 <div className="mb-4">
                 <label htmlFor="">Your Brand Name:</label>
                   <input
                     name="brand"
                     type="text"
+                    required
+                    className="form-control"
                     placeholder="e.g business name"
                     onChange={handleChange}
                   />
@@ -265,6 +268,8 @@ const Signup = () => {
                     <select
                       name="socials"
                       id="socials"
+                      required
+                      className="form-control"
                       onChange={handleSocialsChange}
                       value={user.socials.platform}
                     >
@@ -280,17 +285,21 @@ const Signup = () => {
                     </select>
                     <input
                       type="text"
+                      className="form-control"
                       placeholder={`Your ${user.socials.platform} Username`}
                       onChange={handleUsernameChange}
                       value={user.socials.username}
                     />
                   </div>
                 </div>
+                </div>
+                <div className="col-group">
                 <div className="mb-4">
                   <label>Email:</label>
                   <input 
                     type="text" 
                     name="email" 
+                    className={message ? "form-control2": "form-control"}
                     placeholder="Email" 
                     autoComplete="off"
                     onChange={handleChange} />
@@ -299,11 +308,13 @@ const Signup = () => {
                   <label>Password:</label>
                   <input
                     type="password"
+                    className={message ? "form-control2": "form-control"}
                     name="password"
                     placeholder="Password"
                     autoComplete="off"
                     onChange={handleChange}
                   />
+                </div>
                 </div>
                 <div className="error-display">
                   {message && (
@@ -317,8 +328,7 @@ const Signup = () => {
                     Signup
                   </button>
                   <p>
-                    Already have an account?
-                    <Link to="/login">Log in</Link>
+                    Already have an account?&nbsp;<Link to="/login">Log in</Link>
                   </p>
                 </div>
               </form>
