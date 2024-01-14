@@ -238,10 +238,10 @@
   .login-main-content .login-btn-container p a {
     color: #288888;
   }
-
-
+ 
   @media only screen and (max-width: 550px) {
     .login-wrapper .content-wrapper {
+      min-height: 70vh !important;
       padding: 20px;
     }
     .login-main-content .login-btn-container button {
