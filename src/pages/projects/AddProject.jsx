@@ -38,49 +38,9 @@ const AddProject = () => {
       }, []);
 
 
-      const [price, setPrice] = useState('');
+
       const [feedback, setFeedback] = useState('');
       const [feedback2, setFeedback2] = useState('');
-
-      // const handleNumChange = (e) => {
-      //   const inputValue = parseFloat(e.target.value);
-
-      //   if (!isNaN(inputValue) && inputValue >= 0 && inputValue <= 20) {
-      //     setPrice(inputValue.toString());
-      //     setFeedback(''); // Clear any previous feedback
-      //   } else if (inputValue < 0) {
-      //     setFeedback('Price cannot be a negative value');
-      //   } else if (inputValue > 20) {
-      //     setFeedback('Price is currently limited to 20 dollars per asset');
-      //   } else {
-      //     // Handle any other cases if needed
-      //     setFeedback('Invalid input'); // For non-numeric input
-      //   }
-      // };
-    
-    //   const handleChange = (name, value) => {
-    //     // If the name is unlockcode, set the value directly
-    //       if (name === "unlockcode") {
-    //         dispatch({
-    //           type: "CHANGE_INPUT",
-    //           payload: { name, value },
-    //         });
-    //       } 
-    //       else if (name === "filetype") { // Check for the correct name
-    //         // For the "filetype" field, dispatch the correct action type
-    //         dispatch({
-    //           type: "CHANGE_FILETYPE",
-    //           payload: value,
-    //         });
-    //       }
-    //       else {
-    //         // For other fields, handle normally
-    //         dispatch({
-    //           type: "CHANGE_INPUT",
-    //           payload: { name, value },
-    //         });
-    //       }
-    //  };
 
 
     const handleChange = (name, value) => {
@@ -202,7 +162,15 @@ const AddProject = () => {
 
     const mutation = useMutation({
         mutationFn: (gig) => {
-            return newRequest.post("/lessons", gig);
+          const token = document.cookie
+          .split('; ')
+          .find((row) => row.startsWith('accessToken='))
+          .split('=')[1];
+          return newRequest.post('/lessons', gig, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
         },
         onSuccess: () => {
             queryClient.invalidateQueries(["myGigs"]);
@@ -242,11 +210,6 @@ const AddProject = () => {
   };
 
 
-    // const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    //   acceptedFiles: '.zip,.png, .jpg, .jpeg',
-    //   maxFiles: 1, 
-    //   onDrop: (files) => setProjectFile(files[0]),
-    // });
     const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
       acceptedFiles: state.filetype === 'image' ? 'image/*' : state.filetype === 'zip' ? '.zip' : '',
       maxFiles: 1,

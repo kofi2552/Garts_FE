@@ -42,8 +42,6 @@ const SingleProduct = () => {
 
 
 
-
-
   const handleMaximize = () => {       
     setModalImageUrl(gigData?.image);
     setModalOpen(true);
@@ -53,8 +51,6 @@ const SingleProduct = () => {
     setModalOpen(false);
     setModalImageUrl(''); // Optionally reset other state variables
   };
-
-
 
 
 

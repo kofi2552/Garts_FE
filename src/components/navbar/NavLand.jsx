@@ -8,12 +8,15 @@ import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 import { HiUserCircle } from "react-icons/hi2";
 import { MdOutlineLogout } from "react-icons/md";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavLand = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [categories, setCategories] = useState([]);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  const { loginWithRedirect } = useAuth0();
 
   //fetch categories
   useEffect(() => {
@@ -56,6 +59,12 @@ const NavLand = () => {
       setUser(parsedUser);
     }
   }, []);
+
+
+  const handleLoginWithAuth0 = () => {
+    // Trigger Auth0 login
+    loginWithRedirect();
+  };
 
   return (
     <div className="navigation_landing-page">
@@ -126,7 +135,7 @@ const NavLand = () => {
                 ):(
                   <>
                 <li>
-                  <Link to="/login" className="btn nl_link-login">
+                  <Link className="btn nl_link-login" onClick={handleLoginWithAuth0}>
                     Login
                   </Link>
                 </li>

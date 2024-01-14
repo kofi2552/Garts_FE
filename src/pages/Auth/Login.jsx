@@ -9,11 +9,12 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       // console.log(email, password)
       const res = await newRequest.post("/auth/login", { email, password });
@@ -34,24 +35,22 @@ const Login = () => {
         
         navigate(redirectUrl || "/");
       }
-
+      
       // window.location.reload(); // Reload the page
     } catch (err) {
+      setLoading(false)
       setError(err.response.data);
     }
   };
 
 
   return (
-    <div>
+    
       <div className="login-wrapper">
-        <div className="art-wrapper">
-          <img src="images/freepik-2-2000.webp" alt="getarts" />
-        </div>
         <div className="content-wrapper">
-          <div className="main-content">
+          <div className="login-main-content">
             <div className="logo">
-              <img src={logoclong} alt="" width="15%" />
+              <a href="/"><img src={logoclong} alt="" width="15%" /></a>
             </div>
             <div className="login-card">
               <h6 className="title">Welcome Back!</h6>
@@ -59,35 +58,38 @@ const Login = () => {
                 <div className="mb-4">
                   <input 
                   type="text" 
+                  className={error ? "form-control2": "form-control"}
                   name="email" 
                   placeholder="Email" 
                   onChange={(e) => setEmail(e.target.value)}
                   autoComplete="current-username"
                   />
                 </div>
-                <div className="mb-2">
+                <div className="mb-4">
                   <input
                     type="password"
                     name="password"
+                    className={error ? "form-control2": "form-control"}
                     placeholder="Password"
                     onChange={(e) => setPassword(e.target.value)}
                     autoComplete="current-password"
                   />
                 </div>
-                <>{error && <div className="err-danger">{error}</div>}</>
+                <div className="forgot-password">
                 <Link
                   to="/forgot-password"
                   className="text-end small mb-3 text-col"
                 >
                   Forgot Password?
                 </Link>
-                <div className="login-btn-container mb-3">
+                </div>
+                <>{error && <div className="err-danger">{error}</div>}</>
+                <div className="login-btn-container">
                   <button type="submit" className="button-login">
-                    Login
+                    {loading ? "Connecting..":"Continue"}
                   </button>
                   <p>
-                    Don’t you have an account?
-                    <Link to="/signup">Sign Up</Link>
+                    Don’t you have an account?&nbsp;<Link to="/signup"> Sign Up</Link>
                   </p>
                 </div>
               </form>
@@ -95,7 +97,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+    
   );
 };
 

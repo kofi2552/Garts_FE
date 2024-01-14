@@ -20,11 +20,13 @@ import AdminProfile from "./pages/admin/AdminProfile";
 import AddProject from "./pages/projects/AddProject";
 import ConfirmProDownload from "./components/SingleProd/ConfirmProDownload";
 import Layout2 from "./components/Layout2";
+// import Auth0ProviderWithHistory from "./auth0-provider";
 
 
 function App() {
 
   return (
+    // <Auth0ProviderWithHistory>
     <div className="App">
       <BrowserRouter>
         <Routes>
@@ -38,6 +40,7 @@ function App() {
           <Route path="/test-page" element={<Test />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          
 
           <Route path="/" element={<Layout />}>
             <Route path="search" element={<Home />} />
@@ -52,9 +55,12 @@ function App() {
           <Route path="/verify_payment/:id" element={<ConfirmProDownload />} />
           </Route>
         
+          {/* <Route path="*" element={()=> {return (<div>404!, PAGE NOT FOUND</div>)} } /> */}
+
         </Routes>
       </BrowserRouter>
     </div>
+    // </Auth0ProviderWithHistory>
   );
 }
 
