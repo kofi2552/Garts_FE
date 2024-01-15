@@ -7,7 +7,6 @@ export const initializeTransaction = async (
   phone,
   username,
   unlockcode,
-  token
 ) => {
   try {
     const response = await newRequest.post(
@@ -18,13 +17,6 @@ export const initializeTransaction = async (
         phone: phone,
         username: username,
         unlockcode:unlockcode,
-        token:token
-      },
-      {
-        // Include the token in the headers for authorization
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
       }
     );
     

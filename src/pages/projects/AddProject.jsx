@@ -163,16 +163,6 @@ const AddProject = () => {
 
     const mutation = useMutation({
         mutationFn: (gig) => {
-          // const token = document.cookie
-          // .split('; ')
-          // .find((row) => row.startsWith("accessToken"))
-          // .split('=')[1];
-          const token = Cookies.get("accessToken");
-          return newRequest.post('/lessons', gig, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
         },
         onSuccess: () => {
             queryClient.invalidateQueries(["myGigs"]);

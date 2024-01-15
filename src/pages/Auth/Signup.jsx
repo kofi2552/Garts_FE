@@ -13,6 +13,9 @@ const Signup = () => {
 
   const BRIGHT_COLORS_KEY = "brightColors";
 
+
+  const navigate = useNavigate();
+
   // const shuffleArray = (array) => {
   //   const shuffledArray = array.slice();
   //   for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -122,7 +125,7 @@ const Signup = () => {
       });
       setIsSuccess(true);
       setMessage("User has been created.");
-      // navigate("/login");
+      navigate("/");
     } catch (err) {
       console.log(err);
       setLoading(false)
@@ -325,7 +328,7 @@ const Signup = () => {
                 </div>
                 <div className="login-btn-container mb-3">
                   <button type="submit" className="button-login">
-                    Signup
+                    {loading ? "registering..":"Signup"}
                   </button>
                   <p>
                     Already have an account?&nbsp;<Link to="/login">Log in</Link>
