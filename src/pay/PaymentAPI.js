@@ -17,7 +17,8 @@ export const initializeTransaction = async (
         amount: amount,
         phone: phone,
         username: username,
-        unlockcode:unlockcode
+        unlockcode:unlockcode,
+        token:token
       },
       {
         // Include the token in the headers for authorization

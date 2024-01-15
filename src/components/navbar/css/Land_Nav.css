@@ -83,7 +83,7 @@ a {
   }
 
   .land_navbar .land_nav-logo img {
-    max-width: 40px;
+    width: 40px;
     height: auto;
     margin-top: -4px !important;
   }

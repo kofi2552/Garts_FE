@@ -46,7 +46,7 @@ const ConfirmProDownload = () => {
 
 
 
-    const sendPutRequest = async () => {
+  const sendPutRequest = async () => {
     try {
 
       const paymentReference = localStorage.getItem("paymentReference");
@@ -106,7 +106,7 @@ const ConfirmProDownload = () => {
 const initiateDownload = async (fileUrl) => {
   try {
     // Make a GET request to your backend endpoint for file download
-    const response = await axios.get(`http://localhost:8800/download/${extractFilenameFromUrl(fileUrl)}`, {
+    const response = await newRequest.get(`${extractFilenameFromUrl(fileUrl)}`, {
       responseType: 'blob',  // Set responseType to 'blob' to handle binary data
     });
 
@@ -121,6 +121,7 @@ const initiateDownload = async (fileUrl) => {
 
     // Clean up
     window.URL.revokeObjectURL(link.href);
+
   } catch (error) {
     console.error('Error initiating download:', error);
   }

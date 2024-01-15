@@ -2,7 +2,6 @@ import { useState, useEffect} from "react"
 import { Link, useParams, useLocation } from "react-router-dom";
 import "./SingleProduct.css"
 import ProductCard from "../Card/ProductCard";
-import axios from "axios";
 import { RiVipCrownLine } from "react-icons/ri";
 import {
   AiOutlineHeart,
@@ -20,6 +19,7 @@ import { initializeTransaction } from "../../pay/PaymentAPI";
 import { FiMaximize2 } from "react-icons/fi";
 import Modal from "../Modal/Modal";
 import Social from "../socials/Social";
+import Cookies from "js-cookie";
 
 const SingleProduct = () => {
 
@@ -162,6 +162,7 @@ const SingleProduct = () => {
     //   window.location.href = `/verify_payment/${id}`
     // }
 
+    
 
     // const handlePayBtn = async () => {
     //   const currentUser = getUserData();
@@ -211,17 +212,22 @@ const SingleProduct = () => {
     //     console.error("Can not initiate transaction. User data not found!");
     //     setErrorMessage("User data not found!");
     
-    //     window.location.href = `/login?redirect=${encodeURIComponent(location.pathname)}`;
+    //     // Handle the redirect to download page for free projects here
+    //     if (!project?.isPaid) {
+    //       window.location.href = `/verify_payment/${id}`;
+    //     } else {
+    //       window.location.href = `/login?redirect=${encodeURIComponent(location.pathname)}`;
+    //     }
     //   }
     // };
-    
+
 
     const handlePayBtn = async () => {
       const currentUser = getUserData();
     
       if (currentUser) {
         const { username, phone, email } = currentUser;
-        let amount = project?.price; // Assume price is initially set based on project details
+        let amount = project?.price;
         const unlockcode = project?.unlockcode;
         const isPaid = project?.isPaid;
     
@@ -233,24 +239,36 @@ const SingleProduct = () => {
         // Check if user data is complete
         if (username && phone && email && unlockcode && isPaid) {
           try {
-            if (amount > 0) {
-              // Initiate payment transaction only for paid projects
+            const cookie = document.Cookies;
+            console.log("document.cookie:", cookie);
+
+            
+            // Check if document.cookie exists and is not undefined or null
+            if (cookie) {
+              // const token = cookie
+              //   .split("; ")
+              //   .find((row) => row.startsWith("accessToken"))
+              //   ?.split("=")[1];
+
+                const token = Cookies.get("accessToken");
+    
               const transactionResponse = await initializeTransaction(
                 email,
                 amount,
                 phone,
                 username,
-                unlockcode
+                unlockcode,
+                token
               );
     
               const { authorization_url, reference } = transactionResponse;
     
-              localStorage.setItem('paymentReference', reference);
+              localStorage.setItem("paymentReference", reference);
     
               window.location.href = authorization_url;
             } else {
-              // Redirect to the download page for free projects
-              window.location.href = `/verify_payment/${id}`;
+              console.error("Cookie is undefined or null");
+              setErrorMessage("Error initializing transaction");
             }
           } catch (error) {
             console.error("Error initializing transaction:", error);
@@ -264,14 +282,17 @@ const SingleProduct = () => {
         console.error("Can not initiate transaction. User data not found!");
         setErrorMessage("User data not found!");
     
-        // Handle the redirect to download page for free projects here
         if (!project?.isPaid) {
           window.location.href = `/verify_payment/${id}`;
         } else {
-          window.location.href = `/login?redirect=${encodeURIComponent(location.pathname)}`;
+          window.location.href = `/login?redirect=${encodeURIComponent(
+            location.pathname
+          )}`;
         }
       }
     };
+    
+    
     
 
     

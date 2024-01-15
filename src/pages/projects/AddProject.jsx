@@ -8,6 +8,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { upload, uploadProjectFile } from "../../utils/upload";
 import { useDropzone } from 'react-dropzone';
+import Cookies from "js-cookie";
 
 const AddProject = () => {
 
@@ -162,10 +163,11 @@ const AddProject = () => {
 
     const mutation = useMutation({
         mutationFn: (gig) => {
-          const token = document.cookie
-          .split('; ')
-          .find((row) => row.startsWith('accessToken='))
-          .split('=')[1];
+          // const token = document.cookie
+          // .split('; ')
+          // .find((row) => row.startsWith("accessToken"))
+          // .split('=')[1];
+          const token = Cookies.get("accessToken");
           return newRequest.post('/lessons', gig, {
             headers: {
               Authorization: `Bearer ${token}`,
