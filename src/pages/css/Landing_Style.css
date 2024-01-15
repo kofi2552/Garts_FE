@@ -22,6 +22,12 @@
     font-weight: 700;
     color: #fff;
   }
+
+  @media screen and (max-width: 450px) {
+    .home-site-content .heading-text {
+      font-size: 60px;
+    }
+  }
   
   .home-site-content .heading-text span {
     color: #fff;
