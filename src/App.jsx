@@ -53,6 +53,7 @@ function App() {
           <Route path="/" element={<Layout2 />}>
           <Route path="/add-project" element={<AddProject />} />
           <Route path="/verify_payment/:id" element={<ConfirmProDownload />} />
+          <Route path="/verify/" element={<ConfirmProDownload />} />
           </Route>
         
           {/* <Route path="*" element={()=> {return (<div>404!, PAGE NOT FOUND</div>)} } /> */}
