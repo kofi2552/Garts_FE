@@ -33,6 +33,17 @@
     color: #fff;
     padding: 10px 0;
   }
+
+  .home-site-content .center-div {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  .home-site-content .search-section {
+    width: 80%;
+    margin: 0 auto;
+  }
   
   .home-site-content .home-cta {
     color: #003941;

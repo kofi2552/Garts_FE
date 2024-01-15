@@ -3,6 +3,7 @@ import { Link, useNavigate,useLocation } from "react-router-dom";
 import "./auth_Styles.css"
 import newRequest from "../../utils/newRequest";
 import logoclong from "../../assets/logo_2_color.png";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const location = useLocation();
@@ -19,7 +20,10 @@ const Login = () => {
       // console.log(email, password)
       const res = await newRequest.post("/auth/login", { email, password });
       const currentUser = res.data;
-     
+
+      const accessToken = Cookies.get("accessToken");
+      console.log("Access Token:", accessToken);
+
       sessionStorage.setItem("user", JSON.stringify(currentUser));
       const redirectUrl = new URLSearchParams(location.search).get(
         "redirect"
