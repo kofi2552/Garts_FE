@@ -20,6 +20,8 @@ import AdminProfile from "./pages/admin/AdminProfile";
 import AddProject from "./pages/projects/AddProject";
 import ConfirmProDownload from "./components/SingleProd/ConfirmProDownload";
 import Layout2 from "./components/Layout2";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import Auth0ProviderWithHistory from "./auth0-provider";
 
 
@@ -60,6 +62,7 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+          <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar />
     </div>
     // </Auth0ProviderWithHistory>
   );

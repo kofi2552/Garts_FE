@@ -20,6 +20,8 @@ import { FiMaximize2 } from "react-icons/fi";
 import Modal from "../Modal/Modal";
 import Social from "../socials/Social";
 import Cookies from "js-cookie";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SingleProduct = () => {
 
@@ -39,6 +41,17 @@ const SingleProduct = () => {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalImageUrl, setModalImageUrl] = useState('');
+
+
+  useEffect(() => {
+    if (errorMessage) {
+      toast.error(errorMessage, {
+        position: 'bottom-right',
+        autoClose: 3000, // Adjust duration as needed
+        hideProgressBar: false,
+      });
+    }
+  }, [errorMessage]);
 
 
 
@@ -162,6 +175,9 @@ const SingleProduct = () => {
     //   window.location.href = `/verify_payment/${id}`
     // }
 
+    const utmTrackerValue = Cookies.get('UTM_tracker');
+
+    console.log('UTM Tracker Value:', utmTrackerValue);
     
 
     const handlePayBtn = async () => {
@@ -450,7 +466,7 @@ const SingleProduct = () => {
               </div>
             </div>
           </div>
-          {errorMessage && <div className="error">{errorMessage}</div>}
+          {/* {errorMessage && <div className="error">{errorMessage}</div>} */}
           <div className="project-title pt-desk">
                 <h5 className="asset-title">
                   {gigData?.title || "Project Title"}
@@ -497,7 +513,7 @@ const SingleProduct = () => {
           </div>
         </div>
       )}
-
+      <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar />
       <Modal isOpen={isModalOpen} title="Download" size="full" onClose={handleModalClose}>
         <div className="cc-content-hd">
             <img src={modalImageUrl} alt="Modal Image" loading="lazy" />
