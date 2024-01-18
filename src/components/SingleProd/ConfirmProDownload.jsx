@@ -1,83 +1,39 @@
 import { useEffect, useState} from "react"
-import { useParams } from "react-router-dom";
+import {useLocation } from "react-router-dom";
 import "./ConfirmPD.css"
-import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
-import axios from "axios";
 
 const ConfirmProDownload = () => {
 
-  const { id } = useParams();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const reference = queryParams.get("reference");
 
-  const [creater, setCreator] = useState(null);
   const [project, setProject] = useState();
 
 
-
-  const {
-    isLoading,
-    error,
-    data: gigData,
-  } = useQuery({
-    queryKey: ["gig", id],
-    queryFn: () =>
-      newRequest.get(`lessons/single/${id}`).then((res) => {
-        setProject(res.data);
-        // console.log(res.data)
-        return res.data;
-      }),
-  });
-
-
-  const CreatorId = gigData?.userId;
-
-  
-  const {
-  } = useQuery({
-    queryKey: ["user", CreatorId],
-    queryFn: () =>
-      newRequest.get(`users/user/${CreatorId}`).then((res) => {
-        setCreator(res.data)
-        // console.log(res.data)
-        return res.data;
-      }),
-    enabled: !!CreatorId,
-  });
-
-
-
-  const sendPutRequest = async () => {
+const sendPutRequest = async () => {
     try {
+      console.log("reference:",reference);
 
-      const paymentReference = localStorage.getItem("paymentReference");
+      const response = await newRequest.post(`pay/verify_payment/${reference}`);
 
-      console.log(paymentReference)
-
-      const response = await newRequest.post(`pay/verify_payment/${id}`, {
-        data: {
-          reference: paymentReference, // Replace with the actual reference value
-        },
-        
-      });
-
-      console.log(response.data); 
+      console.log("response from back:", response.data);
 
       if (response.data.status === "success") {
-        // If success, show the download link
-        // setDownloadVisible(true);
+        // If success, set project
+        setProject(response.data.gigData);
       }
-
-    }  catch (error) {
+    } catch (error) {
       console.error("Error sending post request:", error);
     }
-    };
+  };
 
-
-    useEffect(() => {
-    sendPutRequest();
-
-  }, [id]);
-
+  useEffect(() => {
+    if (reference) {
+      sendPutRequest();
+    }
+  }, [reference]);
 
   let countdown = 10;
 

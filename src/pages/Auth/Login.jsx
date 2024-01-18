@@ -21,8 +21,8 @@ const Login = () => {
       const res = await newRequest.post("/auth/login", { email, password });
       const currentUser = res.data;
 
-      const accessToken = Cookies.get("accessToken");
-      console.log("Access Token:", accessToken);
+      // const accessToken = Cookies.get("accessToken");
+      // console.log("Access Token:", accessToken);
 
       sessionStorage.setItem("user", JSON.stringify(currentUser));
       const redirectUrl = new URLSearchParams(location.search).get(
