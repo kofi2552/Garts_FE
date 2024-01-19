@@ -94,3 +94,22 @@
             height: 100%;
         }
   }
+
+
+  .countdown-circle {
+    width: 50px; /* Set the width and height based on your design preferences */
+    height: 50px;
+    background-color: #3498db; /* Set the background color */
+    color: white; /* Set the text color */
+    border-radius: 50%; /* Make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Set the font size */
+    font-weight: bold;
+    position: absolute;
+    top: 20px; /* Adjust the position based on your design */
+    right: 20px;
+    margin: 0 auto;
+    padding: 20px 0;
+  }

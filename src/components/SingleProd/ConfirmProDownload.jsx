@@ -106,7 +106,7 @@ const initiateDownload = async (fileUrl) => {
               />
             </div>
                 <h2>{project?.title}</h2>
-                <div className="loader">LOADING........</div>
+                <div className="countdown-circle">{countdown}</div>
               <div className="asset-info">
                 <p>We are preparing the file. Your download will begin shortly</p>
                 <div className="act-dwn">if your download doesnt start automatically, click <a onClick={sendPutRequest}>here</a></div>
