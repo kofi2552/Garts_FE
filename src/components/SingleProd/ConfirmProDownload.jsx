@@ -96,7 +96,7 @@ const initiateDownload = async (fileUrl) => {
     <>
       <section className="project-section-wrapper">
         <div className="project-container-fluid">
-          {project?.isPaid ? "Asset purchased successfully" : (<h1>Download your free asset</h1>)}
+          {project?.isPaid ? (<h1>Asset purchased successfully</h1>) : (<h1>Download your free asset</h1>)}
           <div className="detail-container">
             <div className="image-content">
               <img
