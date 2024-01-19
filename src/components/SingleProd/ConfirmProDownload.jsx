@@ -59,10 +59,16 @@ const sendPutRequest = async () => {
   }, [project]);
 
 
+  // Function to extract filename from the URL
+const extractFilenameFromUrl = (fileUrl) => {
+  const urlParts = fileUrl.split('/');
+  return urlParts[urlParts.length - 1];
+};
+
 const initiateDownload = async (fileUrl) => {
   try {
     // Make a GET request to your backend endpoint for file download
-    const response = await newRequest.get(`${extractFilenameFromUrl(fileUrl)}`, {
+    const response = await newRequest.get(`download/${extractFilenameFromUrl(fileUrl)}`, {
       responseType: 'blob',  // Set responseType to 'blob' to handle binary data
     });
 
@@ -83,11 +89,6 @@ const initiateDownload = async (fileUrl) => {
   }
 };
 
-// Function to extract filename from the URL
-const extractFilenameFromUrl = (fileUrl) => {
-  const urlParts = fileUrl.split('/');
-  return urlParts[urlParts.length - 1];
-};
 
 
 
