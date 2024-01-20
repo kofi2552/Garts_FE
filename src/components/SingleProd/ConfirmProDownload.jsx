@@ -2,6 +2,7 @@ import { useEffect, useState} from "react"
 import {useLocation } from "react-router-dom";
 import "./ConfirmPD.css"
 import newRequest from "../../utils/newRequest";
+import { Oval as Loader } from "react-loader-spinner";
 
 const ConfirmProDownload = () => {
 
@@ -10,7 +11,7 @@ const ConfirmProDownload = () => {
   const reference = queryParams.get("reference");
   const [countdwn, setCountdwn] = useState(10);
   const [project, setProject] = useState();
-
+  const [downloadStatus, setDownloadStatus] = useState("downloading");
 
 const sendPutRequest = async () => {
     try {
@@ -35,9 +36,6 @@ const sendPutRequest = async () => {
     }
   }, [reference]);
 
-  // let countdown = 10;
-
-  // useEffect(() => {
   //   const countdownInterval = setInterval(() => {
 
   //     setCountdwn((prevCountdown) => prevCountdown - 1);
@@ -91,11 +89,13 @@ const sendPutRequest = async () => {
 
 const initiateDownload = async (fileUrl) => {
   try {
-    // Make a GET request to your backend endpoint for file download
+    setDownloadStatus('fileready');
     const response = await newRequest.get(`download/${extractFilenameFromUrl(fileUrl)}`, {
       responseType: 'blob',  // Set responseType to 'blob' to handle binary data
     });
 
+    localStorage.setItem('downloadedFileUrl', fileUrl);
+    // const file_location = localStorage.setItem("user", response.data.);
     // Create a Blob from the response data
     const blob = new Blob([response.data], { type: response.headers['content-type'] });
 
@@ -107,13 +107,24 @@ const initiateDownload = async (fileUrl) => {
 
     // Clean up
     window.URL.revokeObjectURL(link.href);
-
+    setDownloadStatus("success");
   } catch (error) {
     console.error('Error initiating download:', error);
+    setDownloadStatus("error downloading");
   }
 };
 
+const retryDownload = () => {
+  // Retrieve the fileUrl from local storage
+  const fileUrl = localStorage.getItem('downloadedFileUrl');
 
+  if (fileUrl) {
+    // If fileUrl is found, initiate the download
+    initiateDownload(fileUrl);
+  } else {
+    console.error('No file URL found in local storage');
+  }
+};
 
 
   return (
@@ -122,20 +133,46 @@ const initiateDownload = async (fileUrl) => {
         <div className="project-container-fluid">
           {project?.isPaid ? (<h1>Asset purchased successfully</h1>) : (<h1>Download your free asset</h1>)}
           <div className="detail-container">
-            <div className="image-content">
-              <img
-                src={project?.image}
-                alt=""
-                loading="lazy"
-              />
+                    <div className="image-content">
+                        <img src={project?.image} alt="" loading="lazy" />
+                    </div>
+                    <h2>{project?.title}</h2>
+                    <div className='loading-states'>
+                    {downloadStatus === 'downloading' && (
+                        <div className="loader-group">
+                        <div className="countdown-circle">{countdwn}</div>
+                        <Loader type="Oval" color="#fff" height={90} width={90} />
+                        </div>
+                    )}
+                    {downloadStatus === 'fileready' && (
+                       <div className="loader-group">
+                       <div className='flrdy-text'>almost ready..</div>
+                       <Loader type="Oval" color="#fff" height={100} width={100} />
+                       </div>
+                    )}
+                     {downloadStatus === 'success' && (
+                        <>
+                        <div className="download-success">
+                        <IoCheckmarkDoneCircleOutline size={60} />
+                        <div className="download-success">Download successful</div>
+                        </div>
+
+                        <div className="asset-info">
+                        <p>We are preparing the file. Your download will begin shortly</p>
+                        <div className="act-dwn">
+                            If your download doesn't start automatically, click <a onClick={retryDownload}>here</a>
+                        </div>
+                        </div>
+                        </>
+                    )}
+                     {downloadStatus === 'error' && (
+                      
+                       <div className='error'><strong>There was an error downloading the file.</strong> Reload the page and try again after 5 seconds..</div>
+                     
+                    )}
+                    </div>
+                   
             </div>
-                <h2>{project?.title}</h2>
-                <div className="countdown-circle">{countdwn}</div>
-              <div className="asset-info">
-                <p>We are preparing the file. Your download will begin shortly</p>
-                <div className="act-dwn">if your download doesnt start automatically, click <a onClick={sendPutRequest}>here</a></div>
-            </div>
-          </div>
         </div>
       </section>
      
