@@ -5,7 +5,7 @@ import ProductCard from "../components/Card/ProductCard";
 import { Grid } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../utils/newRequest";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 
 const Home = () => {

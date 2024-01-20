@@ -190,11 +190,13 @@ const AddProject = () => {
 
           if (response.data) {
             setSuccessMessage(response.data.message);
+            setTimeout(() => {
+              navigate("/search");
+            }, 2500);
           } else {
             setError("Project was not created successfully!");
-            console.log("Frt: Project not created, no response recieved!")
+            console.log("Frt: Project not created, no response received!");
           }
-          navigate("/search");
       } catch (error) {
           // If there's an error, extract and display the error message
           if (error.response &&  error.message && error.response.data && error.response.data.error && error.response.data.error.message) {
