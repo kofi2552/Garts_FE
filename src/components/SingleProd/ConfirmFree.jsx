@@ -40,7 +40,7 @@ const ConfirmFree = () => {
   const extractFilenameFromUrl = (fileUrl) => {
     console.log("File URL:", fileUrl);
     const urlParts = fileUrl.split('/');
-    console.log("URL Parts:", urlParts);
+    // console.log("URL Parts:", urlParts);
     return urlParts[urlParts.length - 1];
   };
 
