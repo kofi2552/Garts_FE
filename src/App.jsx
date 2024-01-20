@@ -22,6 +22,7 @@ import ConfirmProDownload from "./components/SingleProd/ConfirmProDownload";
 import Layout2 from "./components/Layout2";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ConfirmFree from "./components/SingleProd/ConfirmFree";
 // import Auth0ProviderWithHistory from "./auth0-provider";
 
 
@@ -54,7 +55,7 @@ function App() {
 
           <Route path="/" element={<Layout2 />}>
           <Route path="/add-project" element={<AddProject />} />
-          <Route path="/verify_payment/:id" element={<ConfirmProDownload />} />
+          <Route path="/verify_payment/:id" element={<ConfirmFree />} />
           <Route path="/verify/" element={<ConfirmProDownload />} />
           </Route>
         

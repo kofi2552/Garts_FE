@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import './Modal.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Modal = ({
   title,
@@ -27,44 +28,92 @@ const Modal = ({
   const handleClose = () => {
     setOpen(false);
     if (onClose) {
-      onClose(); // Notify parent component about the modal close
+      onClose(); 
     }
   };
 
-  const modalComponent =
-    open &&
-    ReactDOM.createPortal(
-      <div className={`cc-modal-container${addedClasses}`} id={modalId}>
-        <button
-          className="cc-modal-overlay"
-          onClick={handleClose}
-          aria-label="Close Modal"
-        />
-        <div className="cc-modal">
-          {size !== 'dialog' ? (
-            <div className="cc-modal-header">
-              <h3 className="cc-modal-title">{title}</h3>
-              <button
-                className="cc-modal-close"
-                onClick={handleClose}
-                aria-label="Close Modal"
-              />
-            </div>
-          ) : (
-            <button className="cc-modal-fixed-close" onClick={handleClose}>
-              Close
-            </button>
-          )}
 
-          <div className="cc-modal-body">{children}</div>
-        </div>
-      </div>,
-      document.body
-    );
+  const modalClasses = `cc-modal${addedClasses}`;
+
 
   return (
     <>
-      {modalComponent}
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="cc-modal-container"
+          id={modalId}
+        >
+          <motion.button
+            className={`cc-modal-overlay${open ? '' : ' closed'}`}
+            onClick={handleClose}
+            aria-label="Close Modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: open ? 0.7 : 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className={modalClasses}
+            initial={{ opacity: 0, translateY: '100%' }}
+            animate={{ opacity: 1, translateY: '0%' }}
+            exit={{ opacity: 0, translateY: '100%' }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            {size !== 'dialog' ? (
+              <motion.div
+                className="cc-modal-header"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                <h3 className="cc-modal-title">{title}</h3>
+                <motion.button
+                  className="cc-modal-close"
+                  onClick={handleClose}
+                  aria-label="Close Modal"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                />
+              </motion.div>
+            ) : (
+              <motion.button
+                className="cc-modal-fixed-close"
+                onClick={handleClose}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+              >
+                Close
+              </motion.button>
+            )}
+
+            <motion.div
+              className="cc-modal-body"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              {/* <motion.button
+                  className="cc-modal-close"
+                  onClick={handleClose}
+                  aria-label="Close Modal"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                /> */}
+              {children}
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
     </>
   );
 };
@@ -83,6 +132,75 @@ Modal.propTypes = {
 
 export default Modal;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// old code for modal conatiner
+// const modalComponent =
+// open &&
+// ReactDOM.createPortal(
+//   // <div className={`cc-modal-container${addedClasses}`} id={modalId}>
+//   <div className={modalClasses} id={modalId}>
+//     <button
+//       className="cc-modal-overlay"
+//       onClick={handleClose}
+//       aria-label="Close Modal"
+//     />
+//     <div className={modalBodyClasses}>
+//     {/* <div className="cc-modal"> */}
+//       {size !== 'dialog' ? (
+//         <div className="cc-modal-header">
+//           <h3 className="cc-modal-title">{title}</h3>
+//           <button
+//             className="cc-modal-close"
+//             onClick={handleClose}
+//             aria-label="Close Modal"
+//           />
+//         </div>
+//       ) : (
+//         <button className="cc-modal-fixed-close" onClick={handleClose}>
+//           Close
+//         </button>
+//       )}
+
+//       <div className="cc-modal-body">{children}</div>
+//     </div>
+//   </div>,
+//   document.body
+// );
 
 
 

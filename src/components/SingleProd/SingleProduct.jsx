@@ -22,6 +22,7 @@ import Social from "../socials/Social";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
+import { Oval as Loader } from "react-loader-spinner";
 
 const SingleProduct = () => {
 
@@ -35,9 +36,6 @@ const SingleProduct = () => {
   const [showPhoneNumber, setShowPhoneNumber] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [isPaid, setPaid] = useState(false)
-  // const [OrderIntentid, setOrderIntentid] = useState();
-  // const [token, setToken] = useState("");
-  // const [payresult, setPayresult] = useState("");
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalImageUrl, setModalImageUrl] = useState('');
@@ -121,25 +119,26 @@ const SingleProduct = () => {
       return currentUser;
     };
       
-
     const handlePayBtn = async () => {
       const currentUser = getUserData();
     
       if (currentUser) {
         const { username, phone, email } = currentUser;
-        let amount = project?.price;
         const unlockcode = project?.unlockcode;
         const isPaid = project?.isPaid;
     
         // Check if the project is free, set amount to 0
-        if (!isPaid) {
-          amount = 0;
-        }
+        let amount = isPaid ? project?.price : 0;
     
         // Check if user data is complete
-        if (username && phone && email && unlockcode && isPaid) {
+        if (username && phone && email && unlockcode) {
           try {
             const token = Cookies.get("accessToken");
+    
+            if (!isPaid) {
+              // Redirect to verify_payment page for unpaid projects
+              window.location.href = `/verify_payment/${id}`;
+            } else {
               const transactionResponse = await initializeTransaction(
                 email,
                 amount,
@@ -149,34 +148,27 @@ const SingleProduct = () => {
                 token
               );
     
-              // const { authorization_url, reference } = transactionResponse;
               const { authorization_url } = transactionResponse;
     
-              // localStorage.setItem("paymentReference", reference);
-    
               window.location.href = authorization_url;
-            } 
-           catch (error) {
+            }
+          } catch (error) {
             console.error("Error initializing transaction:", error);
             setErrorMessage("Payment processing unsuccessful!");
           }
         } else {
-          console.error("Incomplete user data or project is not paid");
+          console.error("Incomplete user data");
           setErrorMessage("Incomplete data! Try Again");
         }
       } else {
         console.error("Can not initiate transaction. User data not found!");
         setErrorMessage("User data not found!");
-    
-        if (!project?.isPaid) {
-          window.location.href = `/verify_payment/${id}`;
-        } else {
-          window.location.href = `/login?redirect=${encodeURIComponent(
-            location.pathname
-          )}`;
-        }
+        window.location.href = `/login?redirect=${encodeURIComponent(
+          location.pathname
+        )}`;
       }
     };
+    
     
     
 
@@ -202,7 +194,9 @@ const SingleProduct = () => {
       <section className="product-section-wrapper">
      
       {isLoading ? (
-        <p>Loading</p>
+        <div className="loader-page">
+         <Loader type="Oval"  height={100} width={100} />
+         </div>
       ) : error ? (
         <div className="network-error">Network error. Try again!</div>
       ) : (
@@ -225,7 +219,6 @@ const SingleProduct = () => {
                 <div className="project-brand">
                   <div className="users-name-icon" style={{ backgroundColor: userColor }}>
                   {creater?.username?.charAt(0).toUpperCase()}
-                
                   </div>
                   <div className="creator-info">
                   <p>{creater?.username}</p>
@@ -320,22 +313,22 @@ const SingleProduct = () => {
                   </div>
                   <div className="bottom-details">
                     <div className="lincensed-ornot mb-2">
-                      <HiOutlineCheckBadge className="license-color" size={21} />
-                      <span><strong>Commercial License</strong></span>
+                    <strong><HiOutlineCheckBadge className="license-color" size={21} /></strong>
+                      <span>{ isPaid ? "Purchase this licensed project":"Free commercial License"}</span>
                     </div>
                     <div className="type-of-asset mb-0">
-                      <BsFileEarmark
+                    <strong><BsFileEarmark
                         className="license-color2"
                         size={17}
-                      />
-                      <span><strong>File format:</strong>&nbsp;{gigData?.filetype || "N/A"}</span>
+                      /></strong>
+                      <span>Type of File:&nbsp;<em>{gigData?.filetype || "N/A"}</em></span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* {errorMessage && <div className="error">{errorMessage}</div>} */}
+         
           <div className="project-title pt-desk">
                 <h5 className="asset-title">
                   {gigData?.title || "Project Title"}
@@ -345,7 +338,7 @@ const SingleProduct = () => {
           <div className="middle-content">
             <div className="project-desc">
             <div className="asset-description">
-              <p>{ gigData?.desc || "The Company may, at any moment, and without incurring in"}</p>
+              <p>{ gigData?.desc || "Provide description for your project"}</p>
             </div>
             {/* <div className="more-proj-detail">
             <h4>Most curated project areas</h4>
@@ -383,14 +376,12 @@ const SingleProduct = () => {
         </div>
       )}
       <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar />
-      <Modal isOpen={isModalOpen} title="Download" size="full" onClose={handleModalClose}>
+      <Modal isOpen={isModalOpen} title="Asset View" size="full" onClose={handleModalClose}>
         <div className="cc-content-hd">
             <img src={modalImageUrl} alt="Modal Image" loading="lazy" />
         </div>
       </Modal>
       </section>
-
-      
     </>
   );
 };

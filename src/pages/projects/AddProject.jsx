@@ -8,7 +8,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { upload, uploadProjectFile } from "../../utils/upload";
 import { useDropzone } from 'react-dropzone';
-import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+
 
 const AddProject = () => {
 
@@ -21,6 +22,8 @@ const AddProject = () => {
     const [user, setUser] = useState(null);
     const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
 
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -163,6 +166,7 @@ const AddProject = () => {
 
     const mutation = useMutation({
         mutationFn: (gig) => {
+          return newRequest.post("/lessons", gig);
         },
         onSuccess: () => {
             queryClient.invalidateQueries(["myGigs"]);
@@ -180,16 +184,25 @@ const AddProject = () => {
         try {
           console.log("Submitting Gig Data:", gigData);
           // Attempt to mutate and wait for the result
-          await mutation.mutateAsync(gigData);
-          setSuccessMessage("Project created successfully!");
-          // navigate("/search");
+          const response = await mutation.mutateAsync(gigData);
+
+          console.log("bck: response after project save:", response)
+
+          if (response.data) {
+            setSuccessMessage(response.data.message);
+          } else {
+            setError("Project was not created successfully!");
+            console.log("Frt: Project not created, no response recieved!")
+          }
+          navigate("/search");
       } catch (error) {
           // If there's an error, extract and display the error message
           if (error.response &&  error.message && error.response.data && error.response.data.error && error.response.data.error.message) {
               setError([`An error occurred: ${error.response.data.error.message || error.message}`]);
           } else {
               // Use a generic message if the specific error structure is not available
-              setError("An error occurred while saving the project. Please try again.");
+              setError("Error saving the project. Please try again.");
+              console.log("project error:", error)
           }
       }
     };

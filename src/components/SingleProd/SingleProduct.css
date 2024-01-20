@@ -722,6 +722,7 @@
     .title-text {
       text-align: center;
     }
+
     .bottom-details {
       flex-direction: column !important;
       gap: 10px;
@@ -744,13 +745,25 @@
 
     .p-right-content .pt-mob {
       display: block !important;
-      padding: 20px 0;
+      padding: 10px 0;
     } 
+    .p-right-content .asset-title {
+      padding-bottom: 10px;
+    } 
+
+    .middle-content .project-desc {
+      padding: 10px 0 !important;
+  }
+
+  .middle-content .XCreator-box {
+    padding-top: 10px !important;
+  }
   
-    /* .middle-content .project-desc {
-      width: 100% !important;
-      max-width:unset!important;
-    } */
+    .middle-content .asset-description {
+      padding: 10px 3px !important;
+      color: #000 !important;
+      font-weight: 500;
+    }
   
     .mobile-like {
       display: flex;
@@ -793,6 +806,44 @@
     .p-right-content .asset-details {
       gap: 0 !important;
       margin: 10px 0;
+  }
+
+  .p-right-content .bottom-details .mb-2 {
+    margin-bottom: 5px !important;
+}
+
+  .p-right-content .bottom-details .lincensed-ornot svg{
+    width: 16px !important;
+  }
+  .p-right-content .bottom-details .lincensed-ornot span {
+    font-size: 14px;
+    font-weight: 500 !important;
+    margin-left: -5px;
+  }
+  .p-right-content .bottom-details .type-of-asset svg{
+    width: 14px !important;
+  }
+  .p-right-content .bottom-details .type-of-asset span {
+    font-size: 14px;
+    font-weight: 500 !important;
+    margin-left: -5px;
+    margin-top: -5px !important;
+  }
+  .p-right-content .bottom-details .type-of-asset span em {
+    color: #009797;
+    font-weight: 400;
+  }
+  .XCreator-box {
+    margin-left: -10px !important;
+  }
+  .middle-content .XCreator-info h1 {
+    font-size: 20px;
+  }
+  .middle-content .XCreator-info .user-socials {
+    padding-top: 3px;
+  }
+  .middle-content .XCreator-info .user-socials .social-item span{
+    font-size: 12px;
   }
   }
 

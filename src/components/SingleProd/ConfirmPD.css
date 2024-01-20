@@ -47,12 +47,12 @@
   }
 
   .project-section-wrapper  .detail-container h2 {
-    font-size: 35px;
+    font-size: 28px;
     line-height: 1.5;
     text-align: center;
     color: #29353e;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 17px 0;
   }
 
   .project-section-wrapper  .detail-container .loader {
@@ -107,7 +107,7 @@
   .countdown-circle {
     width: 50px; /* Set the width and height based on your design preferences */
     height: 50px;
-    background-color: #34dbca; /* Set the background color */
+    background-color: #34dbca7d; /* Set the background color */
     color: #fff; /* Set the text color */
     border-radius: 50%; /* Make it a circle */
     display: flex;
@@ -119,4 +119,62 @@
     padding: 15px 0;
     text-align: center;
     line-height: 50px;
+  }
+
+  .loader-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .countdown-circle {
+    position: absolute;
+    z-index: 1; /* Ensure countdown is above the loader */
+    font-size: 24px; /* Adjust font size as needed */
+    color: #fff; /* Set the font color to match your loader background */
+  }
+  
+  /* Additional styles for the loader */
+  .react-loader-spinner {
+    position: relative;
+  }
+
+  [data-testid="oval-loading"] {
+    stroke: none !important; /* Set the main stroke color */
+  }
+  
+  [data-testid="oval-secondary-group"] circle {
+    stroke: #00bba8; /* Set the secondary circle stroke color */
+    /* stroke-opacity: 0.5;  */
+    /* Set the opacity of the secondary circle */
+  }
+
+  .download-success {
+    font-size: medium;
+    color: #0dbaa5;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .flrdy-text {
+    text-align: center;
+    color: #29353e;
+    font-size: small;
+      position: absolute;
+      z-index: 1; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+  }
+
+  .loading-states {
+    padding: 20px 0;
+  }
+
+  .loading-states .error {
+    text-align: center;
+    color: #8d2d3a;
+    font-size: small;
   }
