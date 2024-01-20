@@ -105,11 +105,17 @@ const ConfirmFree = () => {
                         <Loader type="Oval" color="#fff" height={90} width={90} />
                         </div>
                     )}
-                    {downloadStatus === 'fileready' && (
+                     {downloadStatus === 'fileready' && (
+                      <>
                        <div className="loader-group">
                        <div className='flrdy-text'>almost ready..</div>
                        <Loader type="Oval" color="#fff" height={100} width={100} />
                        </div>
+                        <div className="asset-info">
+                        <p>We are preparing the file. Your download will begin shortly</p>
+              
+                        </div>
+                        </>
                     )}
                      {downloadStatus === 'success' && (
                         <>
@@ -119,9 +125,9 @@ const ConfirmFree = () => {
                         </div>
 
                         <div className="asset-info">
-                        <p>We are preparing the file. Your download will begin shortly</p>
+        
                         <div className="act-dwn">
-                            If your download doesn't start automatically, click <a onClick={retryDownload}>here</a>
+                            If your download didn't start automatically, click <a onClick={retryDownload}>here</a>
                         </div>
                         </div>
                         </>
