@@ -8,7 +8,7 @@ const ConfirmProDownload = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const reference = queryParams.get("reference");
-
+  const [countdwn, setCountdwn] = useState(10);
   const [project, setProject] = useState();
 
 
@@ -35,14 +35,41 @@ const sendPutRequest = async () => {
     }
   }, [reference]);
 
-  let countdown = 10;
+  // let countdown = 10;
+
+  // useEffect(() => {
+  //   const countdownInterval = setInterval(() => {
+
+  //     setCountdwn((prevCountdown) => prevCountdown - 1);
+  //     // console.log(`Countdown: ${countdown}`);
+  //     // countdown--;
+  
+  //     if (countdown === 0) {
+  //       clearInterval(countdownInterval);
+  
+  //       // After the countdown, initiate the download
+  //       if (project && project?.projectFileUrl) {
+  //         initiateDownload(project.projectFileUrl);
+  //       }
+  
+  //       console.log("File download initiated", project?.projectFileUrl);
+  //     }
+  //   }, 1000);
+  
+  //   // Cleanup the interval when the component unmounts
+  //   return () => clearInterval(countdownInterval);
+  // }, [countdwn, project]);
+
+
+  // Function to extract filename from the URL
+
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
-      console.log(`Countdown: ${countdown}`);
-      countdown--;
-  
-      if (countdown === 0) {
+      setCountdwn((prevCountdown) => (prevCountdown > 0 ? prevCountdown - 1 : 0));
+    }, 1000);
+
+          if (countdwn === 0) {
         clearInterval(countdownInterval);
   
         // After the countdown, initiate the download
@@ -52,15 +79,12 @@ const sendPutRequest = async () => {
   
         console.log("File download initiated", project?.projectFileUrl);
       }
-    }, 1000);
-  
-    // Cleanup the interval when the component unmounts
+
     return () => clearInterval(countdownInterval);
-  }, [project]);
+  }, []);
 
 
-  // Function to extract filename from the URL
-const extractFilenameFromUrl = (fileUrl) => {
+  const extractFilenameFromUrl = (fileUrl) => {
   const urlParts = fileUrl.split('/');
   return urlParts[urlParts.length - 1];
 };
@@ -106,7 +130,7 @@ const initiateDownload = async (fileUrl) => {
               />
             </div>
                 <h2>{project?.title}</h2>
-                <div className="countdown-circle">{countdown}</div>
+                <div className="countdown-circle">{countdwn}</div>
               <div className="asset-info">
                 <p>We are preparing the file. Your download will begin shortly</p>
                 <div className="act-dwn">if your download doesnt start automatically, click <a onClick={sendPutRequest}>here</a></div>
