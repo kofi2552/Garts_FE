@@ -34,6 +34,9 @@
     margin: 0px 30px;
     padding: 20px;
     margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .home-site-content .home-bgrnd::after {
