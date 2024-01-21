@@ -93,6 +93,13 @@
   color: #2e9b9b;
 }
 
+.mainfilterbox .cat-links {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
 @media screen and (min-width: 1500px) {
   .tags-container {
     justify-content: center !important;

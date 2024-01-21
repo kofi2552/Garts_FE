@@ -5,6 +5,7 @@ import './ConfirmPD.css';
 import newRequest from '../../utils/newRequest';
 import { Oval as Loader } from 'react-loader-spinner';
 import { IoCheckmarkDoneCircleOutline } from "react-icons/io5";
+import { BiError } from "react-icons/bi";
 
 const ConfirmFree = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const ConfirmFree = () => {
   const { error } = useQuery({
     queryKey: ['gig', id],
     queryFn: () =>
-      newRequest.get(`lessons/single/${id}`).then((res) => {
+      newRequest.get(`projects/single/${id}`).then((res) => {
         setProject(res.data);
         return res.data;
       }),
@@ -85,7 +86,10 @@ const ConfirmFree = () => {
     <>
       <section className="project-section-wrapper">
         { error ? (
-          <div className="loader-group">Network error. Try again!</div>
+            <div className="network_error">
+              <BiError size={50} />
+            Network error. Try again!
+            </div>
         ) : (
           <div className="project-container-fluid">
             {project?.isPaid ? (

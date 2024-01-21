@@ -24,7 +24,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Cookies from 'js-cookie';
 import { Oval as Loader } from "react-loader-spinner";
 
-const SingleProduct = () => {
+const SingleProduct = ({categories}) => {
 
   const { id } = useParams();
   const location = useLocation();
@@ -67,7 +67,7 @@ const SingleProduct = () => {
 
   const {  data, err } = useQuery({
     queryKey: ["projects"], 
-    queryFn: () => newRequest.get("/lessons").then((res) => {
+    queryFn: () => newRequest.get("/projects").then((res) => {
       setAllProject(res.data);
       return res.data;
     }
@@ -81,7 +81,7 @@ const SingleProduct = () => {
   } = useQuery({
     queryKey: ["gig", id],
     queryFn: () =>
-      newRequest.get(`lessons/single/${id}`).then((res) => {
+      newRequest.get(`projects/single/${id}`).then((res) => {
         setProject(res.data);
         // console.log(res.data)
         return res.data;
@@ -192,7 +192,6 @@ const SingleProduct = () => {
   return (
     <>
       <section className="product-section-wrapper">
-     
       {isLoading ? (
         <div className="loader-page">
          <Loader type="Oval"  height={100} width={100} />
@@ -359,7 +358,7 @@ const SingleProduct = () => {
             </div>
           </div>
           <div className="related-tags">
-            <Categories />
+            <Categories categories={categories}/>
           </div>
           <div className="related-content">
             <h5 className="mb-3">You may also like</h5>
@@ -378,7 +377,7 @@ const SingleProduct = () => {
       <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar />
       <Modal isOpen={isModalOpen} title="Asset View" size="full" onClose={handleModalClose}>
         <div className="cc-content-hd">
-            <img src={modalImageUrl} alt="Modal Image" loading="lazy" />
+            <img src={modalImageUrl} alt="project-image" />
         </div>
       </Modal>
       </section>

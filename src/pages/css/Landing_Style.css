@@ -26,6 +26,7 @@
   @media screen and (max-width: 450px) {
     .home-site-content .heading-text {
       font-size: 60px;
+      margin-top: -15px !important;
     }
   }
   
@@ -44,6 +45,12 @@
     width: 100%;
     padding: 20px;
     margin: 0 auto;
+  }
+
+  @media screen and (max-width: 768px){
+    .home-site-content .center-div {
+      padding: 5px;
+    }
   }
   
   .home-site-content .search-section {
