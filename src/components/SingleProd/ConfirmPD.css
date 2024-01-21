@@ -197,3 +197,27 @@
     font-size: large;
     color: #000;
   }
+
+  .project-container-fluid .card-footer {
+    font-size: .875rem;
+    color: #324a5d;
+    padding: 20px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-container-fluid .card-footer svg {
+    margin: 0 2px;
+}
+
+.project-container-fluid .card-footer a {
+    color: #5e72e4;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.project-container-fluid .card-footer a:hover {
+    text-decoration: underline;
+}
