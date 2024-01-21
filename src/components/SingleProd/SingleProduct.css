@@ -882,6 +882,13 @@
 
   /* MODEL CONETENT style */
 
+  .cc-content-hd {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: contain !important;
+    background-color: #fafafa;
+  }
+
  .cc-content-hd img {
   width: 100%;
   max-height: 80vh;

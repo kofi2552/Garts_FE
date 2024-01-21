@@ -30,15 +30,7 @@ function Landing() {
     },
   };
 
-  // let ref = useRef(null);
-  // let { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["start start", "end start"],
-  // });
-
-  // let y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-
-  function handleSwipe() {}
+  
 
   return (
     <section className="home-page-wrapper">
@@ -63,7 +55,7 @@ function Landing() {
                     <Featured />
                   </div>
                   <Link
-                    to="/search"
+                    to="/projects"
                     className="home-cta text-center text-white --normal-button"
                   >
                     Get Started

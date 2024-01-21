@@ -1,4 +1,5 @@
 import "./App.css";
+import {useEffect,  useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
@@ -23,18 +24,48 @@ import Layout2 from "./components/Layout2";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ConfirmFree from "./components/SingleProd/ConfirmFree";
+import newRequest from "./utils/newRequest";
 // import Auth0ProviderWithHistory from "./auth0-provider";
 
 
 function App() {
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await newRequest.get("categories/all");
+        setCategories(response.data);
+        // console.log(categories);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+
+  const [filterParams, setFilterParams] = useState({});
+  const [sort, setSort] = useState("sales");
+
+  const applyFilter = ({ min, max }) => {
+    setFilterParams({ min, max });
+  };
+
+  const applySort = (type) => {
+    setSort(type);
+  };
+
 
   return (
     // <Auth0ProviderWithHistory>
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LandMain />}>
-            <Route index element={<Landing />} />
+          <Route path="/" element={<LandMain cat={categories}/>}>
+            <Route index element={<Landing cat={categories}/>} />
           </Route>
 
           <Route path="/login" element={<Login />} />
@@ -45,12 +76,13 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           
 
-          <Route path="/" element={<Layout />}>
-            <Route path="search" element={<Home />} />
+          <Route path="/" element={<Layout cat={categories} applyFilter={applyFilter} applySort={applySort}/>}>
+            <Route path="/projects" element={<Home filterParams={filterParams} sort={sort} />} />
+            <Route path="/search" element={<Home />} />
             <Route path="profile" element={<Profile />} />
             <Route path="admin" element={<AdminProfile />} />
             <Route path="trending" element={<Trending />} />
-            <Route path="project/:id" element={<SingleProduct />} />
+            <Route path="projects/:id" element={<SingleProduct categories={categories}/>} />
           </Route>
 
           <Route path="/" element={<Layout2 />}>

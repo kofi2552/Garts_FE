@@ -6,8 +6,6 @@ import { HiOutlineFolderDownload } from "react-icons/hi";
 import { PiTagChevronFill } from "react-icons/pi";
 import { BsFileEarmarkImage } from "react-icons/bs";
 import { BsFillFileEarmarkZipFill } from "react-icons/bs";
-import { useQuery } from "@tanstack/react-query";
-import newRequest from "../../utils/newRequest";
 
 
 
@@ -18,21 +16,10 @@ const ProductCard = ({gig}) => {
 
   const handleCardClick = () => {
     window.location.href = `${
-      location.pathname === '/search' ? `/project/${gig?._id}` : `/project/${gig?._id}`
+      location.pathname === '/search' ? `/projects/${gig?._id}` : `/projects/${gig?._id}`
     }`; 
   };
 
-  // const ProjUser = gig?.userId;
-
-  // console.log("ProjUser:", ProjUser)
-
-  // const { isLoading, error, data } = useQuery({
-  //   queryKey: [ProjUser],
-  //   queryFn: () =>
-  //     newRequest.get(`/users/user/${ProjUser}`).then((res) => {
-  //       return res.data;
-  //     }),
-  // });
 
   const fileType = gig?.filetype;
   const isPaidValue = gig?.isPaid;

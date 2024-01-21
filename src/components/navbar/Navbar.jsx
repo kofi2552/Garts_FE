@@ -11,27 +11,20 @@ import { HiUserCircle } from "react-icons/hi2";
 import { MdOutlineLogout } from "react-icons/md";
 
 
-const NavLand = () => {
+
+//-------- FOR ALL PROJECTS PAGE - FIRST PAGE ON VISIT-----------
+
+
+const NavLand = ({categories}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const [categories, setCategories] = useState([]);
+  // const [cat, setCat] = useState([]);
   const [user, setUser] = useState(null);
+
+
   const navigate = useNavigate();
 
-  //fetch categoories
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await newRequest.get("categories/all");
 
-        setCategories(response.data.slice(0, 3));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
+  // setCat(categories.slice(0, 3));
 
   //logout function
   const handleLogout = async () => {
@@ -156,33 +149,20 @@ const NavLand = () => {
                       <ul className="cat-links">
                         <li>
                           <Link to="#" className="nl_link-item">
-                            Popular
+                            Popular{">"}
                           </Link>
                         </li>
-                        <li>
-                          <Link to="#" className="nl_link-item">
-                            Latest 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#" className="nl_link-item">
-                            Popular 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#" className="nl_link-item">
-                            Latest 
-                          </Link>
-                        </li>
+                       
+                      
                         {categories &&
                           categories.map((card, index) => (
                             <li key={index}>
-                              <button
-                                onClick={() => navigate(`/lessons?cat=${card._id}`)}
+                              <Link
+                                to={`/search?cat=${card._id}`}
                                 className="nl_link-item"
                               >
                                 {card.name}
-                              </button>
+                              </Link>
                             </li>
                           ))}
                       </ul>

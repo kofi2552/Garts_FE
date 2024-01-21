@@ -8,7 +8,17 @@ import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 import { HiUserCircle } from "react-icons/hi2";
 import { MdOutlineLogout } from "react-icons/md";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
+
+
+
+
+
+//-------- FOR LANDING PAGE - FIRST PAGE ON VISIT-----------
+
+
+
+
 
 const NavLand = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -16,8 +26,9 @@ const NavLand = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  const { loginWithRedirect } = useAuth0();
+  // const { loginWithRedirect } = useAuth0();
 
+  
   //fetch categories
   useEffect(() => {
     const fetchCategories = async () => {
@@ -89,20 +100,20 @@ const NavLand = () => {
             </div>
             <div className="category-links_container">
               <ul className="cat-links">
-                <li>
+                {/* <li>
                   <Link to="#" className="nl_link-item">
                     Popular {">"}
                   </Link>
-                </li>
+                </li> */}
                 {categories &&
                   categories.map((card, index) => (
                     <li key={index}>
-                      <button
-                        onClick={() => navigate(`/lessons?cat=${card._id}`)}
+                      <Link
+                        to={`/search?cat=${card._id}`}
                         className="nl_link-item"
                       >
                         {card.name}
-                      </button>
+                      </Link>
                     </li>
                   ))}
               </ul>
@@ -112,12 +123,12 @@ const NavLand = () => {
             <ul className="btns_desktop">
               <div className="hide-mob">
                 <li>
-                  <Link to="sell" className="nl_link-item">
+                  <Link to="/sell" className="nl_link-item">
                     FAQ
                   </Link>
                 </li>
                 <li>
-                  <Link to="pricing" className="nl_link-item">
+                  <Link to="/pricing" className="nl_link-item">
                     Pricing
                   </Link>
                 </li>
@@ -179,34 +190,20 @@ const NavLand = () => {
                 </div>
                       <ul className="cat-links">
                         <li>
-                          <Link to="#" className="nl_link-item">
-                            Popular
+                          <Link to="/search" className="nl_link-item">
+                            All projects
                           </Link>
                         </li>
-                        <li>
-                          <Link to="#" className="nl_link-item">
-                            Latest 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#" className="nl_link-item">
-                            Popular 
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#" className="nl_link-item">
-                            Latest 
-                          </Link>
-                        </li>
+                    
                         {categories &&
                           categories.map((card, index) => (
                             <li key={index}>
-                              <button
-                                onClick={() => navigate(`/lessons?cat=${card._id}`)}
+                              <Link
+                                to={`/search?cat=${card._id}`}
                                 className="nl_link-item"
                               >
                                 {card.name}
-                              </button>
+                              </Link>
                             </li>
                           ))}
                       </ul>

@@ -3,6 +3,7 @@ import {useLocation } from "react-router-dom";
 import "./ConfirmPD.css"
 import newRequest from "../../utils/newRequest";
 import { Oval as Loader } from "react-loader-spinner";
+import { BiError } from "react-icons/bi";
 
 const ConfirmProDownload = () => {
 
@@ -105,7 +106,12 @@ const sendPutRequest = async () => {
       <section className="project-section-wrapper">
         <div className="project-container-fluid">
           {project?.isPaid ? (<h1>Asset purchased successfully</h1>) : (<h1>Download your free asset</h1>)}
-          <div className="detail-container">
+          <div className="project-container-fluid">
+           
+              <h1>Asset purchased successfully</h1>
+           
+            
+            <div className="detail-container">
                     <div className="image-content">
                         <img src={project?.image} alt="" loading="lazy" />
                     </div>
@@ -117,7 +123,7 @@ const sendPutRequest = async () => {
                         <Loader type="Oval" color="#fff" height={90} width={90} />
                         </div>
                     )}
-                    {downloadStatus === 'fileready' && (
+                     {downloadStatus === 'fileready' && (
                       <>
                        <div className="loader-group">
                        <div className='flrdy-text'>almost ready..</div>
@@ -146,12 +152,13 @@ const sendPutRequest = async () => {
                     )}
                      {downloadStatus === 'error' && (
                       
-                       <div className='error'><strong>There was an error downloading the file.</strong> Reload the page and try again after 5 seconds..</div>
+                       <div className='error'><BiError size={40} />
+                        <strong>There was an error downloading the file.</strong> Reload the page and try again after 5 seconds..</div>
                      
                     )}
                     </div>
-                   
             </div>
+          </div>
         </div>
       </section>
      

@@ -5,19 +5,66 @@ import ProductCard from "../components/Card/ProductCard";
 import { Grid } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../utils/newRequest";
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 
-const Home = () => {
+const Home = ({ filterParams, sort }) => {
+
+
+  const { search } = useLocation();
+  const categoryId = new URLSearchParams(location.search).get("cat");
+  const searchQuery = new URLSearchParams(search).get("search");
+
+  const ToggleRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ToggleRef.current && !ToggleRef.current.contains(event.target)) {
+        // setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
 
   const { isLoading, error, data, refetch } = useQuery({
-    queryKey: ["projects"], // Adjust the queryKey as needed
-    queryFn: () => newRequest.get("/lessons").then((res) => res.data),
+    queryKey: ["projects", categoryId, searchQuery, filterParams, sort],
+    queryFn: async () => {
+      try {
+        const response = await newRequest.get("/projects", {
+          params: {
+            cat: categoryId,
+            ...(searchQuery && { search: searchQuery }),
+            // min: minRef.current?.value,
+            // max: maxRef.current?.value,
+            min:  filterParams?.min,
+            max: filterParams?.max,
+            sort: filterParams?.sort,
+          },
+        });
+  
+        // console.log("API Response:", response.data);
+        return response.data;
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+        throw error;
+      }
+    },
   });
 
 
-  const renderGigs = () => {
+  useEffect(() => {
+    if (!searchQuery) {
+      refetch();
+    }
+  }, [sort, categoryId, searchQuery]);
 
+
+
+  const renderGigs = () => {
     if (isLoading) {
       return (
         <div className="skeleton-card" key={0}>
@@ -36,9 +83,10 @@ const Home = () => {
     }
   };
 
-
+ 
+  
   return (
-        <section className="home-wrapper">
+        <section className="home-wrapper" ref={ToggleRef}>
           <Meta title="Collections" />
             <div className="CardGrid-Container">
                 <div className="Card-grid-content">

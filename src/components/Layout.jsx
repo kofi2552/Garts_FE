@@ -1,12 +1,14 @@
+import React, {useState} from "react";
 import { Outlet } from "react-router-dom";
-// import { Footer } from "./footer/Footer";
 import Header from "./Header";
 import SimpleFoot from "./simplefoot/SimpleFoot";
 
-const Layout = () => {
+const Layout = ({cat, applyFilter, applySort}) => {
+
+
   return (
     <div>
-      <Header />
+      <Header categories={cat} onApplyFilter={applyFilter} applySort={applySort}/>
       <Outlet />
       <SimpleFoot />
     </div>

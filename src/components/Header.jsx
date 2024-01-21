@@ -4,8 +4,9 @@ import Navbar from "./navbar/Navbar";
 import Categories from "./categories/Categories";
 import Filter from "./filter/Filter";
 
-const Header = () => {
+const Header = ({categories, onApplyFilter, applySort}) => {
   const [searchbar, setSearchbar] = useState(false);
+  
 
   const FixSearchbar = () => {
     if (window.scrollY >= 80) {
@@ -17,15 +18,16 @@ const Header = () => {
 
   window.addEventListener("scroll", FixSearchbar);
 
+
   return (
     <div id="store">
-      <Navbar/>
+      <Navbar categories={categories}/>
         <header className={searchbar ? "header-fixed" : "header-unfixed"}>
           <div className="header-container">
                 <div className= "content-category-filter" >
-                  <Categories />
+                  <Categories categories={categories}/>
               </div>
-              <> <Filter/> </>
+              <> <Filter applyFilter={onApplyFilter} applySort={applySort}/> </>
               </div>
         </header>
     </div>

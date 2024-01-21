@@ -162,7 +162,7 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="login-wrapper">
+      <div className="signup-wrapper">
         <div className="content-wrapper">
           <div className="login-main-content signup">
             <div className="logo">
