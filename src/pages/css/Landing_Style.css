@@ -3,7 +3,8 @@
 .home-page-wrapper {
     width: 100%;
     overflow: hidden;
-    background-color: #44b678;
+    /* background-color: #ffddd1; */
+    background-color: #23ca7c;
   }
   
   .home-site-content {
@@ -16,27 +17,76 @@
     align-items: center;
     margin: 0 auto;
   }
+
   
   .home-site-content .heading-text {
-    font-size: 80px;
+    font-size: 60px;
     font-weight: 700;
     color: #fff;
+    padding: 20px;
+    line-height: 70px;
+  }
+
+  .home-site-content .home-bgrnd {
+    position: relative;
+    background-color: #026c79;
+    border-radius: 20px;
+    margin: 0px 30px;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+
+  .home-site-content .home-bgrnd::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: #003941;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    z-index: 99;
+    mix-blend-mode:multiply;
+  }
+
+  .home-site-content .home-bgrnd {
+    background-image: url("images/FireflyCreative.jpg");
+    background-color: #026c79; 
+    /* height: 500px; */
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+  }
+
+  .home-site-content .center-div {
+    position: relative;
+    z-index: 999;
   }
 
   @media screen and (max-width: 450px) {
     .home-site-content .heading-text {
       font-size: 60px;
-      margin-top: -15px !important;
+      /* margin-top: -15px !important; */
+      margin-top: 20px;
     }
+    .home-site-content .home-bgrnd {
+      padding: 00px !important;
+    }
+    .home-site-content .center-div {
+      padding: 40px 5px;
+  }
   }
   
   .home-site-content .heading-text span {
-    color: #fff;
+    color: #ffff;
   }
   
   .home-site-content .sub-text {
     font-size: 22px;
-    font-weight: 500;
+    font-weight: 700;
     color: #fff;
     padding: 10px 0;
   }
@@ -51,6 +101,10 @@
     .home-site-content .center-div {
       padding: 5px;
     }
+
+    .home-site-content .home-cta {
+      margin: 35px 0 !important;
+  }
   }
   
   .home-site-content .search-section {
