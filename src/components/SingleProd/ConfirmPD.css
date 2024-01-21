@@ -127,6 +127,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
   
   .countdown-circle {
@@ -196,6 +197,13 @@
     text-align: center;
     font-size: large;
     color: #000;
+  }
+
+  .loading-text {
+    font-size: large;
+    color:  #006365 !important;
+    padding: 15px 0;
+    margin: 0 auto;
   }
 
   .project-container-fluid .card-footer {

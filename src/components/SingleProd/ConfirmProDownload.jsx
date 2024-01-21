@@ -116,11 +116,13 @@ const sendPutRequest = async () => {
                     <h2>{project?.title}</h2>
                     <div className='loading-states'>
                           {downloadStatus === 'downloading' && (
+                            <>
                               <div className="loader-group">
                               <div className="countdown-circle">{countdwn}</div>
                               <Loader type="Oval" color="#fff" height={90} width={90} />
-                              <p>Downloading...</p>
                               </div>
+                              <p className="loading-text">Downloading...</p>
+                              </>
                           )}
                           {downloadStatus === 'fileready' && (
                             <>
