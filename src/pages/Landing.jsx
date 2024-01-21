@@ -38,6 +38,7 @@ function Landing() {
       <NavLand />
         <div className="main-content-container">
           <div className="home-site-content">
+            <div className="home-bgrnd">
                 <motion.div
                 className="center-div"
                   variants={ContVariants}
@@ -61,6 +62,7 @@ function Landing() {
                     Get Started
                   </Link>
                 </motion.div>
+                </div>
           </div>
         </div>
       </section>
