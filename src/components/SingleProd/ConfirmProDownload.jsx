@@ -99,66 +99,60 @@ const sendPutRequest = async () => {
   };
 
 
-
+  const urlencodedtext="Hello Gart, I have a challenge!"
 
   return (
     <>
       <section className="project-section-wrapper">
         <div className="project-container-fluid">
-          {project?.isPaid ? (<h1>Asset purchased successfully</h1>) : (<h1>Download your free asset</h1>)}
           <div className="project-container-fluid">
-           
               <h1>Asset purchased successfully</h1>
-           
-            
-            <div className="detail-container">
+              <div className="detail-container">
                     <div className="image-content">
                         <img src={project?.image} alt="" loading="lazy" />
                     </div>
                     <h2>{project?.title}</h2>
                     <div className='loading-states'>
-                    {downloadStatus === 'downloading' && (
-                        <div className="loader-group">
-                        <div className="countdown-circle">{countdwn}</div>
-                        <Loader type="Oval" color="#fff" height={90} width={90} />
-                        </div>
-                    )}
-                     {downloadStatus === 'fileready' && (
-                      <>
-                       <div className="loader-group">
-                       <div className='flrdy-text'>almost ready..</div>
-                       <Loader type="Oval" color="#fff" height={100} width={100} />
-                       </div>
-                        <div className="asset-info">
-                        <p>We are preparing the file. Your download will begin shortly</p>
-              
-                        </div>
-                        </>
-                    )}
-                     {downloadStatus === 'success' && (
-                        <>
-                        <div className="download-success">
-                        <IoCheckmarkDoneCircleOutline size={60} />
-                        <div className="download-success">Download successful</div>
-                        </div>
-
-                        <div className="asset-info">
-        
-                        <div className="act-dwn">
-                            If your download didn't start automatically, click <a onClick={retryDownload}>here</a>
-                        </div>
-                        </div>
-                        </>
-                    )}
-                     {downloadStatus === 'error' && (
-                      
-                       <div className='error'><BiError size={40} />
-                        <strong>There was an error downloading the file.</strong> Reload the page and try again after 5 seconds..</div>
-                     
-                    )}
+                          {downloadStatus === 'downloading' && (
+                              <div className="loader-group">
+                              <div className="countdown-circle">{countdwn}</div>
+                              <Loader type="Oval" color="#fff" height={90} width={90} />
+                              <p>Downloading...</p>
+                              </div>
+                          )}
+                          {downloadStatus === 'fileready' && (
+                            <>
+                            <div className="loader-group">
+                            <div className='flrdy-text'>almost ready..</div>
+                            <Loader type="Oval" color="#fff" height={100} width={100} />
+                            </div>
+                              <div className="asset-info">
+                              <p>We are preparing the file. Your download will begin shortly</p>
+                              </div>
+                              </>
+                          )}
+                          {downloadStatus === 'success' && (
+                              <>
+                              <div className="download-success">
+                              <IoCheckmarkDoneCircleOutline size={60} />
+                              <div className="download-success">Download successful</div>
+                              </div>
+                                <div className="asset-info">
+                                  <div className="act-dwn">
+                                      If your download didn't start automatically, click <a onClick={retryDownload}>here</a>
+                                  </div>
+                                </div>
+                              </>
+                          )}
+                          {downloadStatus === 'error' && (
+                            <div className='error'><BiError size={40} />
+                              <strong>There was an error downloading the file.</strong> Reload the page and try again after 5 seconds..
+                              </div>
+                          )}
                     </div>
             </div>
           </div>
+                <div className="card-footer"><IoIosHelpCircleOutline size={20}/>Contact <a href={`https://wa.me/0209064593?text=${urlencodedtext}`}>support</a> for help</div>
         </div>
       </section>
      

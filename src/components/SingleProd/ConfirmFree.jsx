@@ -92,11 +92,9 @@ const ConfirmFree = () => {
             </div>
         ) : (
           <div className="project-container-fluid">
-            {project?.isPaid ? (
-              <h1>Asset purchased successfully</h1>
-            ) : (
+           
               <h1>Download your free asset</h1>
-            )}
+            
             <div className="detail-container">
                     <div className="image-content">
                         <img src={project?.image} alt="" loading="lazy" />
@@ -127,9 +125,7 @@ const ConfirmFree = () => {
                         <IoCheckmarkDoneCircleOutline size={60} />
                         <div className="download-success">Download successful</div>
                         </div>
-
                         <div className="asset-info">
-        
                         <div className="act-dwn">
                             If your download didn't start automatically, click <a onClick={retryDownload}>here</a>
                         </div>

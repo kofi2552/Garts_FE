@@ -236,6 +236,8 @@ const AddProject = () => {
     });
     
 
+    const urlencodedtext="Hello Gart, I have a challenge!"
+
 
     return(
       <div className="add-project-wrapper">
@@ -420,7 +422,8 @@ const AddProject = () => {
           
              </div>
         </div>
-        <div className="card-footer"><IoIosHelpCircleOutline size={20}/>Contact <a>support</a> for help</div>
+        
+        <div className="card-footer"><IoIosHelpCircleOutline size={20}/>Contact <a href={`https://wa.me/0209064593?text=${urlencodedtext}`}>support</a> for help</div>
         </div>
         </div>
      );
