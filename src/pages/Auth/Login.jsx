@@ -21,9 +21,6 @@ const Login = () => {
       const res = await newRequest.post("/auth/login", { email, password });
       const currentUser = res.data;
 
-      // const accessToken = Cookies.get("accessToken");
-      // console.log("Access Token:", accessToken);
-
       sessionStorage.setItem("user", JSON.stringify(currentUser));
       const redirectUrl = new URLSearchParams(location.search).get(
         "redirect"
@@ -31,12 +28,9 @@ const Login = () => {
       // console.log("Redirect URL:", redirectUrl);
 
       if (currentUser.isAdmin) {
-        // Redirect to admin profile
         navigate("/admin");
         // navigate(redirectUrl || "/");
       } else {
-        // Redirect to the previous page or default page
-        
         navigate(redirectUrl || "/");
       }
       

@@ -166,7 +166,7 @@ const AddProject = () => {
 
     const mutation = useMutation({
         mutationFn: (gig) => {
-          return newRequest.post("/lessons", gig);
+          return newRequest.post("/projects", gig);
         },
         onSuccess: () => {
             queryClient.invalidateQueries(["myGigs"]);
@@ -269,19 +269,6 @@ const AddProject = () => {
               <p>{successMessage}</p>
             </div>
           )}
-
-          {/* {
-            if(error){
-              <div className={error? "error-message": ""}>
-              <p>{error}</p>
-            </div>
-            }
-            else if(successMessage){
-              <div className="success-message">
-              <p>{successMessage}</p>
-            </div>
-            }
-          } */}
            <form onSubmit={handleUploadAndSubmit}>
            <div className="card-heading">
              <h3>Add Project</h3>
