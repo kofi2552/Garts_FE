@@ -4,6 +4,7 @@ import "./ConfirmPD.css"
 import newRequest from "../../utils/newRequest";
 import { Oval as Loader } from "react-loader-spinner";
 import { BiError } from "react-icons/bi";
+import { IoIosHelpCircleOutline } from "react-icons/io";
 
 const ConfirmProDownload = () => {
 
