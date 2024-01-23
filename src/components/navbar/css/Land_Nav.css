@@ -48,6 +48,7 @@ a {
 
   .navigation_landing-page {
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   }
   
   .land_navbar {
@@ -89,7 +90,7 @@ a {
   }
   
   .land_navbar  .land_nav-logo a {
-    color: #ffff;
+    color: #000;
     display: flex;
     align-items: center;
     font-size: 30px;
@@ -98,6 +99,7 @@ a {
   }
 
   .land_navbar  .land_nav-logo a p {
+    color: #000 !important;
     margin-left: 5px;
   }
   
@@ -117,7 +119,7 @@ a {
   
   .land_navbar .category-links_container .nl_link-item {
     font-size: 18px;
-    color: #ffff;
+    color: #000;
     font-weight: 500;
     margin-right: 8px;
     margin-top: 0 !important;
@@ -126,7 +128,7 @@ a {
 
   .land_nav-buttons .nl_link-item {
     font-size: 18px;
-    color: #ffff !important;
+    color: #000 !important;
     font-weight: 500;
     margin-right: 20px;
     margin-top: 0 !important;
@@ -136,7 +138,7 @@ a {
   .navigation_landing-page .land_navbar .user-name a{
     display: flex !important;
     align-items: center !important;
-    color: #FFF !important;
+    color: #000 !important;
   }
 
   .navigation_landing-page .land_navbar .logout-icon {
@@ -167,9 +169,9 @@ a {
   }
 
   .land_nav-buttons .nl_link-login {
-    color: white;
+    color: #000;
     background: transparent;
-    outline: 1px solid #b7e7e7;
+    outline: 1px solid #299898;
     margin-right: 12px;
   }
 
@@ -208,14 +210,14 @@ a {
       top: 0;
       left: -100% !important;
       background: #fffeff;
-      transition: all 0.3s ease;
+      transition: all 0.3s ease-out;
     }
   
     .land_mob-menu-links-container.active {
       position: fixed;
       left: 0 !important;
-      transition: all 0.1s ease-in;
-      z-index: 733 !important;
+      transition: all 0.2s ease-in;
+      z-index: 10733 !important;
     }
 
 
@@ -247,6 +249,7 @@ a {
     }
     /* SHOW MOBILE NAV BTN ICON */
     .land_navbar  .btn_mobile {
+      cursor: pointer;
       display: block;
     }
 
@@ -259,8 +262,9 @@ a {
     }
 
     .land_nav-buttons .btn {
-      padding: 0.4rem 1.3rem;
-      font-size: 0.7rem;
+      padding: 0.6rem 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.2;
     }
 
     .land_nav-logo p {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/Land_Nav.css";
 import { RiCloseLine } from "react-icons/ri";
 import { HiMiniBars3 } from "react-icons/hi2";
-import logo from "../../assets/logo_ga.png";
+import logo from "../../assets/logo_2_color.png";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 import { HiUserCircle } from "react-icons/hi2";
@@ -86,7 +86,7 @@ const NavLand = () => {
             <div className="navbar-menu btn_mobile">
                 <div className="menu-icon-container">
                 < HiMiniBars3
-                      color="#fff"
+                      color="#000"
                       size={30}
                       className="open-menu-icon"
                       onClick={() => setToggleMenu(true)}
@@ -141,7 +141,7 @@ const NavLand = () => {
                   <span>{user?.username}</span>
                   </Link>
                 </li>
-                <MdOutlineLogout size={24} className="logout-icon" onClick={handleLogout}/>
+                <MdOutlineLogout color="#000" size={24} className="logout-icon" onClick={handleLogout}/>
                 </>
                 ):(
                   <>

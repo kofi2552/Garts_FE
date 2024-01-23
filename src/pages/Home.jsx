@@ -30,7 +30,7 @@ const Home = ({ filterParams, sort }) => {
   }, []);
 
 
-  const { isLoading, error, data, refetch } = useQuery({
+  const { isLoading, error, data, refetch,status } = useQuery({
     queryKey: ["projects", categoryId, searchQuery, filterParams, sort],
     queryFn: async () => {
       try {
@@ -53,8 +53,10 @@ const Home = ({ filterParams, sort }) => {
         throw error;
       }
     },
+    
   });
 
+  console.log("Query Status:", status);
 
   useEffect(() => {
     if (!searchQuery) {
@@ -62,13 +64,28 @@ const Home = ({ filterParams, sort }) => {
     }
   }, [sort, categoryId, searchQuery]);
 
-
+{/* <div className="loader-page">
+         <Loader type="Oval"  height={100} width={100} />
+         </div> */}
 
   const renderGigs = () => {
-    if (isLoading) {
+
+    const skeletonGrid = Array.from({ length: 8 }).map((_, index) => (
+      
+      <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+       <div className="skeleton-card">
+          <Skeleton/>
+          </div>
+      </Grid>
+    ))
+    if (!data) {
       return (
-        <div className="skeleton-card" key={0}>
-          <Skeleton height={200} width={300} />
+        <div className="skel-card-Ct">
+        <div key={0} className="skel-Container">
+          <Grid container spacing={2}>
+          {skeletonGrid}
+        </Grid>
+        </div>
         </div>
       );
     } else if (error) {
