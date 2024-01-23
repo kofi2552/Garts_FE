@@ -2,7 +2,7 @@
     overflow: initial;
     display: flex;
     flex-direction: column;
-    background-color: #d4e1e2 ;
+    background-color: #fff ;
     box-sizing: border-box;
     min-height: 600px;
     width: 100%;
@@ -55,4 +55,50 @@
   .CardGrid-list .cImwzi {
     max-width: unset !important;
   }
+}
+
+.skel-Container{
+  /* border: 1px solid red; */
+  margin: 10px auto;
+  padding: 10px;
+}
+  
+
+
+.skeleton-card {
+  background: #f1f1f1;
+  padding: 140px;
+  margin: 10px;
+}
+
+.skeleton-card {
+  background: linear-gradient(319deg, #ffffff, #e6e6e6, #ffffff, #e4e4e4);
+  background-size: 800% 800%;
+
+  -webkit-animation: skeloader 15s ease infinite;
+  -moz-animation: skeloader 15s ease infinite;
+  animation: skeloader 15s ease infinite;
+}
+
+@-webkit-keyframes skeloader {
+  0%{background-position:0% 33%}
+  50%{background-position:100% 68%}
+  100%{background-position:0% 33%}
+}
+@-moz-keyframes skeloader {
+  0%{background-position:0% 33%}
+  50%{background-position:100% 68%}
+  100%{background-position:0% 33%}
+}
+@keyframes skeloader {
+  0%{background-position:0% 33%}
+  50%{background-position:100% 68%}
+  100%{background-position:0% 33%}
+}
+
+.skel-Container .foELjU {
+  display: flex;
+  justify-content: center !important;
+  width: 100%;
+  margin: 0 auto !important;
 }

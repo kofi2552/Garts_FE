@@ -33,7 +33,7 @@ function SimpleSearch() {
       return;
     }
     setShowTooltip(false);
-    navigate(`/lessons?search=${input}`);
+    navigate(`/projects?search=${input}`);
   };
 
   return (

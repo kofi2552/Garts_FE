@@ -36,6 +36,12 @@ function Landing() {
     <section className="home-page-wrapper">
         <Meta title="Gart-Download Quality Artworks"/>
       <NavLand />
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
+      <div className="cube"></div>
         <div className="main-content-container">
           <div className="home-site-content">
             <div className="home-bgrnd">
