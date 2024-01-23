@@ -28,12 +28,13 @@
   
   .cc-modal-overlay {
     border: none;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.169);
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    opacity: 0.1;
   }
   
   /* Default Medium Modal */
@@ -210,7 +211,7 @@
     background-color: #fff;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
-    box-shadow: 0 0 100px rgba(17, 227, 220, 0.3);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     opacity: 1; /* Start with opacity 1 */
     transform: translateY(0); /* Start with translateY(0) */
