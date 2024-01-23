@@ -72,7 +72,7 @@
 }
 
 .skeleton-card {
-  background: linear-gradient(319deg, #ffffff, #e6e6e6, #ffffff, #e4e4e4);
+  background: linear-gradient(319deg, #ffffff, #cecece, #ffffff, #e4e4e4);
   background-size: 800% 800%;
 
   -webkit-animation: skeloader 15s ease infinite;
