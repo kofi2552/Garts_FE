@@ -18,7 +18,7 @@
  }
 
  #store .land_navbar .land_nav-logo img {
-  width: 40px;
+  /* width: 40px; */
   margin-top: 1px !important;
  }
 
@@ -110,13 +110,19 @@
     color: #191919 !important;
   }
   
-  #store .land_navbar .navbar-menu svg {
+  /* #store .land_navbar .navbar-menu svg {
     margin-top: 5px;
-  }
+  } */
 
   #store .land_navbar .logout-icon {
    margin-left: 10px;
    cursor: pointer;
+  }
+
+  @media screen and (min-width: 920px) {
+    #store .land_navbar .land_nav-logo img {
+      width: 130px;
+     }
   }
 
 @media screen and (max-width: 1025px) {
