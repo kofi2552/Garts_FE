@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import "./auth_Styles.css"
 import newRequest from "../../utils/newRequest";
-import logoclong from "../../assets/logo_2_color.png";
+import logoclong from "../../assets/curift_dark.png";
 import Cookies from "js-cookie";
 
 const Login = () => {
@@ -48,10 +48,11 @@ const Login = () => {
         <div className="content-wrapper">
           <div className="login-main-content">
             <div className="logo">
-              <a href="/"><img src={logoclong} alt="" width="15%" /></a>
+              <a href="/"><img src={logoclong} alt="" width="50%" /></a>
             </div>
             <div className="login-card">
-              <h6 className="title">Welcome Back!</h6>
+              <h6 className="title">Welcome to Curift</h6>
+              <p>Type your e-mail and password to log in or create a Curift account.</p>
               <form onSubmit={handleSubmit} className="form-group">
                 <div className="mb-4">
                   <input 

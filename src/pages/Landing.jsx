@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/Landing_Style.css";
 import NavLand from "../components/navbar/NavLand";
 import { motion } from "framer-motion";
-import Featured from "../components/Search/Featured";
+// import Featured from "../components/Search/Featured";
 import Meta from "../components/Meta"
 
 function Landing() {
@@ -53,14 +53,15 @@ function Landing() {
                   transition={{ duration: 1, delay: 0.2, type: "spring" }}
                 >
                   <h3 className="heading-text">
-                    Quality, <span>Affordable</span> Assets
+                  {/* <span>Curift</span> – Elevating Your Creative Ventures */}
+                 Elevating Your Creative Ventures
                   </h3>
                   <p className="sub-text text-white">
-                    Curated for creatives like you.
+                  Join Curift Today and Ignite Your Creative Journey!
                   </p>
-                  <div className="search-section">
+                  {/* <div className="search-section">
                     <Featured />
-                  </div>
+                  </div> */}
                   <Link
                     to="/projects"
                     className="home-cta text-center text-white --normal-button"

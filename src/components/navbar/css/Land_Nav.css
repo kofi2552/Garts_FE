@@ -49,6 +49,7 @@ a {
   .navigation_landing-page {
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    background-color: #fff;
   }
   
   .land_navbar {
@@ -83,10 +84,15 @@ a {
     padding: 0 !important;
   }
 
+  .land_navbar .open-menu-icon {
+    margin-bottom: -5px !important;
+    font-weight: 900;
+  }
+
   .land_navbar .land_nav-logo img {
-    width: 40px;
+    width: 150px;
     height: auto;
-    margin-top: -4px !important;
+    /* margin-top: -4px !important; */
   }
   
   .land_navbar  .land_nav-logo a {
@@ -151,9 +157,9 @@ a {
   } */
 
   .land_nav-buttons .btn {
-    padding: 0.4rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     color: #ffff;
-    background: #ffa200;
+    background: #005490;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
@@ -165,13 +171,13 @@ a {
   }
 
   .land_nav-buttons .nl_link-signup {
-    outline: 1px solid #ffa200;
+    outline: 1px solid #005490;
   }
 
   .land_nav-buttons .nl_link-login {
-    color: #000;
+    color: #005490;
     background: transparent;
-    outline: 1px solid #299898;
+    outline: 1px solid #005490;
     margin-right: 12px;
   }
 
@@ -243,6 +249,14 @@ a {
 
 
   /* INTRO MOBILE RESPONSIVENESS */
+
+
+  @media screen and (min-width: 920px) {
+  .land_navbar .land_nav-logo img {
+      width: 130px;
+     }
+  }
+
   @media screen and (max-width: 1025px) {
     .land_mobile-sidebar .land_mob-menu-links-container {
       display: block !important;
@@ -276,6 +290,12 @@ a {
     @media screen and (max-width: 920px) {
     .land_navbar .category-links_container{
           display: none;
+        }
+
+        .land_navbar .land_nav-logo img {
+          width: 120px;
+          height: auto;
+          /* margin-top: -4px !important; */
         }
   }
 

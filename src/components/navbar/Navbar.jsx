@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/Land_Nav.css";
 import { RiCloseLine } from "react-icons/ri";
 import { HiMiniBars3 } from "react-icons/hi2";
-import logo from "../../assets/logo_2_color.png";
+import logo from "../../assets/curift_dark.png";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 import SimpleSearch from "../SimpleSearch/SimpleSearch";
@@ -68,8 +68,8 @@ const NavLand = ({categories}) => {
                     />
             </div>
             <Link to="/">
-                <img src={logo} alt="Getarts" width="70%" />
-                 <p>Gart</p>
+                <img src={logo} alt="Getarts" width="100%" />
+                 {/* <p>Gart</p> */}
               </Link>
             </div>
             <div className="category-links_container">

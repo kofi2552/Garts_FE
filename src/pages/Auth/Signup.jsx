@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./auth_Styles.css"
-import logoclong from "../../assets/logo_2_color.png";
+import logoclong from "../../assets/curift_dark.png";
 import newRequest from "../../utils/newRequest";
 import { HiUser } from "react-icons/hi2";
 
@@ -165,27 +165,29 @@ const Signup = () => {
       <div className="signup-wrapper">
         <div className="content-wrapper">
           <div className="login-main-content signup">
-            <div className="logo">
-            <a href="/"><img src={logoclong} alt="" width="15%" /></a>
-            </div>
+            {/* <div className="logo signuplogo">
+            <a href="/"><img src={logoclong} alt="" width="50%" /></a>
+            </div> */}
             <div className="login-card signup-card">
-              <h6 className="title">Start your creative journey</h6>
+              <h6 className="title">Join Curift – Where Creativity Takes Flight!</h6>
+              <p>Start your creative journey. Sign up to unlock endless possibilities.</p>
+              <form onSubmit={handleSubmit} className="form-group">
+                <div className="form-container">
+                <div className="left-form">
               <div className="user-style">
                 <div className="user-Avatar">
                   <div className="rounded-icon" style={{ backgroundColor: selectedColor }}>
-                  <HiUser size={100} color="#fff"/>
+                  <HiUser size={60} color="#fff"/>
                   </div>
                   <div className="color-control">
-                  <h3>Profile color</h3>
+                  <h3> Profile color</h3>
                   <button onClick={handleRefreshColors} style={{ backgroundColor: selectedColor }}>Change Color</button>
                   </div>
                 </div>
               </div>
-              <form onSubmit={handleSubmit} className="form-group">
-              
               <div className="col-group">
                 <div className="mb-4">
-                  <label>Username:</label>
+                  <label>Username</label>
                   <input 
                     type="text" 
                     className="form-control"
@@ -195,7 +197,7 @@ const Signup = () => {
                     onChange={handleChange} />
                 </div>
                 <div className="mb-4">
-                  <label>Fullname:</label>
+                  <label>Fullname</label>
                   <input
                     type="text" 
                     className="form-control"
@@ -207,7 +209,7 @@ const Signup = () => {
                 </div>
                 <div className="col-group">
                 <div className="mb-4">
-                  <label>Phone:</label>
+                  <label>Phone</label>
                   <input
                     type="tel"
                     className="form-control"
@@ -218,7 +220,7 @@ const Signup = () => {
                   />
                 </div>
                 <div className="mb-4">
-                <label htmlFor="">Country:</label>
+                <label htmlFor="">Country</label>
                   <input
                     name="country"
                     type="text"
@@ -229,9 +231,11 @@ const Signup = () => {
                   />
                 </div>
                 </div>
+                </div>
+                <div className="right-form">
                 <div className="col-group">
                 <div className="mb-4">
-                <label htmlFor="">Address:</label>
+                <label htmlFor="">Address</label>
                   <input
                     name="address"
                     className="form-control"
@@ -242,20 +246,20 @@ const Signup = () => {
                   />
                 </div>
                 <div className="mb-4">
-                <label htmlFor="">Role:</label>
+                <label htmlFor="">Your Role</label>
                   <input
                     name="role"
                     type="text"
                     required
                     className="form-control"
-                    placeholder="e.g position"
+                    placeholder="e.g designer"
                     onChange={handleChange}
                   />
                 </div>
                 </div>
                 <div className="col-group">
                 <div className="mb-4">
-                <label htmlFor="">Your Brand Name:</label>
+                <label htmlFor="">Brand Name</label>
                   <input
                     name="brand"
                     type="text"
@@ -266,13 +270,13 @@ const Signup = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="socials">Active Socials Handle:</label>
+                  <label className="opt" htmlFor="socials">Most Active Social Handle</label>
                   <div>
                     <select
                       name="socials"
                       id="socials"
                       required
-                      className="form-control"
+                      className="form-control select"
                       onChange={handleSocialsChange}
                       value={user.socials.platform}
                     >
@@ -298,7 +302,7 @@ const Signup = () => {
                 </div>
                 <div className="col-group">
                 <div className="mb-4">
-                  <label>Email:</label>
+                  <label>Email</label>
                   <input 
                     type="text" 
                     name="email" 
@@ -308,7 +312,7 @@ const Signup = () => {
                     onChange={handleChange} />
                 </div>
                 <div className="mb-4">
-                  <label>Password:</label>
+                  <label>Password</label>
                   <input
                     type="password"
                     className={message ? "form-control2": "form-control"}
@@ -326,8 +330,10 @@ const Signup = () => {
                     </div>
                   )}
                 </div>
+                </div>
+                </div>
                 <div className="login-btn-container mb-3">
-                  <button type="submit" className="button-login">
+                  <button type="submit" className="button-login s-btn">
                     {loading ? "registering..":"Signup"}
                   </button>
                   <p>
