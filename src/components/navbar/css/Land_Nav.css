@@ -249,6 +249,14 @@ a {
 
 
   /* INTRO MOBILE RESPONSIVENESS */
+
+
+  @media screen and (min-width: 920px) {
+  .land_navbar .land_nav-logo img {
+      width: 130px;
+     }
+  }
+
   @media screen and (max-width: 1025px) {
     .land_mobile-sidebar .land_mob-menu-links-container {
       display: block !important;
