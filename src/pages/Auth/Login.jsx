@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate,useLocation } from "react-router-dom";
 import "./auth_Styles.css"
 import newRequest from "../../utils/newRequest";
-import logoclong from "../../assets/curift_dark.png";
+import logoclong from "../../assets/curift_C.png";
 import Cookies from "js-cookie";
 
 const Login = () => {

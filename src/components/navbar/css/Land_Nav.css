@@ -49,7 +49,7 @@ a {
   .navigation_landing-page {
     position: relative;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-    background-color: #fff;
+    /* background-color: #fff; */
   }
   
   .land_navbar {
@@ -96,7 +96,7 @@ a {
   }
   
   .land_navbar  .land_nav-logo a {
-    color: #000;
+    color: #fff;
     display: flex;
     align-items: center;
     font-size: 30px;
@@ -105,7 +105,10 @@ a {
   }
 
   .land_navbar  .land_nav-logo a p {
-    color: #000 !important;
+    color: #fff !important;
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 900;
     margin-left: 5px;
   }
   
@@ -118,14 +121,14 @@ a {
   .land_navbar .land_nav-buttons .user-name {
     font-size: 18px;
     /* line-height: 32px; */
-    color: #0a2a2e !important;
+    color: #fff !important;
     font-weight: 500;
     cursor: pointer;
   }
   
   .land_navbar .category-links_container .nl_link-item {
     font-size: 18px;
-    color: #000;
+    color: #fff;
     font-weight: 500;
     margin-right: 8px;
     margin-top: 0 !important;
@@ -134,7 +137,7 @@ a {
 
   .land_nav-buttons .nl_link-item {
     font-size: 18px;
-    color: #000 !important;
+    color: #fff !important;
     font-weight: 500;
     margin-right: 20px;
     margin-top: 0 !important;
@@ -144,7 +147,7 @@ a {
   .navigation_landing-page .land_navbar .user-name a{
     display: flex !important;
     align-items: center !important;
-    color: #000 !important;
+    color: #fff !important;
   }
 
   .navigation_landing-page .land_navbar .logout-icon {
@@ -158,26 +161,26 @@ a {
 
   .land_nav-buttons .btn {
     padding: 0.5rem 1.5rem;
-    color: #ffff;
-    background: #005490;
+    color: #000;
+    background: #FFE03F;
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
-    border-radius: 5px;
+    border-radius: 100px;
     border: 0;
     outline: none;
     cursor: pointer;
   }
 
   .land_nav-buttons .nl_link-signup {
-    outline: 1px solid #005490;
+    outline: 1px solid #FFE03F;
   }
 
   .land_nav-buttons .nl_link-login {
-    color: #005490;
+    color: #fff;
     background: transparent;
-    outline: 1px solid #005490;
+    /* outline: 1px solid #fff; */
     margin-right: 12px;
   }
 
@@ -253,7 +256,7 @@ a {
 
   @media screen and (min-width: 920px) {
   .land_navbar .land_nav-logo img {
-      width: 130px;
+      width: 35px;
      }
   }
 
@@ -293,9 +296,9 @@ a {
         }
 
         .land_navbar .land_nav-logo img {
-          width: 120px;
+          width: 35px;
           height: auto;
-          /* margin-top: -4px !important; */
+          margin-left: 4px !important;
         }
   }
 
@@ -305,5 +308,10 @@ a {
    }
   }
 
-
+  @media screen and (max-width:420px){
+    .land_nav-buttons .nl_link-login {
+      font-size: 16px !important;
+      margin-right: -5px !important;
+    }
+  }
 
