@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/Land_Nav.css";
 import { RiCloseLine } from "react-icons/ri";
 import { HiMiniBars3 } from "react-icons/hi2";
-import logo from "../../assets/curift_dark.png";
+import logo from "../../assets/curift_W.png";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 import SimpleSearch from "../SimpleSearch/SimpleSearch";
@@ -12,7 +12,7 @@ import { MdOutlineLogout } from "react-icons/md";
 
 
 
-//-------- FOR ALL PROJECTS PAGE - FIRST PAGE ON VISIT-----------
+//-------- FOR ALL PROJECTS PAGE -2ND HOME------------
 
 
 const NavLand = ({categories}) => {
@@ -62,14 +62,14 @@ const NavLand = ({categories}) => {
             <div className="navbar-menu btn_mobile">
                 <HiMiniBars3
                       color="#fff"
-                      size={30}
+                      size={25}
                       className="open-menu-icon"
                       onClick={() => setToggleMenu(true)}
                     />
             </div>
             <Link to="/">
                 <img src={logo} alt="Getarts" width="100%" />
-                 {/* <p>Gart</p> */}
+                 <p className="logo-alt-text">Curift</p>
               </Link>
             </div>
             <div className="category-links_container">

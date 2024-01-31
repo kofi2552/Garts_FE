@@ -9,7 +9,8 @@
 #store .land_navbar {
   position: fixed;
   padding: 0 4rem !important; /*SIDE SPACING */
-  background-color: #fff;
+  background-color: #06a392;
+  /* background-color: #026c79; */
  }
 
  #store .land_navbar .land_nav-logo{
@@ -18,7 +19,7 @@
  }
 
  #store .land_navbar .land_nav-logo img {
-  /* width: 40px; */
+  width: 30px;
   margin-top: 1px !important;
  }
 
@@ -54,13 +55,31 @@
     margin: 0 !important;
   }
 
-
-#store  .land_navbar .land_nav-buttons .nl_link-item {  
-    color: #191919 !important;
+  #store .land_nav-logo .logo-alt-text {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 900;
+    /* color: #202020 !important; */
+    color: #FFF !important;
   }
 
-#store  .land_navbar .land_nav-buttons .nl_link-login {  
+
+/* #store  .land_navbar .land_nav-buttons .nl_link-item {  
     color: #191919 !important;
+  } */
+
+/* #store  .land_navbar .land_nav-buttons .nl_link-login {  
+    color: #191919 !important;
+  } */
+
+  /* #store  */
+
+  #store .simple-search-bar .simple-search {
+    background-color: unset !important;
+  }
+
+  #store .simple-search-bar input {
+    color: #fff !important;
   }
 
 
@@ -103,7 +122,7 @@
 
  #store .land_navbar svg {
    font-size: 20px !important;
-   color: #191919 !important;
+   /* color: #191919 !important; */
   }
 
   #store .land_navbar .user-name a {
@@ -121,7 +140,7 @@
 
   @media screen and (min-width: 920px) {
     #store .land_navbar .land_nav-logo img {
-      width: 130px;
+      width: 30px;
      }
   }
 
@@ -144,5 +163,9 @@
 #store .land_navbar .land_nav-links {
   width: unset !important;
 }
+
+#store .land_navbar .land_nav-logo img {
+  width: 30px !important;
+ }
 
 }

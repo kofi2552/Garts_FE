@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/Land_Nav.css";
 import { RiCloseLine } from "react-icons/ri";
 import { HiMiniBars3 } from "react-icons/hi2";
-import logo from "../../assets/curift_dark.png";
+import logo from "../../assets/curift_W.png";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 import { HiUserCircle } from "react-icons/hi2";
@@ -86,7 +86,7 @@ const NavLand = () => {
             <div className="navbar-menu btn_mobile">
                 <div className="menu-icon-container">
                 < HiMiniBars3
-                      color="#000"
+                      color="#fff"
                       size={35}
                       className="open-menu-icon"
                       onClick={() => setToggleMenu(true)}
@@ -95,7 +95,7 @@ const NavLand = () => {
             </div>
             <Link to="/">
                 <img src={logo} alt="Curift" width="100%" />
-                 {/* <p>Gart</p> */}
+                 <p>Curift</p>
               </Link>
             </div>
             <div className="category-links_container">

@@ -33,6 +33,7 @@ function Landing() {
   
 
   return (
+    <>
     <section className="home-page-wrapper">
         <Meta title="Gart-Download Quality Artworks"/>
       <NavLand />
@@ -53,8 +54,7 @@ function Landing() {
                   transition={{ duration: 1, delay: 0.2, type: "spring" }}
                 >
                   <h3 className="heading-text">
-                  {/* <span>Curift</span> – Elevating Your Creative Ventures */}
-                 Elevating Your Creative Ventures
+                 We create impactful digital <strong>assets.</strong>
                   </h3>
                   <p className="sub-text text-white">
                   Join Curift Today and Ignite Your Creative Journey!
@@ -73,7 +73,13 @@ function Landing() {
           </div>
         </div>
       </section>
-  
+      <section className="creative-areas">
+          <div>
+            <h2>Our Creative areas</h2>
+            <p></p>
+          </div>
+      </section>
+      </>
   );
 }
 

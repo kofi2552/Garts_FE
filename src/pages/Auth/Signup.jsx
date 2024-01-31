@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./auth_Styles.css"
-import logoclong from "../../assets/curift_dark.png";
+import logoclong from "../../assets/curift_C.png";
 import newRequest from "../../utils/newRequest";
 import { HiUser } from "react-icons/hi2";
 
