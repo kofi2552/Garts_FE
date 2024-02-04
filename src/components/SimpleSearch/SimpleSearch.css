@@ -8,7 +8,7 @@ margin: 0 auto;
 .simple-search-bar .simple-search {
 width: 100% !important;
 background-color: #f9f9f9;
-border: 1px solid #ccc;
+border: 1px solid #08b6a5;
 }
   
 
@@ -33,12 +33,12 @@ padding: 5px 12px;
 .simple-search-bar .search-icon {
 width: 22px;
 height: 22px;
-color: #d4d4d4;
+color: #75c8c0;
 cursor: pointer;
 }
 
 .simple-search-bar .search-icon:hover {
-    color: #a8a8a8;
+    color: #82ddd3;
 }
 
 .simple-search-bar input {
@@ -48,10 +48,10 @@ padding: 6px 8px;
 border-radius: 2px !important;
 width: 100%;
 background-color: transparent;
-color: #6e6e6e !important;
+color: #fff !important;
 
 &::placeholder {
-    color: #d4d4d4 !important;
+    color: #75c8c0 !important;
 }
 }
 

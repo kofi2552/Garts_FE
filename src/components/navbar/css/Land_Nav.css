@@ -125,6 +125,10 @@ a {
     font-weight: 500;
     cursor: pointer;
   }
+
+  .land_navbar .land_nav-buttons .user-name span{
+    color: #fff !important;
+  }
   
   .land_navbar .category-links_container .nl_link-item {
     font-size: 18px;
@@ -315,3 +319,6 @@ a {
     }
   }
 
+.nav2-tile .land_navbar .land_nav-buttons .user-name span {
+  color: #000 !important;
+}

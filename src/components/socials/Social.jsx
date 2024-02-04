@@ -45,7 +45,7 @@ const Social = ({ socials }) => {
         return (
           <Link to={`${platformUrl}${social.username}`} key={index} className="social-item">
           <div key={index} className="social-item">
-              <IconComponent className="social-icon" />
+              <IconComponent className="social-icon" size={13} />
             <span className="social-username">{social.username}</span>
           </div>
           </Link>

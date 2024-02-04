@@ -48,7 +48,7 @@ const Login = () => {
         <div className="content-wrapper">
           <div className="login-main-content">
             <div className="logo">
-              <a href="/"><img src={logoclong} alt="" width="50%" /></a>
+              <a href="/"><img src={logoclong} alt="" width="20%" /></a>
             </div>
             <div className="login-card">
               <h6 className="title">Welcome to Curift</h6>

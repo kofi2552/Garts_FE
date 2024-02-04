@@ -45,6 +45,7 @@
   .CardGrid-list .eDZvHp{
     margin-left: -24px !important;
   }
+ 
 }
 
 @media only screen and (min-width: 360px) and (max-width: 540px){
@@ -62,8 +63,16 @@
   margin: 10px auto;
   padding: 10px;
 }
-  
 
+@media only screen and (min-width: 620px){
+  .foELjU>.MuiGrid-item {
+    padding-left: 34px !important;
+  }
+}
+
+.skeleton-card {
+  border-radius: 7px;
+}
 
 .skeleton-card {
   background: #f1f1f1;
@@ -72,33 +81,37 @@
 }
 
 .skeleton-card {
-  background: linear-gradient(319deg, #ffffff, #cecece, #ffffff, #e4e4e4);
-  background-size: 800% 800%;
-
-  -webkit-animation: skeloader 15s ease infinite;
-  -moz-animation: skeloader 15s ease infinite;
-  animation: skeloader 15s ease infinite;
+  background: linear-gradient(259deg, #ffffff, #ececec, #ffffff);
+  background-size: 600% 600%;
+width: 100%;
+  -webkit-animation: skeleton-loader 2s ease infinite;
+  -moz-animation: skeleton-loader 2s ease infinite;
+  animation: skeleton-loader 2s ease infinite;
 }
 
-@-webkit-keyframes skeloader {
-  0%{background-position:0% 33%}
-  50%{background-position:100% 68%}
-  100%{background-position:0% 33%}
+@-webkit-keyframes skeleton-loader {
+  0%{background-position:0% 48%}
+  50%{background-position:100% 53%}
+  100%{background-position:0% 48%}
 }
-@-moz-keyframes skeloader {
-  0%{background-position:0% 33%}
-  50%{background-position:100% 68%}
-  100%{background-position:0% 33%}
+@-moz-keyframes skeleton-loader {
+  0%{background-position:0% 48%}
+  50%{background-position:100% 53%}
+  100%{background-position:0% 48%}
 }
-@keyframes skeloader {
-  0%{background-position:0% 33%}
-  50%{background-position:100% 68%}
-  100%{background-position:0% 33%}
+@keyframes skeleton-loader {
+  0%{background-position:0% 48%}
+  50%{background-position:100% 53%}
+  100%{background-position:0% 48%}
 }
 
-.skel-Container .foELjU {
-  display: flex;
-  justify-content: center !important;
+
+.no-internet {
+  height: 50vh;
   width: 100%;
-  margin: 0 auto !important;
+  text-align: center;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

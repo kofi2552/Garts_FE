@@ -141,7 +141,7 @@ const NavLand = () => {
                   <span>{user?.username}</span>
                   </Link>
                 </li>
-                <MdOutlineLogout color="#000" size={24} className="logout-icon" onClick={handleLogout}/>
+                <MdOutlineLogout color="#fff" size={24} className="logout-icon" onClick={handleLogout}/>
                 </>
                 ):(
                   <>
