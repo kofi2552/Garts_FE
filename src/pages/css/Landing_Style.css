@@ -99,7 +99,6 @@
   .home-site-content .home-bgrnd {
     position: relative;
     min-height: 90vh;
-   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -204,4 +203,5 @@
   width: 100%;
   margin: 0 auto;
   padding: 70px 0;
+  background-color: #c5e2de;
 }

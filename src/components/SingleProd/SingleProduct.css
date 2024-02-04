@@ -90,8 +90,9 @@
 
   .title-text .project-brand .creator-info {
     display: flex;
-    align-items:flex-start;
-    flex-direction: column;
+    align-items:center;
+    width: 100%;
+    /* flex-direction: column; */
   }
 
   .title-text .creator-info p {
@@ -107,7 +108,7 @@
     font-weight: 300;
     color: #008080;
     margin-left: 8px;
-    margin-top: -1px;
+    /* margin-top: -1px; */
   }
   
 
@@ -119,9 +120,9 @@
   } */
 
   .p-left-content .users-name-icon {
-    width: 40px;
+    width: 45px;
     height: 40px;
-    border-radius: 30px;
+    border-radius: 50px;
     font-weight: 700;
     font-size: 18px;
     padding: 5px;
@@ -130,7 +131,7 @@
     align-items: center;
     color: #fff;
     line-height: 26px;
-    background: #009797;
+    /* background: #009797; */
   }
   
   /* .p-left-content .asset-title {
@@ -147,9 +148,9 @@
     align-items: center;
     color: #374957;
     font-weight: 600;
-    background: #ebf5f4;
-    padding: 6px 25px;
-    border-radius: 7px;
+    background: #f2f7f6;
+    padding: 6px 20px;
+    border-radius: 3px;
     cursor: pointer;
   }
   
@@ -270,7 +271,7 @@
     font-weight: 700;
     padding: 15px 20px;
     background-color: #ffa200;
-    border-radius: 7px;
+    border-radius: 3px;
     border: none;
     outline: none;
     /* margin: 10px 0; */
@@ -292,8 +293,9 @@
     font-weight: 700;
     padding: 15px 20px;
     /* background-color: #8697a3; */
-    background-color: #eff3f6;
-    border-radius: 7px;
+    /* background-color: #eff3f6; */
+    background-color: #f4f5f7;
+    border-radius: 3px;
     border: none;
     outline: none;
     text-align: center;
@@ -333,6 +335,7 @@
     color: #767677 !important;
     margin-right: 12px;
     margin-left: 4px;
+    margin-bottom: -3px !important;
   }
 
   .p-right-content .bottom-details span{
@@ -393,7 +396,7 @@
   .asset-description {
     /* border: 0.5px solid #e6f1f1; */
     width: 100%;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 5px;
   }
 
@@ -454,7 +457,7 @@
   .middle-content .XCreator-box {
     width: 25%;
     color: #374957;
-    padding-top: 20px;
+    padding-bottom: 20px;
   }
   
   .middle-content .XCreator-box {
@@ -654,7 +657,7 @@
     }
   
     .title-text .creator-info span {
-      font-size: 10px;
+      font-size: 14px;
     }
 
     .p-right-content .asset-details {
@@ -674,6 +677,7 @@
     }
   
     .product-section-wrapper .asset-title {
+      font-size: 20px !important;
       text-align: center;
     }
   
@@ -770,7 +774,7 @@
     }
 
     .p-left-content .users-name-icon {
-      width: 30px;
+      width: 35px;
       height: 30px;
       font-size: 15px;
     }
@@ -845,6 +849,15 @@
   .middle-content .XCreator-info .user-socials .social-item span{
     font-size: 12px;
   }
+
+  .title-text .prod-icon2 {
+    background: unset !important;
+  }
+  
+  .mobile-like .prod-icon2 {
+    background: unset !important;
+  }
+  
   }
 
   

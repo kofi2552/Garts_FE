@@ -5,6 +5,7 @@ import NavLand from "../components/navbar/NavLand";
 import { motion } from "framer-motion";
 // import Featured from "../components/Search/Featured";
 import Meta from "../components/Meta"
+// import CardAnimation from "../components/CardAnime/CardAnimation";
 
 function Landing() {
   const [move, setMove] = useState(false);
@@ -77,6 +78,9 @@ function Landing() {
           <div>
             <h2>Our Creative areas</h2>
             <p></p>
+          </div>
+          <div>
+          
           </div>
       </section>
       </>

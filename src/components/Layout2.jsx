@@ -6,10 +6,10 @@ const Layout2 = () => {
   return (
     <div>
       <div className="nav2-tile">
-      <Navbar />
-      </div>
-      <Outlet />
-      <SimpleFoot/>
+        <Navbar />
+          </div>
+            <Outlet />
+        <SimpleFoot/>
     </div>
   );
 };

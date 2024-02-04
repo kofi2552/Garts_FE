@@ -208,7 +208,6 @@ const SingleProduct = ({categories}) => {
                 alt=""
                 loading="lazy"
               />
-              
               <div className="maximize" onClick={handleMaximize}>
               <FiMaximize2 color="#ffff" size={30}/>
               </div>
@@ -221,8 +220,8 @@ const SingleProduct = ({categories}) => {
                   </div>
                   <div className="creator-info">
                   <p>{creater?.username}</p>
-                  <span className="desk-user-details">{creater?.role} | {isPaid ? `Asset selling At: ${ gigData?.price}`:"Asset is Free"}</span>
-                  <span className="mob-user-details">{isPaid ? `Price: $${gigData?.price}`:"FREE"}</span>
+                  <span className="desk-user-details">{creater?.role} | Selling: $<b>{isPaid ? `${gigData?.price}`:"Free Asset"}</b></span>
+                  <span className="mob-user-details">Selling:&nbsp;$<b>{isPaid ? ` ${gigData?.price}`:"Free Asset"}</b></span>
                   </div>
                   </div>
                 <p className="prod-icon2">
@@ -277,7 +276,6 @@ const SingleProduct = ({categories}) => {
                   <div className="notice-content">
                     <p className="asset-notice">
                       Download more free<br></br>digital assets
-                      
                       <br></br>
                     </p>
 
@@ -313,14 +311,14 @@ const SingleProduct = ({categories}) => {
                   <div className="bottom-details">
                     <div className="lincensed-ornot mb-2">
                     <strong><HiOutlineCheckBadge className="license-color" size={21} /></strong>
-                      <span>{ isPaid ? "Purchase this licensed project":"Free commercial License"}</span>
+                      <span>License: { isPaid ? "licensed project":"Free commercial License"}</span>
                     </div>
                     <div className="type-of-asset mb-0">
                     <strong><BsFileEarmark
                         className="license-color2"
                         size={17}
                       /></strong>
-                      <span>Type of File:&nbsp;<em>{gigData?.filetype || "N/A"}</em></span>
+                      <span>File Type:&nbsp;<em>{gigData?.filetype || "Unknown"}</em></span>
                     </div>
                   </div>
                 </div>
@@ -352,7 +350,7 @@ const SingleProduct = ({categories}) => {
             <div className="XCreator-box">
               <HiMiniUserCircle size={90} color="#d3dfe9" className="avatar" />
               <div className="XCreator-info">
-                <h1>{creater?.brand || "admin"}</h1>
+                <h3>{creater?.brand || "admin"}</h3>
                 <Social socials={creater?.socials} />
               </div>
             </div>

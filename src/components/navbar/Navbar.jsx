@@ -95,7 +95,7 @@ const NavLand = ({categories}) => {
                   <>
                 <li className="user-name">
                   <Link to={user?.isAdmin ? "/admin": "/profile"}>
-                  <HiUserCircle size={30} /> 
+                  <HiUserCircle color="#fff" size={30} /> 
                   <span>{user?.username}</span>
                   </Link>
                 </li>

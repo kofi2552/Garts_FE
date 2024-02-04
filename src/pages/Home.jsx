@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import newRequest from "../utils/newRequest";
 import { useLocation } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import { HiOutlineEmojiSad } from "react-icons/hi";
 
 const Home = ({ filterParams, sort }) => {
 
@@ -49,8 +50,13 @@ const Home = ({ filterParams, sort }) => {
         // console.log("API Response:", response.data);
         return response.data;
       } catch (error) {
-        console.error("Error fetching projects:", error);
-        throw error;
+        if (error.message === "Network Error") {
+          // Handle the specific "Network Error" case
+          throw new Error("No internet connection");
+        } else {
+          console.error("Error fetching projects:", error);
+          throw error;
+        }
       }
     },
     
@@ -78,7 +84,13 @@ const Home = ({ filterParams, sort }) => {
           </div>
       </Grid>
     ))
-    if (!data) {
+    if (error) {
+      if (error.message === "No internet connection") {
+        return <div className="no-internet"><HiOutlineEmojiSad size={30} color="#999"/>  No internet connection!</div>;
+      } else {
+        return <div className="no-internet">Something went wrong!</div>;
+      }
+    } else if (!data) {
       return (
         <div className="skel-card-Ct">
         <div key={0} className="skel-Container">
@@ -88,8 +100,6 @@ const Home = ({ filterParams, sort }) => {
         </div>
         </div>
       );
-    } else if (error) {
-      return <div>Something went wrong!</div>;
     } else {
       const filteredGigs = data?.filter((gig) => !gig.disabled);
       return filteredGigs?.map((gig) => (
@@ -104,7 +114,7 @@ const Home = ({ filterParams, sort }) => {
   
   return (
         <section className="home-wrapper" ref={ToggleRef}>
-          <Meta title="Collections" />
+          <Meta title="Projects" />
             <div className="CardGrid-Container">
                 <div className="Card-grid-content">
                   <div className="CardGrid-list">
