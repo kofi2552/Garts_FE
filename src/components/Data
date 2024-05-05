@@ -1,0 +1,46 @@
+export const Data = [
+  {
+    id: 1,
+    title: "Terms of use",
+    category: "Usage",
+    paragraph: "$100",
+    description:
+      "This website is operated by Freepik Company, S.L., registered in the Commercial Registry of Málaga, volume 4994, sheet 217, page number MA-113059, with Tax Number B-93183366 and registered office at 13 Molina Lario St., 5th floor, 29015, Málaga, Spain (Company). This page contains important information about your legal rights and obligations when using any of the websites and services belonging to the Company. The following is a collection of the generally-applicable terms of use across our websites and services, whilst specific provisions are included in the terms of use of the relevant Company’s website or service and may be accessed via the links provided below",
+  },
+  {
+    id: 2,
+    title: "License Agreement",
+    category: "Terms",
+    paragraph: "$100",
+    description: "Modern Web Design Artwork",
+  },
+  //   {
+  //     id: 3,
+  //     title: "",
+  //     category: "partners",
+  //     paragraph: "",
+  //     description: "Modern Brand Design Artwork",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "",
+  //     category: "about",
+  //     paragraph: "",
+  //     description: "Modern UiUx Design Artwork",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "",
+  //     category: "policy",
+  //     paragraph: "",
+  //     description: "Modern Graphic Design Artwork",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Cookie Policy",
+  //     category: "policy",
+  //     paragraph: "",
+  //     description:
+  //       "Generally, when referring to (cookies) on the Internet, reference is also made to other technologies used for similar purposes: for instance, through the technical configuration of your device, or your IP address when you download complete images or simply a pixel, data are being collected. This allows us to recognize you when you visit our website again, to know your approximate location, the connection time, the device from which you access (fixed or mobile), the operating system and browser used, the most visited pages, the number of clicks made, among others",
+  //   },
+];

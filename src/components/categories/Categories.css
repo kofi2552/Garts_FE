@@ -1,0 +1,128 @@
+.tags-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+  padding: 0 4rem;
+}
+
+
+
+.mainfilterbox {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.mainfilterbox ul {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+
+.mainfilterbox ul::-webkit-scrollbar {
+  height: 0px; 
+}
+
+.mainfilterbox ul::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.mainfilterbox ul::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.mainfilterbox li {
+  width: 100%;
+  max-width: 160px;
+}
+
+.mainfilterbox li a {
+  font-weight: 400;
+  height: 35px;
+  border-radius: 3px;
+  padding: 12px 20px;
+  color: #191919;
+  border: 1px solid #ccc;
+  margin: 0;
+}
+
+.mainfilterbox li a:hover {
+  color: #2e9b9b;
+}
+
+.mainfilterbox li .item {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 16px;
+  height: 35px;
+  border-radius: 3px;
+  cursor: pointer;
+  /* background-color: #f6ffff; */
+  background-color: #ffff;
+  font-size: 14px;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+
+.mainfilterbox li a.active {
+  color: #374957;
+  border-bottom: 1px solid #b9e2e2;
+}
+
+.mainfilterbox .tag-list .icon {
+  display: block;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+  line-height: 15px;
+  color: #374957;
+  margin-right: 5px;
+}
+
+.mainfilterbox li a:hover .icon {
+  color: #2e9b9b;
+}
+
+.mainfilterbox .cat-links {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1500px) {
+  .tags-container {
+    justify-content: center !important;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .tags-container {
+    padding: 0 1rem;
+  }
+  .mainfilterbox {
+    /* overflow-y: scroll; */
+    position: relative;
+  }
+
+  .mainfilterbox ul::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px; /* Adjust the width of the fade-out effect */
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+    pointer-events: none; /* Allow clicks to pass through the pseudo-element */
+  }
+}

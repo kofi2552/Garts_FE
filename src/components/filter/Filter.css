@@ -1,0 +1,194 @@
+
+  /* FILTER OPTIONS CSS */
+   .filter-fields-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 4rem;
+  }
+
+   .filter-fields-section .fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #191919;
+    position: relative;
+  }
+
+   .filter-fields-section .fields {
+    width: 18% !important;
+  }
+
+   .filter-fields-section .f-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+   .filter-fields-section .filter {
+    width: 100%;
+    max-width: 150px;
+  }
+
+   .filter-fields-section .filter label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:  1px solid #d9d9d9;
+    padding: 5px 10px;
+    font-weight: 500;
+    border-radius: 3px;
+    font-size: 14px;
+    /* width: 100%; */
+    /* width: 80px; */
+  }
+
+  .filter-fields-section .filter label span {
+    margin-right: 8px !important;
+  }
+
+   .filter-fields-section .f-end .filter label{
+    position: relative;
+    border: none;
+  }
+
+   .filter-fields-section .f-end .filter span::before{
+    position: absolute;
+    content: "Sort";
+    float: left;
+    margin-top: -10px !important;
+    font-size: xx-small;
+  }
+
+   /*-------------- DROPDOWN CSS ---------*/
+
+   .control-filter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   }
+
+   .control-filter svg {
+    margin-left: 5px;
+    cursor: pointer;
+   }
+
+  .slide {
+    position: absolute;
+    top: 25;
+    left: 20;
+    width:170px;
+    /* min-height:130px; */
+    padding: 20px;
+    margin-top: 3px;
+    overflow: hidden;
+    border-radius: 3px;
+    text-align: left;
+    transition: height .4s ease;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border:  1px solid #d9d9d9;
+    z-index: 99999;
+  }
+
+  .slide li input {
+    width: 100%;
+    margin: 5px 0;
+    padding: 3px 0;
+    border-radius: 1px;
+    outline: none;
+    border: none;
+    background-color: #f5f5f5 !important;
+    border-color: rgba(50, 151, 211, .25);
+    transition: box-shadow .15s ease;
+    line-height: 1.5;
+    display: block;
+  }
+
+  .slide button {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .filter .Rt {
+    left: unset !important;
+    right: 0 !important;
+  }
+
+  slide li {
+    padding: 3px 0;
+  }
+
+  .slide li a {
+    font-size: 14px;
+    color: #9b9b9b;
+    text-align:left ;
+    font-weight: 500;
+  }
+
+
+  .no-slide {
+    display: none;
+  }
+
+ .filter-fields-section .filter .f-btn {
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+
+ .filter-fields-section .filter .f-btn .icon-dwn {
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+  
+    /* END  FILTER OPTIONS CSS */
+
+    /* REPOSNSIVE FILTER SECTION */
+
+    @media only screen and (max-width: 1900px) {
+      .filter-fields-section .fields .no-mob-xs{
+        margin-right: 15px !important;
+      }
+    }
+
+
+    @media only screen and (max-width: 1025px) {
+      .filter-fields-section {
+        padding: 18px 1rem !important;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .filter-fields-section .fields .no-mob-xs{
+        display: none;
+      }
+      .filter-fields-section .f-end .mob-xs {
+        width: 100%;
+        max-width: 120px;
+      }
+
+      .filter-fields-section .fields {
+        width: unset !important;
+      }
+
+      .filter-fields-section .f-end .mob-xs .icon-dwn {
+        margin-right: -10px;
+      }
+
+      .filter .slide {
+        width: 140px !important;
+      }
+    }

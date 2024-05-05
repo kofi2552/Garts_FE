@@ -1,0 +1,68 @@
+.main-container {
+  position: relative;
+  overflow-y: scroll;
+  width: 100%;
+  height: 50vh;
+}
+
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  perspective: 5000;
+  transform-origin: top right 0px;
+  transform-style: preserve-3d;
+  position: absolute;
+  z-index: 9999999;
+  gap: 20px;
+}
+
+/* .container {
+  bottom: 0;
+  margin: 0 auto;
+  position: fixed;
+  perspective: 5000;
+  transform: translate(125px, 0%) rotateX(45deg) rotateZ(-15deg);
+  transform-style: preserve-3d;
+  top: 0;
+  width: 90vw;
+} */
+
+.card {
+  border-radius: 10px;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+  height: 220px; /* Adjust the height as needed */
+  margin-bottom: 30px; /* Adjust the gap as needed */
+  max-width: 440px; /* Adjust the width as needed */
+  overflow: hidden;
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+  width: 100%;
+  transform: rotate(-45deg);
+}
+  img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  img &:hover {
+    box-shadow: -15px 15px 15px rgba(0, 0, 0, 0.35);
+    transform: translateZ(25px);
+  }
+
+
+
+/* Diagonal To Bottom Right */
+.cards {
+  animation-name: diagonal-to-bottom-right;
+}
+
+@keyframes diagonal-to-bottom-right {
+  from {
+    transform: translateX(0) translateY(0);
+  }
+
+  to {
+    transform: translateX(350px) translateY(350px);
+  }
+}

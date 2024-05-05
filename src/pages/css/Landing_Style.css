@@ -1,0 +1,134 @@
+/* LANDING PAGE CSS -------------------------*/
+
+.home-page-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0px 0px 0px 100px;
+  /* background: linear-gradient(104deg, #01cdbc 16.66%, #18bca3 92.24%); */
+  background: linear-gradient(104deg, #01cdbc 16.66%, #01cdbc 92.24%);
+}
+
+.home-site-content {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.home-site-content .heading-text {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 80px;
+  font-weight: 700;
+  color: #fff;
+  padding: 20px;
+  line-height: 90px;
+}
+
+.home-site-content .heading-text span {
+  font-size: 80px;
+  color: #ffff;
+}
+
+.home-site-content .home-bgrnd {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.home-site-content .home-bgrnd {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home-site-content .center-div {
+  position: relative;
+  z-index: 999;
+}
+
+.home-site-content .sub-text {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.home-site-content .center-div {
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.home-site-content .home-cta {
+  color: #000;
+  background-color: #ffe03f;
+  margin: 15px 0;
+  padding: 20px 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .home-site-content .center-div {
+    padding: 5px;
+  }
+
+  .home-site-content .home-cta {
+    margin: 35px 0 !important;
+  }
+
+  .main-content-container::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #252525;
+    opacity: 55%;
+    z-index: 555;
+  }
+}
+
+.home-site-content .search-section {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 450px) {
+  .home-site-content .heading-text {
+    font-size: 65px;
+    line-height: 1.1;
+    margin-top: -30px;
+  }
+
+  /* .home-site-content .heading-text span {
+     p: 30px 0 !important;
+    } */
+
+  .home-site-content .home-bgrnd {
+    padding: 0px !important;
+  }
+  .home-site-content .center-div {
+    padding: 40px 5px;
+  }
+  .home-site-content .sub-text {
+    padding: 10px;
+    line-height: 1.5 !important;
+  }
+}
+
+/*  ------------CREATIVE AREAS STYLE----------------- */
+
+.creative-areas {
+  width: 100%;
+  margin: 0 auto;
+  padding: 70px 0;
+  background-color: #c5e2de;
+}

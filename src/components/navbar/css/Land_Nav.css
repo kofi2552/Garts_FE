@@ -1,0 +1,319 @@
+/* ---------------NAV GLOBAL STYLES ------------------*/
+
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.land_navbar ul {
+  padding: 0;
+  margin: 0;
+}
+
+.land_navbar li {
+  padding: 0;
+  margin: 0;
+}
+
+.land_navbar a {
+  padding: 0;
+  margin: 0;
+}
+
+.text--small {
+  font-size: 12px !important;
+  line-height: 1 !important;
+  font-weight: 500 !important;
+}
+
+.text--normal {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  font-weight: 500 !important;
+}
+
+.text---heading {
+  font-size: 2.25rem !important;
+  line-height: 2.5rem !important;
+  font-weight: 700 !important;
+}
+
+/* ///-----------------------LANDING PAGE NAVIGATION BAR///------------ */
+
+.navigation_landing-page {
+  position: relative;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px; */
+  /* background-color: #fff; */
+}
+
+.land_navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100% !important;
+  margin: 0 auto;
+  z-index: 222;
+  padding: 0 6rem; /*SIDE SPACING */
+}
+
+.land_navbar .land_nav-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+}
+
+.land_navbar .land_nav-links {
+  display: flex;
+  align-items: center !important;
+}
+
+.land_navbar .land_nav-logo {
+  display: flex;
+  align-items: center !important;
+  height: 50px;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.land_navbar .open-menu-icon {
+  margin-bottom: -5px !important;
+  font-weight: 900;
+}
+
+.land_navbar .land_nav-logo img {
+  width: 150px;
+  height: auto;
+  /* margin-top: -4px !important; */
+}
+
+.land_navbar .land_nav-logo a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  height: 40px;
+}
+
+.land_navbar .land_nav-logo a p {
+  color: #fff !important;
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-left: 5px;
+}
+
+.land_navbar .category-links_container {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.land_navbar .land_nav-buttons .user-name {
+  font-size: 18px;
+  /* line-height: 32px; */
+  color: #fff !important;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.land_navbar .land_nav-buttons .user-name span {
+  color: #fff !important;
+}
+
+.land_navbar .category-links_container .nl_link-item {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 500;
+  margin-right: 8px;
+  margin-top: 0 !important;
+  cursor: pointer;
+}
+
+.land_nav-buttons .nl_link-item {
+  font-size: 18px;
+  color: #fff !important;
+  font-weight: 500;
+  margin-right: 20px;
+  margin-top: 0 !important;
+  cursor: pointer;
+}
+
+.navigation_landing-page .land_navbar .user-name a {
+  display: flex !important;
+  align-items: center !important;
+  color: #fff !important;
+}
+
+.navigation_landing-page .land_navbar .logout-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* .navigation_landing-page .land_navbar .user-name  span {
+ margin-bottom: -4px !important;
+  } */
+
+.land_nav-buttons .btn {
+  padding: 0.5rem 1.5rem;
+  color: #000;
+  background: #ffe03f;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 18px;
+  border-radius: 100px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+.land_nav-buttons .nl_link-signup {
+  outline: 1px solid #ffe03f;
+}
+
+.land_nav-buttons .nl_link-login {
+  color: #fff;
+  background: transparent;
+  /* outline: 1px solid #fff; */
+  margin-right: 12px;
+}
+
+.land_nav-buttons .btns_desktop {
+  display: flex;
+  align-items: center;
+}
+
+/* HIDE MOBILE NAV BTN ICON */
+.land_navbar .btn_mobile {
+  display: none;
+}
+
+/* MOBILE SIDEBAR SETUP-------------*/
+
+.blurr-overlay {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: #0a2a2e;
+  opacity: 0.3;
+  z-index: 300;
+  transition: all 0.4s;
+}
+
+.land_mob-menu-links-container {
+  width: 100%;
+  max-width: 55%;
+  min-height: 100vh;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: -100% !important;
+  background: #fffeff;
+  transition: all 0.3s ease-out;
+}
+
+.land_mob-menu-links-container.active {
+  position: fixed;
+  left: 0 !important;
+  transition: all 0.2s ease-in;
+  z-index: 10733 !important;
+}
+
+.land_mobile-sidebar .sidebar-btn .close-menu-icon {
+  color: #0a2a2e !important;
+  margin: 25px;
+}
+
+.land_mobile-sidebar .land_mob-menu-links-container ul {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 20px;
+}
+
+.land_mobile-sidebar .land_mob-menu-links-container ul a {
+  font-size: 20px;
+  line-height: 32px;
+  color: #0a2a2e !important;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 12px 0;
+}
+
+/* INTRO MOBILE RESPONSIVENESS */
+
+@media screen and (min-width: 920px) {
+  .land_navbar .land_nav-logo img {
+    width: 35px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .land_mobile-sidebar .land_mob-menu-links-container {
+    display: block !important;
+  }
+  /* SHOW MOBILE NAV BTN ICON */
+  .land_navbar .btn_mobile {
+    cursor: pointer;
+    display: block;
+  }
+
+  .land_nav-buttons .hide-mob {
+    display: none;
+  }
+
+  .land_navbar {
+    padding: 0 2rem; /*SIDE SPACING */
+  }
+
+  .land_nav-buttons .btn {
+    padding: 0.5rem 1.4rem;
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .land_nav-logo p {
+    display: none;
+  }
+}
+
+/* HIDE CATEGORY LINKS IN SMALLER SCREENS */
+@media screen and (max-width: 920px) {
+  .land_navbar .category-links_container {
+    display: none;
+  }
+
+  .land_navbar .land_nav-logo img {
+    width: 35px;
+    height: auto;
+    margin-left: 4px !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .land_navbar {
+    padding: 0 1rem; /*SIDE SPACING */
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .land_nav-buttons .nl_link-login {
+    font-size: 16px !important;
+    margin-right: -5px !important;
+  }
+}
+
+.nav2-tile .land_navbar .land_nav-buttons .user-name span {
+  color: #000 !important;
+}
