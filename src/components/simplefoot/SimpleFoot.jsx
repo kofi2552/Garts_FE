@@ -11,7 +11,7 @@ const SimpleFoot = () => {
       <div className="foot-container">
         <div className="left-list">
           <div className="social">
-            <ul>
+            {/* <ul>
               <li className="link-item">
                 <Link to="">
                   <BsFacebook />
@@ -27,13 +27,13 @@ const SimpleFoot = () => {
                   <FiDribbble />
                 </Link>
               </li>
-            </ul>
+            </ul> */}
           </div>
 
           <div>
             <ul className="nav-ul">
               <li className="link-item">
-                <Link to="/contact">Contact</Link>
+                <Link to="https://wa.me/233209064593">Contact</Link>
               </li>
               <li className="link-item">
                 <Link to="">Privacy</Link>
